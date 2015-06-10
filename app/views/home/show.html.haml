@@ -1,0 +1,22 @@
+.container
+  .waterfall
+
+  %script{id: "waterfall-template", type: "text/template"}
+    - @home.posts.each_with_index do |p, i|
+      %ul.list-group
+    
+        %li.list-group-item
+          %a{href: "javascript:;"}
+            = image_tag "mockup/#{rand(9)}.jpg"
+    
+    
+        %li.list-group-item
+          .media
+            .media-left
+              %a{href: "javascript:;"}
+                -#= image_tag (Faker::Avatar.image("my-own-slug", "30x30"), class:"media-object img-rounded", size: "30x30")
+            .media-body
+              %h5.media-heading= "#{i} #{p.title}"
+              %small= Faker::Lorem.sentence(3, true, 4)
+
+

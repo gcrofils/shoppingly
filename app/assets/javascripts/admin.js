@@ -12,5 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap-waterfall-0.2.1
-//= require home
+//= require turbolinks
+//= require_tree .
+  

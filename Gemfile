@@ -36,6 +36,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # views
 gem 'haml'
 
+# bootstrap
+gem "twitter-bootstrap-rails"
+
+# A set of responders modules to dry up your Rails 4.2+ app.
+gem 'responders'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -45,5 +51,13 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  
+  # dry_crud generates simple and extendable controllers, views and helpers that support you to DRY up the CRUD code in your Rails projects.
+  gem 'dry_crud'
+  
+  # A library for generating fake data such as names, addresses, and phone numbers.
+  gem 'faker'
+  
+  
 end
 
