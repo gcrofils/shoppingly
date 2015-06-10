@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 #source 'https://ruby.taobao.org'
 
+ruby '2.1.2'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 # Use SCSS for stylesheets
@@ -63,6 +65,14 @@ end
 group :production do
   # Use PostgreSQL as the database for Active Record
   gem 'pg'
+end
+
+group :heroku do 
+  # This gem replaces the need for the plugins, and ensures that Rails 4 is optimally configured for executing on Heroku.
+  gem 'rails_12factor'
+  
+  # Puma Webserver
+  gem 'puma'
 end
 
 
