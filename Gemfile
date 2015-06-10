@@ -73,6 +73,9 @@ group :heroku do
   
   # Puma Webserver
   gem 'puma'
+  
+  # https://github.com/heroku/rack-timeout
+  gem "rack-timeout"
 end
 
 
