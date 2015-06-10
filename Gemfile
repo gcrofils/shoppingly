@@ -1,6 +1,6 @@
 #source 'https://rubygems.org'
-source 'https://ruby.taobao.org'
-
+#source 'https://ruby.taobao.org'
+source :rubygems 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
@@ -42,6 +42,9 @@ gem "twitter-bootstrap-rails"
 # A set of responders modules to dry up your Rails 4.2+ app.
 gem 'responders'
 
+# A library for generating fake data such as names, addresses, and phone numbers.
+gem 'faker'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -55,8 +58,7 @@ group :development, :test do
   # dry_crud generates simple and extendable controllers, views and helpers that support you to DRY up the CRUD code in your Rails projects.
   gem 'dry_crud'
   
-  # A library for generating fake data such as names, addresses, and phone numbers.
-  gem 'faker'
+ 
   
   
 end
