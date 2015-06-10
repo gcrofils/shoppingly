@@ -1,11 +1,8 @@
-#source 'https://rubygems.org'
+source 'https://rubygems.org'
 #source 'https://ruby.taobao.org'
-source :rubygems 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -58,8 +55,14 @@ group :development, :test do
   # dry_crud generates simple and extendable controllers, views and helpers that support you to DRY up the CRUD code in your Rails projects.
   gem 'dry_crud'
   
- 
-  
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3'
   
 end
+
+group :production do
+  # Use PostgreSQL as the database for Active Record
+  gem 'pg'
+end
+
 
