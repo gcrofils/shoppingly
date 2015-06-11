@@ -1,0 +1,67 @@
+
+/*
+ * waterfall
+ */
+.pin-wrapper {
+    
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    z-index: 1;
+    width: 240px;
+    padding: 0px;
+    border-radius:6px;
+    line-height: 1.5;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(34, 25, 25, .4);
+    -moz-box-shadow: 0 1px 3px rgba(34, 25, 25, .4);
+    -webkit-box-shadow: 0 1px 3px rgba(34, 25, 25, .4);
+    filter: progid:DXImageTransform.Microsoft.Shadow(color = #adacac, direction = 135, strength = 2);
+    font-size: 10px;
+    
+    &:hover {
+        box-shadow: 0 1px 5px rgba(34, 25, 25, .8);
+        -moz-box-shadow: 0 1px 5px rgba(34, 25, 25, .8);
+        -webkit-box-shadow: 0 1px 5px rgba(34, 25, 25, .8);
+        filter: progid:DXImageTransform.Microsoft.Shadow(color = #979797, direction = 135, strength = 3);
+    }
+    
+    img {
+      display: block;
+    }
+    
+    .pin-title, .pin-summary, .pin-author, .pin-social {
+      padding: 0 10px 0 10px;
+    }
+    
+    .pin-title {
+      border-top: solid 1px #d7d6d6;
+    }
+    
+    .pin-author {
+      border-top: solid 1px #d7d6d6;
+      padding-bottom: 15px;
+      padding-top: 5px;
+      height: 50px;
+      
+      &:hover {
+       background: #f1f1f1; 
+      }
+    }
+    
+    .pin-avatar {
+      img {
+        border: solid 1px #fcfcfc;
+        border-radius: 3px;
+        margin-right: 5px;
+      }
+    }
+}
+
+
+
+
+#trigger {
+	padding: 10px 30px 20px 30px;
+}
+#trigger a { margin-right: 30px;}

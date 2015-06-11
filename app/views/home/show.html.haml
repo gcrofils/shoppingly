@@ -1,14 +1,21 @@
-
-
-#header
-  %h1 resize animate
-  
-#container
+#container-waterfall
 
 %script{id: "waterfall-tpl", type: "text/x-handlebars-template"}
   {{#result}}
-  .item
+  .pin-wrapper
     %img{src: "{{image}}", width:"{{width}}", height:"{{height}}" }
+    .pin-title {{title}}
+    .pin-summary= Faker::Lorem.paragraph(3, true, 2)
+    .pin-social
+      %i.fa.fa-eye {{views}}
+      %i.fa.fa-heart {{likes}}
+    .pin-author
+      {{author_name}}
+      .pin-avatar.pull-left
+        %img{src: "{{author_avatar}}", width:"30", height:"30"}
+      
+      
+      
   {{/result}}
 
 

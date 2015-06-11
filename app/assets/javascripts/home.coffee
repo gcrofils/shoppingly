@@ -8,12 +8,13 @@
 #    .waterfall();
 
 $(document).ready ->
-  $('#container').waterfall({
-      itemCls: 'item',
-      colWidth: 222,
+  $('#container-waterfall').waterfall({
+      itemCls: 'pin-wrapper',
+      colWidth: 250,
       gutterWidth: 15,
       gutterHeight: 15,
       checkImagesLoaded: false,
+      isFadeIn: true,
       isAnimated: true,
       animationOptions: {
       },
