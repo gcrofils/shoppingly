@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
    root 'home#show'
-   resources :posts
+   resources :posts do
+     collection do 
+       get 'waterfall'
+     end
+   end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

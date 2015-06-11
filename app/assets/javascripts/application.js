@@ -12,5 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap-waterfall-0.2.1
+//= require handlebars-v3.0.3
+//= require waterfall-0.1.72
+//= require jquery/jquery.easing.v1.3.2.min
 //= require home
