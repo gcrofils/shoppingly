@@ -3,6 +3,9 @@ class CreatePosts < ActiveRecord::Migration
     create_table :posts do |t|
       t.string :title
       t.text :body
+      t.text :summary
+      t.string :featured_image
+      t.integer :user_id
 
       t.timestamps null: false
     end

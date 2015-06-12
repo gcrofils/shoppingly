@@ -4,8 +4,8 @@ json.result @posts do |p|
   width = 240
   height = rand(100..600)
   json.title p.title
-  #json.image image_url("mockup/#{rand(9)}.jpg")
-  json.image "http://imagemockup.com/#{width}/#{height}/textures/?#{rand(1000)}"
+  json.image p.featured_image
+  json.summary p.summary
   json.width width
   json.height height
   json.likes rand(15)

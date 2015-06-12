@@ -6,40 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-module Faker
-  
-  class Post
-   def self.faketitle
-      return Faker::Lorem.sentence(3, true, 4)
-    end
-  
-    def self.fakebody
-      return "<h1>#{Faker::Lorem.sentence(3)}</h1>
-      <h2>#{Faker::Lorem.sentence(3)}</h2>
-      <p>#{Faker::Lorem.paragraph(1, true, 4)}</p>
-      <h2>#{Faker::Lorem.sentence(3)}</h2>
-      <p>#{Faker::Lorem.paragraph(1, true, 4)}</p>
-      <p><img src='http://imagemockup.com/640/480/textures/?#{rand(1000)}'></p>
-      <p><img src='http://imagemockup.com/640/480/textures/?#{rand(1000)}'></p>
-      <p><img src='http://imagemockup.com/640/480/textures/?#{rand(1000)}'></p>
-      <p><img src='http://imagemockup.com/640/480/textures/?#{rand(1000)}'></p>
-      "
-    end
-  end
-  
-end
-
-
-
+include Sprig::Helpers
 
 Post.all.destroy_all
+User.all.destroy_all
 
-(1..100).each do |i|
-  Post.create(
-    title: Faker::Post.faketitle,
-    body: Faker::Post.fakebody
-  )
-end
-
-
-
+sprig [User, Post]

@@ -1,5 +1,5 @@
-source 'https://rubygems.org'
-#source 'https://ruby.taobao.org'
+#source 'https://rubygems.org'
+source 'https://ruby.taobao.org'
 
 ruby '2.1.2'
 
@@ -41,8 +41,14 @@ gem "twitter-bootstrap-rails"
 # A set of responders modules to dry up your Rails 4.2+ app.
 gem 'responders'
 
+# Flexible authentication solution for Rails with Warden. 
+gem 'devise'
+
 # A library for generating fake data such as names, addresses, and phone numbers.
 gem 'faker'
+
+# Seed Rails application by convention, not configuration.
+gem 'sprig'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
