@@ -1,5 +1,5 @@
-#source 'https://rubygems.org'
-source 'https://ruby.taobao.org'
+source 'https://rubygems.org'
+#source 'https://ruby.taobao.org'
 
 ruby '2.1.2'
 
@@ -49,6 +49,13 @@ gem 'faker'
 
 # Seed Rails application by convention, not configuration.
 gem 'sprig'
+
+# The administration framework for Ruby on Rails applications. http://activeadmin.info
+gem 'activeadmin', '~> 1.0.0.pre1'
+# Plus integrations with:
+# gem 'cancancan'
+# gem 'draper'
+# gem 'pundit' #Minimal authorization through OO design and pure Ruby classes
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
