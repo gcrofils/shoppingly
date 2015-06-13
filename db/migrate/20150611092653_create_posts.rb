@@ -4,10 +4,10 @@ class CreatePosts < ActiveRecord::Migration
       t.string :title
       t.text :body
       t.text :summary
-      t.string :featured_image
+      t.integer :photo_id
       t.integer :user_id
-
       t.timestamps null: false
+      t.datetime :published_at
     end
   end
 end

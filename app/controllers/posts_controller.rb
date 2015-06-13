@@ -3,7 +3,7 @@ class PostsController < CrudController
   
   def waterfall
     page = (params[:page] || 1).to_i
-    @posts = Post.limit(10).offset( 10 * (page - 1) )
+    @posts = Post.limit(5).offset( 5 * (page - 1) )
   end
   
 end

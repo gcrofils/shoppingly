@@ -8,6 +8,8 @@
 
 include Sprig::Helpers
 
+ActiveAdmin::Comment.all.destroy_all
+Photo.all.destroy_all
 Post.all.destroy_all
 User.all.destroy_all
 

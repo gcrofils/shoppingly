@@ -57,6 +57,11 @@ gem 'activeadmin', '~> 1.0.0.pre1'
 # gem 'draper'
 # gem 'pundit' #Minimal authorization through OO design and pure Ruby classes
 
+
+# A Ruby gem for on-the-fly processing 
+gem 'dragonfly'
+gem 'dragonfly-s3_data_store'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -78,7 +83,11 @@ end
 group :production do
   # Use PostgreSQL as the database for Active Record
   gem 'pg'
+  
+  # Rack::Cache is suitable as a quick drop-in component to enable HTTP caching for Rack-based applications that produce freshness (Expires, Cache-Control) and/or validation (Last-Modified, ETag) information.
+  gem 'rack-cache', :require => 'rack/cache'
 end
+
 
 group :heroku do 
   # This gem replaces the need for the plugins, and ensures that Rails 4 is optimally configured for executing on Heroku.

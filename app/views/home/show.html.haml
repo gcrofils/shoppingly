@@ -3,9 +3,9 @@
 %script{id: "waterfall-tpl", type: "text/x-handlebars-template"}
   {{#result}}
   .pin-wrapper
-    %img{src: "{{image}}", width:"{{width}}", height:"{{height}}" }
+    %img{src: "{{image_src}}", width:"{{width}}", height:"{{height}}" }
     .pin-title {{title}}
-    .pin-summary= Faker::Lorem.paragraph(3, true, 2)
+    .pin-summary {{summary}}
     .pin-social
       %i.fa.fa-eye {{views}}
       %i.fa.fa-heart {{likes}}

@@ -18,6 +18,15 @@ $(document).ready ->
       isAnimated: true,
       animationOptions: {
       },
+      callbacks: {
+        renderData: (data, dataType) ->
+          $('#container-waterfall').waterfall('pause') if data.total < 1 
+          tpl = $('#waterfall-tpl').html();
+          template = Handlebars.compile(tpl);
+          return template(data);
+      }
       path:  (page) -> 
           return '/posts/waterfall.json?page=' + page
   });
+  
+  

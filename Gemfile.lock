@@ -49,6 +49,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    addressable (2.3.8)
     arbre (1.0.3)
       activesupport (>= 3.0.0)
     arel (6.0.0)
@@ -77,12 +78,39 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    dragonfly (1.0.10)
+      addressable (~> 2.3)
+      multi_json (~> 1.0)
+      rack (>= 1.3.0)
+    dragonfly-s3_data_store (1.1.1)
+      dragonfly (~> 1.0)
+      fog-aws
     dry_crud (3.0.0)
       rails (>= 3.2)
     erubis (2.7.0)
+    excon (0.45.3)
     execjs (2.5.2)
     faker (1.4.3)
       i18n (~> 0.5)
+    fog-aws (0.4.0)
+      fog-core (~> 1.27)
+      fog-json (~> 1.0)
+      fog-xml (~> 0.1)
+      ipaddress (~> 0.8)
+    fog-core (1.30.0)
+      builder
+      excon (~> 0.45)
+      formatador (~> 0.2)
+      mime-types
+      net-scp (~> 1.1)
+      net-ssh (>= 2.1.3)
+    fog-json (1.0.2)
+      fog-core (~> 1.0)
+      multi_json (~> 1.10)
+    fog-xml (0.1.2)
+      fog-core
+      nokogiri (~> 1.5, >= 1.5.11)
+    formatador (0.2.5)
     formtastic (3.1.3)
       actionpack (>= 3.2.13)
     formtastic_i18n (0.4.1)
@@ -99,6 +127,7 @@ GEM
       has_scope (~> 0.6.0.rc)
       railties (>= 3.2, < 5)
       responders
+    ipaddress (0.8.0)
     jbuilder (2.2.16)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
@@ -120,6 +149,9 @@ GEM
     mini_portile (0.6.2)
     minitest (5.7.0)
     multi_json (1.11.0)
+    net-scp (1.2.1)
+      net-ssh (>= 2.6.5)
+    net-ssh (2.9.2)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     orm_adapter (0.5.0)
@@ -129,6 +161,8 @@ GEM
     puma (2.11.3)
       rack (>= 1.1, < 2.0)
     rack (1.6.1)
+    rack-cache (1.2)
+      rack (>= 0.4)
     rack-test (0.6.3)
       rack (>= 1.0)
     rack-timeout (0.2.4)
@@ -222,6 +256,8 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
   devise
+  dragonfly
+  dragonfly-s3_data_store
   dry_crud
   faker
   haml
@@ -229,6 +265,7 @@ DEPENDENCIES
   jquery-rails
   pg
   puma
+  rack-cache
   rack-timeout
   rails (= 4.2.1)
   rails_12factor
