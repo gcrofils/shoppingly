@@ -26,7 +26,7 @@ $(document).ready ->
           return template(data);
       }
       path:  (page) -> 
-          return '/posts/waterfall.json?page=' + page
+          return "/posts/waterfall.json?locale=" + I18n_locale+ "&page=" + page
   });
   
   

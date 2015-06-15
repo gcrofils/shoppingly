@@ -7,7 +7,7 @@
       = strip_tags(@title)
       \- MyApp
 
-    %meta{name: 'viewport', content: 'width=device-width, initial-scale=1.0'}
+    %meta{name: 'viewport', content: 'width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no'}
     = csrf_meta_tag
 
     = stylesheet_link_tag 'application', :media => 'all', 'data-turbolinks-track' => true
@@ -34,13 +34,14 @@
     = yield :head
 
   %body
-    %nav.navbar.navbar-default{role: 'navigation'}
-      = render 'layouts/nav'
+    
+    = render 'layouts/nav'
       
     = yield
 
     %footer
       %p
         &copy; code!z #{Time.zone.now.year}
-
+  %script
+    var I18n_locale="#{I18n.locale}" 
   = javascript_tag yield(:javascripts) if content_for?(:javascripts)

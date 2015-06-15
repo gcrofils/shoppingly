@@ -15,4 +15,6 @@
 //= require handlebars-v3.0.3
 //= require waterfall-0.1.72
 //= require jquery/jquery.easing.v1.3.2.min
+//= require twitter/bootstrap
+//= require bootstrap
 //= require home

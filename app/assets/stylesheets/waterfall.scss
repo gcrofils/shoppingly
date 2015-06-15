@@ -30,38 +30,35 @@
       display: block;
     }
     
-    .pin-title, .pin-summary, .pin-author, .pin-social {
+    .pin-inner {
       padding: 0 10px 0 10px;
     }
     
-    .pin-title {
-      border-top: solid 1px #d7d6d6;
-      padding-top: 10px;
-      padding-bottom:10px;
+    h1.pin-title {
       font-size: 14px;
+      margin-top: 10px;
+      margin-bottom: 0px;
+    }
+    
+    .pin-avatar {
+      height: 50px;
+      img {
+        border: solid 1px #fcfcfc;
+        border-radius: 15px;
+        margin-right: 5px;
+      }
     }
     
     .pin-summary {
       font-size: 12px;
     }
     
-    .pin-author {
-      border-top: solid 1px #d7d6d6;
-      padding-bottom: 15px;
-      padding-top: 5px;
-      height: 50px;
-      
-      &:hover {
-       background: #f1f1f1; 
-      }
+    .pin-social {
+      font-size: 14px;
     }
     
-    .pin-avatar {
-      img {
-        border: solid 1px #fcfcfc;
-        border-radius: 3px;
-        margin-right: 5px;
-      }
+    .likes {
+      color: red;
     }
 }
 

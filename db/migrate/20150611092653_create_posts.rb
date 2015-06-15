@@ -7,7 +7,7 @@ class CreatePosts < ActiveRecord::Migration
       t.integer :photo_id
       t.integer :user_id
       t.timestamps null: false
-      t.datetime :published_at
+      t.date :published_at
     end
   end
 end

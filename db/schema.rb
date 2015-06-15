@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 20150612050039) do
     t.integer  "user_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.datetime "published_at"
+    t.date     "published_at"
   end
 
   create_table "users", force: :cascade do |t|
@@ -62,6 +62,8 @@ ActiveRecord::Schema.define(version: 20150612050039) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "avatar_uid"
+    t.string   "name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

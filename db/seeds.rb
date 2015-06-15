@@ -14,3 +14,11 @@ Post.all.destroy_all
 User.all.destroy_all
 
 sprig [User, Post]
+
+# add avatar to users
+avatars = %w(uxceo pixeliris jadlimcaco)
+User.all.each_with_index do |u, i|
+  avatar = Dragonfly.app.fetch_url("http://s3.amazonaws.com/uifaces/faces/twitter/#{avatars[i]}/128.jpg")
+  u.avatar = avatar
+  u.save!
+end

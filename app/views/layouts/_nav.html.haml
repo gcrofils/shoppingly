@@ -1,5 +1,36 @@
-= link_to 'MyApp', root_path, class: 'navbar-brand'
-%ul.nav.navbar-nav
-  %li= link_to "Link1", "/path1"
-  %li= link_to "Link2", "/path2"
-  %li= link_to "Link3", "/path3"
+%nav.navbar.navbar-default.navbar-fixed-top{role: 'navigation'}
+  .container-fluid
+    .row
+      .col-xs-8
+        
+        = form_tag("/search", method: "get", class: "form-horizontal navbar-form2", role: "search") do
+          .form-group
+            .input-group
+            
+              .input-group-btn
+                %button.btn.btn-default{type: "button"}
+                  =link_to image_tag("logo.png", width:"17px", height:"17px"), "/"
+              
+
+              
+              = text_field_tag(:q, nil, class: "form-control", placeholder: "Search...")
+              
+              
+              
+              %span.input-group-btn
+                %button.btn.btn-default.dropdown-toggle{type: "button", data: {toggle: "dropdown"}}
+                  %i.fa.fa-bars
+                  %span.caret
+                  
+                %ul.dropdown-menu.pull-right
+                  %li a
+                  %li b
+              
+
+      .col-xs-3
+        avatar
+        = I18n.locale
+
+
+    
+
