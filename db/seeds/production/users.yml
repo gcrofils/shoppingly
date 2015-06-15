@@ -1,0 +1,11 @@
+records:
+  - sprig_id: 1
+    email: 'john@doe.net'
+    password: 'secret15'
+    password_confirmation: 'secret15'
+    name: 张铁林
+  - sprig_id: 2
+    email: 'john2@doe.net'
+    password: 'secret15'
+    password_confirmation: 'secret15'
+    name: 李小牧
