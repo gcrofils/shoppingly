@@ -36,8 +36,9 @@ class Post < ActiveRecord::Base
       end
       
       self.save
-    rescue
+    rescue Exception => e
       puts "#{title} has not been updated"
+      puts e.message
     end
   end
 
