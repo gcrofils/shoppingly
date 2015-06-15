@@ -10,12 +10,12 @@
 $(document).ready ->
   $('#container-waterfall').waterfall({
       itemCls: 'pin-wrapper',
-      colWidth: 250,
+      columnWidth: 240,
       gutterWidth: 15,
       gutterHeight: 15,
       checkImagesLoaded: false,
-      isFadeIn: true,
-      isAnimated: true,
+      isFadeIn: false,
+      isAnimated: false,
       animationOptions: {
       },
       callbacks: {

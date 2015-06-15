@@ -4,7 +4,8 @@ json.locale I18n.locale
 
 json.result @posts do |p|
   
-  width=240
+  begin
+  width=509
   featured_image = p.photo.image.thumb("#{width}x")
   json.image_src featured_image.url
   json.image_caption p.photo.title
@@ -25,4 +26,6 @@ json.result @posts do |p|
   json.author_name p.user.name
   
   json.comments rand(5)
+rescue
+end
 end

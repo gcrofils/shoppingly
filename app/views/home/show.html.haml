@@ -1,6 +1,6 @@
 .container-fluid
   .row
-    .col-sm-12
+    .col-xs-12
       #container-waterfall
 
 %script{id: "waterfall-tpl", type: "text/x-handlebars-template"}
@@ -10,13 +10,13 @@
       
       %figure.pin-image
         %a{href: "{{post_href}}"}
-          %img{src:"{{image_src}}", width:"{{width}}", height:"{{height}}", itemprop:"image"}
+          %img.img-responsive{src:"{{image_src}}", width:"{{width}}", height:"{{height}}", itemprop:"image"}
         %figcaption {{image_title}}
       
       .pin-inner
         
         .pin-avatar.pull-left
-          %img{src: "{{author_avatar}}", width:"30", height:"30"}
+          %img.img-circle{src: "{{author_avatar}}", width:"30", height:"30"}
       
         %h1.pin-title{itemprop:"name"}
           %a{href: "{{post_href}}"} {{title}}

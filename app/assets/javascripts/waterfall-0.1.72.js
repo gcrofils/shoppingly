@@ -19,7 +19,7 @@
             itemCls: 'waterfall-item',  // the brick element class
             prefix: 'waterfall', // the waterfall elements prefix
             fitWidth: true, // fit the parent element width
-            colWidth: 240,  // column width
+            columnWidth: 200,  // column width
             gutterWidth: 10, // the brick element horizontal gutter
             gutterHeight: 10, // the brick element vertical gutter
             align: 'center', // the brick align，'align', 'left', 'right'
@@ -106,7 +106,7 @@
                 }
             },
 
-            debug: false // enable debug
+            debug: true // enable debug
         };
 
     /*
@@ -117,6 +117,7 @@
         this.options = $.extend(true, {}, defaults, options);
         this.colHeightArray = []; // columns height array
         this.styleQueue = [];
+        this.colWidth = this.options.columnWidth;
 
         this._init();
     }
@@ -154,10 +155,10 @@
           
             var options = this.options,
                 path = options.path;
-
+                
             this._setColumns();
             this._initContainer();
-            this._resetColumnsHeightArray();
+            //this._resetColumnsHeightArray();
             this.reLayout( callback );
 
             if ( !path ) {
@@ -190,6 +191,8 @@
             $('body').css({
                 overflow: 'scroll'
             });
+            
+           
 
 
             this.$element.css(this.options.containerStyle).addClass(prefix + '-container');
@@ -204,16 +207,24 @@
          * get columns
          */
         _getColumns : function() {
+          
+          this._debug ('getColumns');
+          
             var options = this.options,
                 $container = options.fitWidth ?  this.$element.parent() : this.$element,
                 containerWidth = $container[0].tagName === 'BODY' ? $container.width() - 20 : $container.width(),  // if $container[0].tagName === 'BODY', fix browser scrollbar
-                colWidth = options.colWidth,
+                colWidth = this.options.columnWidth,
                 gutterWidth = options.gutterWidth,
                 minCol = options.minCol,
                 maxCol = options.maxCol,
                 cols = Math.floor(containerWidth / (colWidth + gutterWidth)),
                 col = Math.max(cols, minCol );
-
+                
+                
+                this.colWidth = col === 1 ? $container.width() : colWidth ;
+                this._debug('colWidth: ' + this.colWidth);
+                
+                
             /*if ( !maxCol ) {
                 return col;
             } else {
@@ -247,6 +258,9 @@
          * reset columns height array
          */
         _resetColumnsHeightArray: function() {
+          
+            
+          
             var cols = this.cols,
                 i;
 
@@ -255,23 +269,30 @@
             for (i = 0; i < cols; i++) {
                 this.colHeightArray[i] = 0;
             }
+            
+            this._debug('_resetColumnsHeightArray. Cols: ' + cols);
         },
 
         /*
          * layout
          */
         layout: function($content, callback) {
+          
+            this._debug('call layout function');
+          
             var options = this.options,
-            $items = this.options.isFadeIn ? this._getItems($content).css({ opacity: 0 }).animate({ opacity: 1 }) : this._getItems($content),
+                $items = this.options.isFadeIn ? this._getItems($content).css({ opacity: 0 }).animate({ opacity: 1 }) : this._getItems($content),
                 styleFn = (this.options.isAnimated && this.options.state.isResizing) ? 'animate' : 'css',
                 animationOptions = options.animationOptions,
-                colWidth = options.colWidth,
+                colWidth = this.colWidth,
                 gutterWidth = options.gutterWidth,
                 len = this.colHeightArray.length,
                 align = options.align,
                 fixMarginLeft,
                 obj,
                 i, j, itemsLen, styleLen;
+                
+                
 
             // append $items
             this.$element.append($items);
@@ -296,6 +317,8 @@
                 obj = this.styleQueue[j];
                 obj.$el[ styleFn ]( obj.style, animationOptions );
             }
+            
+            
 
             // update waterfall container height
             this.$element.height(Math.max.apply({}, this.colHeightArray));
@@ -331,15 +354,16 @@
 
             var $item = $(item),
                 options = this.options,
-                colWidth = options.colWidth,
-                gutterWidth = options.gutterWidth,
+                colWidth = this.colWidth,
+                gutterWidth = this.cols === 1 ? 0 : options.gutterWidth,
                 gutterHeight = options.gutterHeight,
                 colHeightArray = this.colHeightArray,
                 len = colHeightArray.length,
                 minColHeight = Math.min.apply({}, colHeightArray),
                 minColIndex = $.inArray(minColHeight, colHeightArray),
                 colIndex, //cur column index
-                position;
+                position,
+                width;
 
             if ( $item.hasClass(options.prefix + '-item-fixed-left')) {
                 colIndex = 0;
@@ -353,11 +377,17 @@
                 left: (colWidth + gutterWidth) * colIndex  + fixMarginLeft,
                 top: colHeightArray[colIndex]
             };
+            
+            width = {
+              width: colWidth
+            };
 
             // push to style queue
             this.styleQueue.push({ $el: $item, style: position });
+            this.styleQueue.push({ $el: $item, style: width });
 
             // update column height
+            this._debug('_placeItems -> $item.outerHeight: ' + $item.outerHeight());
             colHeightArray[colIndex] += $item.outerHeight() + gutterHeight;
 
             //item add attr data-col

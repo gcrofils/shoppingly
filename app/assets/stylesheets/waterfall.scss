@@ -2,13 +2,15 @@
 /*
  * waterfall
  */
+
+#container-waterfall {
+}
+
 .pin-wrapper {
-    
     position: absolute;
     overflow: hidden;
     top: 0;
     z-index: 1;
-    width: 240px;
     padding: 0px;
     border-radius:6px;
     line-height: 1.5;
@@ -45,7 +47,6 @@
       height: 50px;
       img {
         border: solid 1px #fcfcfc;
-        border-radius: 15px;
         margin-right: 5px;
       }
     }
