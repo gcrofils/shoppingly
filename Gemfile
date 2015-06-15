@@ -1,5 +1,5 @@
-source 'https://rubygems.org'
-#source 'https://ruby.taobao.org'
+#source 'https://rubygems.org'
+source 'https://ruby.taobao.org'
 
 ruby '2.1.2'
 
@@ -36,6 +36,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'haml'
 
 # bootstrap
+gem "therubyracer"
+gem "less-rails"
 gem "twitter-bootstrap-rails"
 
 # A set of responders modules to dry up your Rails 4.2+ app.
@@ -62,6 +64,7 @@ gem 'activeadmin', '~> 1.0.0.pre1'
 gem 'dragonfly'
 gem 'dragonfly-s3_data_store'
 
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -86,6 +89,7 @@ group :production do
   
   # Rack::Cache is suitable as a quick drop-in component to enable HTTP caching for Rack-based applications that produce freshness (Expires, Cache-Control) and/or validation (Last-Modified, ETag) information.
   gem 'rack-cache', :require => 'rack/cache'
+  
 end
 
 
