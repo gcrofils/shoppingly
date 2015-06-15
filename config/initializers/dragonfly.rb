@@ -17,9 +17,10 @@ Dragonfly.app.configure do
     
   else
     datastore :s3,
+      region: ENV['S3_BUCKET_REGION'],
       bucket_name: ENV['S3_BUCKET'],
-      access_key_id: ENV['S3_KEY'],
-      secret_access_key: ENV['S3_SECRET'],
+      access_key_id: ENV['S3_KEY_ID'],
+      secret_access_key: ENV['S3_SECRET_KEY'],
       url_scheme: 'https'
   end
   
