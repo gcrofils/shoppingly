@@ -6,15 +6,15 @@ class Post < ActiveRecord::Base
   def embedded_body
     body.gsub(/\{\{photo:([0-9]+)\}\}/x) do |match|
       if photo = Photo.find_by_id($1)
-        url = photo.image.thumb('180x180#').url
+        url = photo.image.thumb('600x300').url
         alt = photo.title
       else
         url = "http://placehold.it/180x180"
         alt = "image not found"
       end
-      ActionController::Base.helpers.image_tag url, alt: alt, class: "img-responsive"
+      ActionController::Base.helpers.image_tag url, alt: alt, class: "img-responsive img-thumbnail"
     end
-  end
+  end 
   
   # initial data migration
   def download_images

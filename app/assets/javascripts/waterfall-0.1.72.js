@@ -106,7 +106,7 @@
                 }
             },
 
-            debug: false // enable debug
+            debug: true // enable debug
         };
 
     /*
@@ -382,7 +382,7 @@
             if (this.cols === 1) {
               position = {
                 left: 0,
-                top: gutterHeight, 
+                top: 0, 
                 "margin-top": gutterHeight
               };
             }
@@ -412,7 +412,7 @@
             this.styleQueue.push({ $el: $item, style: width });
 
             // update column height
-            this._debug('_placeItems -> $item.outerHeight: ' + $item.outerHeight());
+            this._debug('_placeItems -> $item.outerHeight: ' + $item.outerHeight() + ',' + $item.outerHeight(true));
             colHeightArray[colIndex] += $item.outerHeight() + gutterHeight;
 
             //item add attr data-col

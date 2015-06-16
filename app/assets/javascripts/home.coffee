@@ -35,7 +35,7 @@ $(document).ready ->
     return
   
   $('#container-waterfall').waterfall({
-      itemCls: 'pin-wrapper',
+      itemCls: 'pin',
       columnWidth: 240,
       gutterWidth: 15,
       gutterHeight: 15,

@@ -6,7 +6,7 @@
           %figure.post-image
             =image_tag @post.photo.image.thumb('1000x500#').url, class: "img-responsive"
           .post-inner
-            %h1= @post.title
+            %h1.post-title= @post.title
             = @post.embedded_body.html_safe
     .col-xs-12.col-md-4
       %aside{id: 'sidebar'}

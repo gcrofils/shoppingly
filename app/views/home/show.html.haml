@@ -7,7 +7,9 @@
 
 %script{id: "waterfall-tpl", type: "text/x-handlebars-template"}
   {{#result}}
-  %article{itemscope: true, itemtype:"http://schema.org/Article", id:"{{post_id}}"}
+  
+  %article.pin{itemscope: true, itemtype:"http://schema.org/Article", id:"{{post_id}}"}
+  
     .pin-wrapper
       
       %figure.pin-image
