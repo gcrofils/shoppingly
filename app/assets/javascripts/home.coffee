@@ -40,7 +40,7 @@ $(document).ready ->
       gutterWidth: 15,
       gutterHeight: 15,
       checkImagesLoaded: false,
-      isFadeIn: true,
+      isFadeIn: false,
       isAnimated: false,
       animationOptions: {
       },

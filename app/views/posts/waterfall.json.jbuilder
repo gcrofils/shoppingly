@@ -11,10 +11,13 @@ json.result @posts do |p|
     #json.image_src featured_image.url
     #json.image_caption p.photo.title
     color = 'd5a924'
-    color_image = Dragonfly.app.fetch_file(Rails.root.join('app', 'assets', 'images', 'colors', "#{color}.png"))
+    color_image = Dragonfly.app.fetch_file(Rails.root.join('app', 'assets', 'images', 'colors', "#{color}.jpg"))
 
-    json.original_url p.photo.image.remote_url
-    json.color color_image.thumb("#{p.photo.image_width}x#{p.photo.image_height}").url
+    #json.original_url p.photo.image.remote_url
+    json.original_url p.photo.image.url
+    json.color color
+    json.color_image color_image.thumb("#{p.photo.image_width}x#{p.photo.image_height}", 'format' => 'jpg').url
+    #json.color image_url("colors/#{color}.png")
     json.width width
     json.height width * p.photo.image_height / p.photo.image_width
     
