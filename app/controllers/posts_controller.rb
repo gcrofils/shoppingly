@@ -8,6 +8,7 @@ class PostsController < CrudController
     puts I18n.locale
     page = (params[:page] || 1).to_i
     @posts = Post.limit(5).offset( 5 * (page - 1) )
+    #@posts = Post.limit(5).offset( 20 * (page - 1))
   end
   
 end

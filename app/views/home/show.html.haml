@@ -3,13 +3,15 @@
     .col-xs-12
       #container-waterfall
 
+#lazy-container
+
 %script{id: "waterfall-tpl", type: "text/x-handlebars-template"}
   {{#result}}
   %article{itemscope: true, itemtype:"http://schema.org/Article", id:"{{post_id}}"}
     .pin-wrapper
       
       %figure.pin-image
-        %img.lazy.img-responsive{src: "{{color}}", data: {original:"{{original_url}}", width:"{{width}}", height:"{{height}}"}, width:"{{width}}", height:"{{height}}"}
+        %img.lazy.lazy-responsive{src: "{{color}}", data: {original:"{{original_url}}", width:"{{width}}", height:"{{height}}"}, id:"pin-image-{{post_id}}", width:"{{width}}", height:"{{height}}"}
 
       .pin-inner
         

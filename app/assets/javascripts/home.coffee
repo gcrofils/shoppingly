@@ -7,7 +7,33 @@
 #    .data('bootstrap-waterfall-template', $('#waterfall-template').html())
 #    .waterfall();
 
+
+
 $(document).ready ->
+  
+  onProgress = ( imgLoad, image ) ->
+    if image.isLoaded 
+      img = $('#' + $(image.img).data('original-id'))
+      img.removeClass('lazy').attr('src', img.data('original'))
+    return
+
+  onAlways = ->
+    $('img.lazy').each ->
+      imagex = $(this)
+      $(imagex).removeClass('lazy')
+      return
+    return
+    
+  fill_lazy_container = ->
+    $('img.lazy').each (i, el) -> 
+      img = $('<img />')
+      img.attr({ 
+        src: $(el).data('original'),
+        "data-original-id": el.id
+      });
+      $('#lazy-container').append(img)
+    return
+  
   $('#container-waterfall').waterfall({
       itemCls: 'pin-wrapper',
       columnWidth: 240,
@@ -26,14 +52,12 @@ $(document).ready ->
           return template(data)
         loadingFinished: ($loading, isBeyondMaxPage) ->
           if !isBeyondMaxPage then $loading.fadeOut() else $loading.remove()
-          $('img.lazy').imagesLoaded  ->
-            $('img.lazy').each ->
-              imagex = $(this)
-              $(imagex).removeClass('lazy')
-              return
+          fill_lazy_container()
+          
+          #console.log ('WILL CALL IMAGES LOADED')
+          $('#lazy-container').imagesLoaded().progress( onProgress ).always( onAlways );
           return
       }
       path:  (page) -> 
           return "/posts/waterfall.json?locale=" + I18n_locale+ "&page=" + page
   });
-  
