@@ -12,7 +12,7 @@ class Post < ActiveRecord::Base
         url = "http://placehold.it/180x180"
         alt = "image not found"
       end
-      ActionController::Base.helpers.image_tag url, alt: alt
+      ActionController::Base.helpers.image_tag url, alt: alt, class: "img-responsive"
     end
   end
   
