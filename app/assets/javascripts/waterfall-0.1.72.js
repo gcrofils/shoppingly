@@ -246,9 +246,17 @@
          * get items
          */
         _getItems: function( $content ) {
-            var $items = $content.filter('.' + this.options.itemCls).css({
+          var $items = $content.filter('.' + this.options.itemCls);
+          if (this.cols === 1) {
+            $items = $items.css({
+                'position': 'static'
+            });
+          } else {
+            $items = $items.css({
                 'position': 'absolute'
             });
+          }
+          
 
             return $items;
         },
@@ -258,9 +266,7 @@
          * reset columns height array
          */
         _resetColumnsHeightArray: function() {
-          
-            
-          
+
             var cols = this.cols,
                 i;
 
@@ -373,14 +379,31 @@
                 colIndex = minColIndex;
             }
 
+            if (this.cols === 1) {
+              position = {
+                left: 0,
+                top: gutterHeight, 
+                "margin-top": gutterHeight
+              };
+            }
+            else {
             position = {
                 left: (colWidth + gutterWidth) * colIndex  + fixMarginLeft,
                 top: colHeightArray[colIndex]
             };
+            }
             
             width = {
               width: colWidth
             };
+            
+            var img = $item.find('img.img-responsive');
+            
+            if (this.cols === 1) {
+              img.removeAttr('height').removeAttr('width');
+            } else {
+              img.attr('height', img.data('height')).attr('width', img.data('width'));
+            }
 
             // push to style queue
             this.styleQueue.push({ $el: $item, style: position });
@@ -808,10 +831,10 @@ $.fn.imagesLoaded = function( callback ) {
             // cached images don't fire load sometimes, so we reset src, but only when
             // dealing with IE, or image is complete (loaded) and failed manual check
             // webkit hack from http://groups.google.com/group/jquery-dev/browse_thread/thread/eee6ab7b2da50e1f
-            if ( el.readyState || el.complete ) {
-                el.src = BLANK;
-                el.src = src;
-            }
+            //if ( el.readyState || el.complete ) {
+            //    el.src = BLANK;
+            //    el.src = src;
+            //}
         });
     }
 

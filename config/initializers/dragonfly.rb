@@ -25,6 +25,10 @@ Dragonfly.app.configure do
       url_scheme: 'http'
   end
   
+  fetch_file_whitelist [              # List of allowed file paths when using fetch_file (strings or regexps)
+      /colors/
+    ]
+  
 end
 
 # Logger
