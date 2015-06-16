@@ -4,13 +4,17 @@ json.locale I18n.locale
 
 json.result @posts do |p|
   
-  begin
-  width=509
-  featured_image = p.photo.image.thumb("#{width}x")
-  json.image_src featured_image.url
-  json.image_caption p.photo.title
-  json.width width
-  json.height featured_image.height
+  #begin
+  width=240
+  #if p.photo
+    #featured_image = p.photo.image.thumb("#{width}x")
+    #json.image_src featured_image.url
+    #json.image_caption p.photo.title
+    json.original_url p.photo.image.remote_url
+    json.color image_url('colors/d5a924.png')
+    json.width width
+    json.height width * p.photo.image_height / p.photo.image_width
+    #end
   
   json.post_id p.id
   json.post_href post_path(p.id)
@@ -26,6 +30,6 @@ json.result @posts do |p|
   json.author_name p.user.name
   
   json.comments rand(5)
-rescue
-end
+  #rescue
+  #end
 end

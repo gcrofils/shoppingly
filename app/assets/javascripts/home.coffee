@@ -14,19 +14,26 @@ $(document).ready ->
       gutterWidth: 15,
       gutterHeight: 15,
       checkImagesLoaded: false,
-      isFadeIn: false,
+      isFadeIn: true,
       isAnimated: false,
       animationOptions: {
       },
       callbacks: {
         renderData: (data, dataType) ->
           $('#container-waterfall').waterfall('pause') if data.total < 1 
-          tpl = $('#waterfall-tpl').html();
-          template = Handlebars.compile(tpl);
-          return template(data);
+          tpl = $('#waterfall-tpl').html()
+          template = Handlebars.compile(tpl)
+          return template(data)
+        loadingFinished: ($loading, isBeyondMaxPage) ->
+          if !isBeyondMaxPage then $loading.fadeOut() else $loading.remove()
+          $('img.lazy').imagesLoaded  ->
+            $('img.lazy').each ->
+              imagex = $(this)
+              $(imagex).removeClass('lazy')
+              return
+          return
       }
       path:  (page) -> 
           return "/posts/waterfall.json?locale=" + I18n_locale+ "&page=" + page
   });
-  
   

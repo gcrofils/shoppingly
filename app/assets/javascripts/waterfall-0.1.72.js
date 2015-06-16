@@ -734,6 +734,10 @@ $.fn.imagesLoaded = function( callback ) {
                 deferred.resolve( $images );
             }
         }
+        
+        $images.each (function (i, el) {
+          el.src = el.getAttribute('data-original') ;
+        });
 
         if ( $.isFunction( callback ) ) {
             callback.call( $this, $images, $proper, $broken );
@@ -761,7 +765,9 @@ $.fn.imagesLoaded = function( callback ) {
         }
 
         // cache image and its state for future calls
-        $.data( img, 'imagesLoaded', { isBroken: isBroken, src: img.src } );
+        //$.data( img, 'imagesLoaded', { isBroken: isBroken, src: img.src } );
+        $.data( img, 'imagesLoaded', { isBroken: isBroken, src: img.getAttribute('data-original') } );
+        
 
         // trigger deferred progress method if present
         if ( hasNotify ) {
@@ -781,7 +787,8 @@ $.fn.imagesLoaded = function( callback ) {
     } else {
         $images.bind( 'load.imagesLoaded error.imagesLoaded', imgLoadedHandler )
         .each( function( i, el ) {
-            var src = el.src,
+            //var src = el.src,
+            var src = el.getAttribute('data-original'),
 
             // find out if this image has been already checked for status
             // if it was, and src has not changed, call imgLoaded on it
