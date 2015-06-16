@@ -74,3 +74,11 @@
 	padding: 10px 30px 20px 30px;
 }
 #trigger a { margin-right: 30px;}
+
+@media (max-width: 480px) {
+  
+  .pin-wrapper {
+    padding: 0px;
+    border-radius:0px;
+  }
+}

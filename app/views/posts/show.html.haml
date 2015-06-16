@@ -1,5 +1,20 @@
-.container
+.container-fluid
   .row
     .col-xs-12.col-md-8
-      %h1= @post.title
-      = @post.embedded_body.html_safe
+      %article.post{itemscope: true, itemtype:"http://schema.org/Article", id:"{{post_id}}"}
+        .post-wrapper
+          %figure.post-image
+            =image_tag @post.photo.image.thumb('1000x500#').url, class: "img-responsive"
+          .post-inner
+            %h1= @post.title
+            = @post.embedded_body.html_safe
+    .col-xs-12.col-md-4
+      %aside{id: 'sidebar'}
+        
+        #most-commented.widget
+          %h4.widgettitle Most Commented
+          %ul
+            %li A
+            %li B
+        
+        #widget.widget

@@ -12,6 +12,8 @@
  *
  *= require bootstrap_and_overrides 
  *= require 'waterfall'
+ *= require 'post'
+ *= require 'sidebar'
  *= require 'style'
  *= require_self
  

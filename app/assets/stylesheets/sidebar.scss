@@ -1,0 +1,37 @@
+/************************************************************************************
+SIDEBAR
+*************************************************************************************/
+.widget {
+	word-wrap: break-word;
+	margin-bottom: 30px;
+	background: #fff;
+	padding: 10px 14px;
+	border-radius: 5px;
+	box-shadow: 0 1px 4px rgba(0,0,0,.3);
+}
+.widgettitle {
+	margin: 0 0 10px;
+	padding: 0;
+	font: normal 150%/110% Radley, Georgia, "Times New Roman", Times, serif;
+	font-variant: small-caps;
+}
+.widget ul {
+	margin: 0;
+	padding: 0;
+}
+.widget li {
+	margin: 0;
+	padding: 6px 0;
+	list-style: none;
+	clear: both;
+	border-top: solid 1px #ddd;
+}
+.widget ul ul {
+	margin: 6px 0 -6px 0px;
+	padding: 0;
+	border-top: none;
+}
+.widget ul ul li {
+	margin: 0;
+	padding-left: 10px;
+}
