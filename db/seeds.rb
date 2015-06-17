@@ -13,7 +13,7 @@ Photo.all.destroy_all
 Post.all.destroy_all
 User.all.destroy_all
 
-sprig [User, Post]
+sprig [User, Post, Brand]
 
 # add avatar to users
 avatars = %w(uxceo pixeliris jadlimcaco)
