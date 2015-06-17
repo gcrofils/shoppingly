@@ -9,10 +9,10 @@ class Post < ActiveRecord::Base
         url = photo.image.thumb('600x300').url
         alt = photo.title
       else
-        url = "http://placehold.it/180x180"
+        url = "http://placehold.it/600x300"
         alt = "image not found"
       end
-      ActionController::Base.helpers.image_tag url, alt: alt, class: "img-responsive img-thumbnail"
+      "<center>#{ActionController::Base.helpers.image_tag url, alt: alt, class: 'img-responsive img-thumbnail'}</center>"
     end
   end 
   
