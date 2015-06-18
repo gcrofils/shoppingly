@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  mount Ckeditor::Engine => '/ckeditor'
   devise_for :users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   
@@ -10,6 +11,8 @@ Rails.application.routes.draw do
       get 'waterfall'
     end
   end
+  
+  resources :brands
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
