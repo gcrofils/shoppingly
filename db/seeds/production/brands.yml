@@ -1,12 +1,12 @@
 records:
   - sprig_id: 1
-    name:
+    name: Le Slip Français
     chinese_name:
-    logo_uid:
-    banner_uid:
+    logo_uid: http://www.leslipfrancais.fr/themes/theme_nq/img/logo_header.png
+    banner_uid: http://comevents.fr/sites/default/files/uploads/echo_de_la_com/le-slip-francais.jpg
     description:
-    established:
-    website:
+    established: 2011
+    website: www.leslipfrancais.fr
       
   - sprig_id: 2
     name:

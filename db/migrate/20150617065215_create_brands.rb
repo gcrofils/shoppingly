@@ -5,10 +5,10 @@ class CreateBrands < ActiveRecord::Migration
       t.string :chinese_name
       t.string :logo_uid
       t.string :banner_uid
+      t.text :summary
       t.text :description
       t.integer :established
       t.string :website
-
       t.timestamps null: false
     end
   end

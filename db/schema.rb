@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150612050039) do
+ActiveRecord::Schema.define(version: 20150618124622) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -27,6 +27,57 @@ ActiveRecord::Schema.define(version: 20150612050039) do
   add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
   add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace"
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
+
+  create_table "brands", force: :cascade do |t|
+    t.string   "name"
+    t.string   "chinese_name"
+    t.string   "logo_uid"
+    t.string   "banner_uid"
+    t.text     "summary"
+    t.text     "description"
+    t.integer  "established"
+    t.string   "website"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "brands_posts", id: false, force: :cascade do |t|
+    t.integer "brand_id"
+    t.integer "post_id"
+  end
+
+  add_index "brands_posts", ["brand_id", "post_id"], name: "index_brands_posts_on_brand_id_and_post_id", unique: true
+  add_index "brands_posts", ["post_id"], name: "index_brands_posts_on_post_id"
+
+  create_table "ckeditor_assets", force: :cascade do |t|
+    t.string   "data_uid",                  null: false
+    t.string   "data_name",                 null: false
+    t.string   "data_mime_type"
+    t.integer  "data_size"
+    t.integer  "assetable_id"
+    t.string   "assetable_type", limit: 30
+    t.string   "type",           limit: 30
+    t.integer  "data_width"
+    t.integer  "data_height"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
+  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
+
+  create_table "establishments", force: :cascade do |t|
+    t.string   "label"
+    t.string   "address"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.integer  "brand_id"
+    t.string   "establishment_type"
+    t.string   "picture_uid"
+    t.string   "static_map_uid"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
 
   create_table "photos", force: :cascade do |t|
     t.string   "image_uid"
@@ -48,6 +99,26 @@ ActiveRecord::Schema.define(version: 20150612050039) do
     t.datetime "updated_at",   null: false
     t.date     "published_at"
   end
+
+  create_table "taggings", force: :cascade do |t|
+    t.integer  "tag_id"
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
+    t.integer  "tagger_id"
+    t.string   "tagger_type"
+    t.string   "context",       limit: 128
+    t.datetime "created_at"
+  end
+
+  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context"
+
+  create_table "tags", force: :cascade do |t|
+    t.string  "name"
+    t.integer "taggings_count", default: 0
+  end
+
+  add_index "tags", ["name"], name: "index_tags_on_name", unique: true
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

@@ -8,12 +8,17 @@
 
 include Sprig::Helpers
 
+# cleaning
 ActiveAdmin::Comment.all.destroy_all
 Photo.all.destroy_all
+
+### Posts and Users
 Post.all.destroy_all
 User.all.destroy_all
+Establishment.all.destroy_all
+Brand.all.destroy_all
 
-sprig [User, Post, Brand]
+sprig [User, Post, Brand, Establishment]
 
 # add avatar to users
 avatars = %w(uxceo pixeliris jadlimcaco)
@@ -22,3 +27,4 @@ User.all.each_with_index do |u, i|
   u.avatar = avatar
   u.save!
 end
+

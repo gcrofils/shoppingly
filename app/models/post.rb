@@ -2,6 +2,7 @@ class Post < ActiveRecord::Base
   
   belongs_to :photo
   belongs_to :user
+  has_and_belongs_to_many :brands
   
   def embedded_body
     body.gsub(/\{\{photo:([0-9]+)\}\}/x) do |match|

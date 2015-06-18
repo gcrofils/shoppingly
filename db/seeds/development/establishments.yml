@@ -1,0 +1,19 @@
+records:
+  - sprig_id: 1
+    label: Main Store
+    establishment_type: Store
+    brand_id: "<%= sprig_record(Brand, 2).id %>"
+    address: 46 Boulevard Raspail, 75007 Paris, France
+    
+  - sprig_id: 2
+    label: Main Store
+    establishment_type: Store
+    brand_id: "<%= sprig_record(Brand, 3).id %>"
+    address: 21 rue de la Paix, 75002 Paris, France
+      
+  - sprig_id: 2
+    label: Rive Gauche
+    establishment_type: Store
+    brand_id: "<%= sprig_record(Brand, 3).id %>"
+    address: 16 rue de Sèvres, 75007 Paris, France
+    

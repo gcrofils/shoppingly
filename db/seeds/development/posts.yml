@@ -35,6 +35,9 @@ records:
     summary: 是的，你没有看错，这个不靠谱的法国品牌就叫“法兰西裤衩”。故事的起源是这样的
     user_id: "<%= sprig_record(User, 1).id %>"
     published_at: 2015-06-04
+    brand_ids:
+      - "<%= sprig_record(Brand, 1).id %>"
+      
   - sprig_id: 2
     title: 本周福利：巴黎精品攻略登陆洋码头，本周三首次直播
     summary: 攻略君介绍了这么多巴黎的好品牌，在国内的小伙伴们很着急：哪里有的买？为了让大家不出门儿也能紧跟巴黎时尚，攻略君在洋码头开店啦！只卖攻略君心仪的正宗法国品牌，本周三首次扫货直播（北京时间四点起），夏日果冻包专场，只持续8小时，切勿错过！
@@ -63,8 +66,9 @@ records:
       {{http://mmbiz.qpic.cn/mmbiz/77N53homBLyRhOpDCBkNoiacYcnzjPCxsfk7Ywcg1ibsCMCjWiaecvRG5icSB9yJLbXOrsibbYarFJK6O6mAHhwOcxQ/0?wx_fmt=png}}
     user_id: "<%= sprig_record(User, 1).id %>"
     published_at: 2015-06-02
+    
   - sprig_id: 3
-    title:  Kilian：来自干邑世家的香氛大师
+    title:  By Kilian：来自干邑世家的香氛大师
     summary: 作为香水的发源地，这一瓶瓶神奇的Perfum已然成为法国人生活中不可或缺的一部分。巴黎女人的魅力，法国男人的浪漫，都离不开空气中那若有若无的一缕芬芳。今天我们就一起来发现一个古老而年轻的名字，Kilian Hennessy。
     body:
       $$http://mmbiz.qpic.cn/mmbiz/77N53homBLzUOibnUOaYtPU4HiaKDloaayl0pV2ZjaVqK7sqUjIm1rRzOQYkMic31TMtVLXEZGan97tVDGTW4lHRg/0?wx_fmt=jpeg$$
@@ -98,11 +102,16 @@ records:
       <p>巴黎旗舰店就在离香奈儿几步之遥的康朋街上，值得探访</p>
     user_id: "<%= sprig_record(User, 1).id %>"
     published_at: 2015-05-28
+    brand_ids:
+      - "<%= sprig_record(Brand, 17).id %>"
+    
   - sprig_id: 4
     title:  小资亲民的法国童装品牌：Cyrillus
     summary: 聪明的法国妈妈们很少给小朋友买很贵的大牌子，道理很简单：孩子长的那么快，衣服大多只能穿一季，不值！那么法国妈妈们都给小朋友们买什么牌子的衣服呢？
     user_id: "<%= sprig_record(User, 1).id %>"
     published_at: 2015-05-21
+    brand_ids: 
+      - "<%= sprig_record(Brand, 18).id %>"
     body:
       $$http://mmbiz.qpic.cn/mmbiz/77N53homBLzttMfKbaVbibhUVW0ClDicLJofvy99F0Tra8Ag5KHibdgVpcVsBFzgWZmOhMFgTv6sTT4Riaop2M1YzA/0?wx_fmt=jpeg$$
       <p>提起法国童装，大家首先想到的肯定是小樱桃Bonpoint和Jacadi，他们家的东西确实好，但价格是不是有点儿叫人难以下手呢？其实法国的聪明妈妈们，哪怕是家境殷实的，也很少给小朋友们买很贵的大牌子，道理很简单：孩子长的那么快，衣服大多只能穿一季，不值！</p>
@@ -148,11 +157,14 @@ records:
       {{http://mmbiz.qpic.cn/mmbiz/77N53homBLzttMfKbaVbibhUVW0ClDicLJBic9JfBd5xdEfxAbnsmebE4CZjhDibGO1AKsNOEjkQq2IfN0eS3bB3Hw/0?wx_fmt=jpeg}}
       <p>其实Cyrillus也做男女装，所以是很多法国家庭全家人的衣柜哦！</p>
       {{http://mmbiz.qpic.cn/mmbiz/77N53homBLzttMfKbaVbibhUVW0ClDicLJGZGxKiaZ2sPnAUYpo0QAGmtYJVbXcQkRvyHfaAOTibebgApxiaSdnZctQ/0?wx_fmt=jpeg}}
+  
   - sprig_id: 5
     title:  Tila March本周首次登陆洋码头，现场直播倒计时
     summary: 在攻略君的精心策划下，法国著名的设计师品牌Tila March将于5月21－22日首次登陆海淘网站洋码头，现场直播销售当季最新产品。巴黎精品攻略曾在3月29日那期专门介绍过Tila March的品牌故事，这个由Elle时尚编辑创建的新晋品牌很受明星，潮人和媒体的追捧，在日本卖得很红火，目前尚未进入中国市场，这是品牌首次试水跨境电商平台。
     user_id: "<%= sprig_record(User, 1).id %>"
     published_at: 2015-05-18
+    brand_ids: 
+      - "<%= sprig_record(Brand, 13).id %>"
     body:
       $$http://mmbiz.qpic.cn/mmbiz/77N53homBLxECCH2hXcmeiaKlfcNqnibfJHBhFhFDG7Kauic5vPhenD0ickia2M4CIZPF5BELsM5NjCaFEfJqlbraiaw/0?wx_fmt=jpeg$$
       <p>在攻略君的精心策划下，法国著名的设计师品牌Tila March将于5月21－22日首次登陆海淘网站洋码头，现场直播销售当季最新产品。巴黎精品攻略曾在3月29日那期专门介绍过Tila March的品牌故事，这个由Elle时尚编辑创建的新晋品牌很受明星，潮人和媒体的追捧，在日本卖得很红火，目前尚未进入中国市场，这是品牌首次试水跨境电商平台。</p>
@@ -179,11 +191,14 @@ records:
       {{http://mmbiz.qpic.cn/mmbiz/77N53homBLz7xN5T9KrKfzCJfWLCZLxgdiaw1wydic4DvE1DOMu5EbXWegyvg5ww6XsqrIG1TgzR89vSdkQQVf1w/0?wx_fmt=jpeg}}
       {{http://mmbiz.qpic.cn/mmbiz/77N53homBLz7xN5T9KrKfzCJfWLCZLxgmmZia6oYFnUACVyC7P1zZpJaAzT4svGLUCDNwf83Gwz9C3c6BfC6y5A/0?wx_fmt=jpeg}}
       <p>关注巴黎精品攻略，期待更多惊喜发现！</p>
+  
   - sprig_id: 6
     title: "Bagllerina： 法国女人足尖的优雅"
     summary: 时尚女性必备的秘密武器
     user_id: "<%= sprig_record(User, 1).id %>"
     published_at: 2015-05-13
+    brand_ids:
+      - "<%= sprig_record(Brand, 19).id %>"
     body:
       $$http://mmbiz.qpic.cn/mmbiz/77N53homBLxKvw80qrvoZibJDJrjrpCtmiaZu9FgbkUfTia2dezEw8q8eVX7L5CF2jBjc7oVNMdfMmUGFDtLxs7Eg/0?wx_fmt=jpeg$$
       {{http://mmbiz.qpic.cn/mmbiz/77N53homBLxKvw80qrvoZibJDJrjrpCtmvoQYjZKATaEQFRPP8KZkYUicByhcMQuWUhQGsNX3Ecqdk3PpAg1vKIw/0?wx_fmt=jpeg}}
@@ -209,11 +224,14 @@ records:
       {{http://mmbiz.qpic.cn/mmbiz/77N53homBLxKvw80qrvoZibJDJrjrpCtmibkDahkUq9gpwmPQorr0x1wktpw6Epw5Kibv8RoW38bo8iciaGMsZic2fiag/0?wx_fmt=jpeg}}
       {{http://mmbiz.qpic.cn/mmbiz/77N53homBLxKvw80qrvoZibJDJrjrpCtmSBJCGXtIbkcke3JH9v6ATjrl8hcjzJSbVUAEQD9tF8tHsBaHRjLfDA/0?wx_fmt=jpeg}}
       {{http://mmbiz.qpic.cn/mmbiz/77N53homBLxKvw80qrvoZibJDJrjrpCtmqmwaXx4J7uccH8YibukEE0DoicWxT6M63UUCiaFwJYQyMGYPGMRV2EOicA/0?wx_fmt=jpeg}}
+  
   - sprig_id: 7
     title: "Vicomte A : 亚瑟子爵的马球衫"
     summary: 一个法国贵族子弟的创业故事
     user_id: "<%= sprig_record(User, 1).id %>"
     published_at: 2015-05-05
+    brand_ids:
+      - "<%= sprig_record(Brand, 20).id %>"
     body:
       $$http://mmbiz.qpic.cn/mmbiz/77N53homBLwjLLDK35WaT72GQuYNLMdK7Lic3ZkBEu4iaf9pMSuFEH7kkGGM4bXqgN1L93T0lX6Y4j04aZXTjV3g/0?wx_fmt=jpeg$$
       <p>有型有格的法国男人钟爱的休闲品牌是什么？答案是：Vicomte A马球衫，Vicomte A是Vicomte Arthur的缩写，即亚瑟子爵的意思。不知品牌创始人亚瑟是否真的拥有子爵头衔，但他的名字却是实实在在有着贵族痕迹的De Soultrait。在百年老店和大牌云集的法国，一个只有短短10年历史的休闲品牌是如何创造这个奇迹般的成功故事的呢？</p>
@@ -237,11 +255,14 @@ records:
       <p>看看，他家的广告是否够另类？</p>
       {{http://mmbiz.qpic.cn/mmbiz/77N53homBLwjLLDK35WaT72GQuYNLMdKSKpFrL6XEVrF62MUCR7fNsnZzmMiaocbzSs7LMjU6iaca2XnOf6u4ppQ/0?wx_fmt=jpeg}}
       {{http://mmbiz.qpic.cn/mmbiz/77N53homBLwjLLDK35WaT72GQuYNLMdKrdFcicxHcLryGITskxibweyTicvtRcqsCre9u26jJznoteKpPDNe5IicqQ/0?wx_fmt=jpeg}}
+  
   - sprig_id: 8
     title: "来自格拉斯的香水世家Fragonard"
     summary: 法国最古老的香水品牌之一，至今仍是家族经营。他家在格拉斯的香水博物馆和巴黎的旗舰店都值得一游。
     user_id: "<%= sprig_record(User, 1).id %>"
     published_at: 2015-04-29
+    brand_ids:
+      - "<%= sprig_record(Brand, 21).id %>"
     body:
       $$http://mmbiz.qpic.cn/mmbiz/77N53homBLyicUHgGLMShPoPMtLqROAc6wg8Us75icwvkJ8icDBN33Xbl2ic4xia4icNZ3vgIY2XHTdHR3RkWVSibo8tw/0?wx_fmt=jpeg$$
       <p>Fragonard，中文有译成花宫娜，颇为艳俗，所以还是用原名Fragonard。</p>
@@ -271,6 +292,8 @@ records:
     summary: 正宗的吃货们都知道，最好吃的火腿出在西班牙，最好吃的西班牙火腿出在伊比利亚，而最好吃的伊比利亚火腿则是Bellota-Bellota® 。
     user_id: "<%= sprig_record(User, 1).id %>"
     published_at: 2015-04-23
+    brand_ids:
+      - "<%= sprig_record(Brand, 22).id %>"
     body:
       $$http://mmbiz.qpic.cn/mmbiz/77N53homBLyw1MH9udblsvxM1oTGCHmjHYvNJ7Zrb5CMkJ17P2pnmKFp3FK03nPwqxfibz1hevAaplsjCdWWfZw/0?wxfmt=jpeg$$
       <p>正宗的吃货们都知道，最好吃的火腿出在西班牙，最好吃的西班牙火腿出在伊比利亚，而最好吃的伊比利亚火腿则是Bellota-Bellota® 。</p>
@@ -302,6 +325,8 @@ records:
     summary: 探秘法国最时尚的茶叶品牌
     user_id: "<%= sprig_record(User, 1).id %>"
     published_at: 2015-04-15
+    brand_ids:
+      - "<%= sprig_record(Brand, 23).id %>"
     body:
       $$http://mmbiz.qpic.cn/mmbiz/77N53homBLzHYDgFzY95snkApicBDtn7oFictUOr9gqGOp9He4Yg5a0FJx6m8V2xxIGz85ffgEFRFnmCT7sY3ryg/0?wx_fmt=jpeg$$
       <p>Kusmi Tea是一个正宗的百年老字号，它诞生于1867年的圣彼得堡，由Pavel Michailovitch Kousmichoff创建。他所调制的混合茶Bouquet de Fleurs很快成为沙皇的最爱。</p>
@@ -332,6 +357,8 @@ records:
     summary: 可能你从未听说过这个发音拗口的名字，但你一定曾经与他的作品擦肩而过。他，就是法国人所宠爱的调香大师，Francis Kurkdjian。
     user_id: "<%= sprig_record(User, 1).id %>"
     published_at: 2015-04-13
+    brand_ids:
+      - "<%= sprig_record(Brand, 24).id %>"
     body: 
       $$http://mmbiz.qpic.cn/mmbiz/77N53homBLz7h3NqZuZPqLlhh2YMP0ReM3SQGfRicm6DzZymxZDVxv8sgR54qFlfoMPic3m9eFAmKpic3ct1D25AA/0?wx_fmt=jpeg$$
       {{http://mmbiz.qpic.cn/mmbiz/77N53homBLzFIm1wejUX62J2V6bKiaiacHOkIvtTO3L2Efpa44jHyfce8UdtV0rj3Fia8KVt75YtDozSzucxxIojA/0?wx_fmt=jpeg}}
@@ -362,6 +389,8 @@ records:
     summary: 上上期“巴黎精品攻略”介绍了高大上的父子泳装品牌Vilebrequin，那不少小伙伴们都在问：最顶尖的女士泳装品牌是哪个呢？
     user_id: "<%= sprig_record(User, 1).id %>"
     published_at: 2015-04-09
+    brand_ids:
+      - "<%= sprig_record(Brand, 25).id %>"
     body:
       $$http://mmbiz.qpic.cn/mmbiz/77N53homBLzAdbibs9UPxWKfUKJSjicsLBvxTVk9nAogWMY7ZJibRoztekTwmumwViaiaFwyEbKw7cLGcuQ1picw6BEA/0?wx_fmt=jpeg$$
       {{http://mmbiz.qpic.cn/mmbiz/77N53homBLxSibug92yRvD6ezhW38jiaiczRclxjnoicweAhrQTL0vsiaJnxczFfMq73juLAVYspcQXycPaoQk3VGoQ/0?wx_fmt=jpeg}}
@@ -397,6 +426,8 @@ records:
     summary: 著名法国骑士Kevin Staut代言国货精品Smuggler
     user_id: "<%= sprig_record(User, 1).id %>"
     published_at: 2015-04-09
+    brand_ids:
+      - "<%= sprig_record(Brand, 26).id %>"
     body:
       $$http://mmbiz.qpic.cn/mmbiz/77N53homBLy1YfAvicmAtHrk459wtibiafuHicg7ydibrjECpLDQyAuE7N5nXgsXicjEm76bbnlichMxunzuaxConL05Q/0?wx_fmt=jpeg$$
       {{http://mmbiz.qpic.cn/mmbiz/77N53homBLy1YfAvicmAtHrk459wtibiafumkH1P470zFBFRAdntkbqPsUN7uQxvjehxoAxgAsu07SPc6KlGOWeLw/0?wx_fmt=jpeg}}
@@ -422,6 +453,8 @@ records:
     summary: 有钱有闲有品位的法国爸爸夏天度假时穿什么牌子的泳装？答案很简单：Vilebrequin。他家的蓝色小海龟俨然成为法国休闲时尚的一大经典，稳居最有格男士泳装之宝座。
     user_id: "<%= sprig_record(User, 1).id %>"
     published_at: 2015-04-02
+    brand_ids:
+      - "<%= sprig_record(Brand, 9).id %>"
     body:
       $$http://mmbiz.qpic.cn/mmbiz/77N53homBLwHUfxp3dp8UwvERreL0Jt2ia7TCjCNicqeIUXX9BMN2LhibQqtiacRXXrfWvgIsWVra2ZrqKgdkJBAgg/0?wx_fmt=jpeg$$
       <p>有钱有闲有品位的法国爸爸夏天度假时穿什么牌子的泳装？答案很简单：Vilebrequin。他家的蓝色小海龟俨然是法国休闲时尚的一大经典，稳居最有格男士泳装之宝座。</p>
@@ -458,6 +491,8 @@ records:
     summary: 当成群的游客们还虔诚而耐心地在爱马仕店排队时，法国时尚达人们却已悄悄转移目标，去发现新的高品质低调奢华品牌。
     user_id: "<%= sprig_record(User, 1).id %>"
     published_at: 2015-03-30
+    brand_ids:
+      - "<%= sprig_record(Brand, 27).id %>"
     body:
       $$http://mmbiz.qpic.cn/mmbiz/77N53homBLzsHtHPJ5HcoregwCmWlqrlkQRcNdtHCGNyydYdmTylHVXGulUGVHXJER1hpgO5FzCR6LfM0m6LSA/0?wx_fmt=jpeg$$
       <p>当成群的游客们还虔诚而耐心地在爱马仕店排队时，法国时尚达人们却已悄悄转移目标，去发现新的高品质低调奢华品牌。</p>
@@ -492,6 +527,8 @@ records:
     summary: 你可能没听说过她的名字，但一定见过她的作品。
     user_id: "<%= sprig_record(User, 1).id %>"
     published_at: 2015-03-29
+    brand_ids:
+      - "<%= sprig_record(Brand, 13).id %>"
     body:
       $$http://mmbiz.qpic.cn/mmbiz/77N53homBLwSbiaibnMAOFibylJGzQrR8kKnaictB6E1WkXN3tJSILGf5dibKnqwLbZmIUtEQzORIGBNuSFdwKiaoIsA/0?wx_fmt=jpeg$$
       <p>Tila March，没有听说过？那下面这两款法国畅销不衰的包包时尚潮人们都认识吧？</p>    
@@ -522,6 +559,8 @@ records:
     summary: Chanel旗下拥有众多一流高级手工作坊，其中就有专注于制帽工艺的老字号Maison Michel。
     user_id: "<%= sprig_record(User, 1).id %>"
     published_at: 2015-03-21
+    brand_ids:
+      - "<%= sprig_record(Brand, 28).id %>"
     body:
       $$http://mmbiz.qpic.cn/mmbiz/77N53homBLzj9H6UjruiaHgIOokqUFIxSCsdmNoMD8Evcs0wePZIGLmlAkJ7uUNbvo0ibnh8iamrrfDdnMeBqVib6w/0?wx_fmt=jpeg$$
       {{http://mmbiz.qpic.cn/mmbiz/77N53homBLwyY3AzCrW2iczwbF4lBjxulo9ChdWpS2n22cQ2d7gJ4Rc9hibsVw9Y46ichNicu6iaYMsgVVkc44CHoicw/0?wx_fmt=jpeg}}
@@ -546,6 +585,8 @@ records:
     summary: 丝巾和披肩一向是女性打扮的点睛之笔，而法国女人大约是最擅长使用此类配饰的了。往往是一身简洁的单色系，只需项间一条色彩亮丽的丝巾便可教人眼前一亮，演绎十足的法国范儿。
     user_id: "<%= sprig_record(User, 1).id %>"
     published_at: 2015-03-25
+    brand_ids:
+      - "<%= sprig_record(Brand, 2).id %>"
     body:
       $$http://mmbiz.qpic.cn/mmbiz/77N53homBLxOqrDku7UvgCglTuoLkjsyt353P9VNCBsoCYLUlcpftTiafPOzBaqbjMooibypJ1NrUjGGI6eiacEHQ/0?wx_fmt=jpeg$$
       <p>丝巾和披肩一向是女性打扮的点睛之笔，而法国女人大约是最擅长使用此类配饰的了。往往是一身简洁的单色系，只需项间一条色彩亮丽的丝巾便可教人眼前一亮，演绎十足的法国范儿。<br/>
@@ -572,6 +613,8 @@ records:
     summary: 巴黎品位男士的经典衬衫品牌是什么？答案是：Alain Figaret。这个由AlainFigaret先生创建于1968年的正宗巴黎品牌主打男士衬衣， 一贯坚守低调奢华的路线，成为法国男士衬衣的经典
     user_id: "<%= sprig_record(User, 1).id %>"
     published_at: 2015-02-12
+    brand_ids:
+      - "<%= sprig_record(Brand, 3).id %>"
     body:      
       $$http://mmbiz.qpic.cn/mmbiz/77N53homBLxOqrDku7UvgCglTuoLkjsyD2hZz8pXJ6wCDWT07CrJVWeR2xibmbjYWGkicsTzcicFs7Va0lgIOfhXA/0?wx_fmt=jpeg$$
       <p>巴黎品位男士的经典衬衫品牌是什么？答案是：Alain Figaret。这个由AlainFigaret先生创建于1968年的正宗巴黎品牌主打男士衬衣， 一贯坚守低调奢华的路线，成为法国男士衬衣的经典。</p>

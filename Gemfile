@@ -1,5 +1,5 @@
-#source 'https://rubygems.org'
-source 'https://ruby.taobao.org'
+source 'https://rubygems.org'
+#source 'https://ruby.taobao.org'
 
 ruby '2.1.2'
 
@@ -64,6 +64,14 @@ gem 'activeadmin', '~> 1.0.0.pre1'
 gem 'dragonfly'
 gem 'dragonfly-s3_data_store'
 
+# A tagging plugin for Rails applications that allows for custom tagging along dynamic contexts.
+gem 'acts-as-taggable-on', '~> 3.4'
+
+# Complete Ruby geocoding solution.
+gem 'geocoder'
+
+# Ckeditor integration gem for rails
+gem 'ckeditor'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

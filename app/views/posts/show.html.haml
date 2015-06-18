@@ -4,7 +4,10 @@
       %article.post{itemscope: true, itemtype:"http://schema.org/Article", id:"{{post_id}}"}
         .post-wrapper
           %figure.post-image
-            =image_tag @post.photo.image.thumb('1000x500#').url, class: "img-responsive"
+            - if @post.photo
+              =image_tag @post.photo.image.thumb('1000x500#').url, class: "img-responsive"
+            - else
+              =image_tag "http://placehold.it/1000x500", class: "img-responsive"
           .post-inner
             %h1.post-title= @post.title
             = @post.embedded_body.html_safe
