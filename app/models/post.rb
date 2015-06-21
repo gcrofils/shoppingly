@@ -31,9 +31,12 @@ class Post < ActiveRecord::Base
       
       self.body = body.gsub(/\{\{([a-zA-Z0-9\/\.\&\:\=\?\_]*)\}\}/x) do |match| 
         image = Dragonfly.app.fetch_url($1)
-        photo = Photo.new(image: image, title: title.truncate(20, omission: '...'))
+        #photo = Photo.new(image: image, title: title.truncate(20, omission: '...'))
+        photo = Ckeditor::Asset.new(data: image, assetable_type: 'User', assetable_id: User.first.id, type: "Ckeditor::Picture")
+        #photo.data_type = 
+        photo.data_name = title.truncate(15, omission: '...')
         photo.save
-        "{{photo:#{photo.id}}}"
+        ActionController::Base.helpers.image_tag(photo.data.url, class:'img-responsive img-thumbnail', alt: "#{title.truncate(25, omission: '...')}")
       end
       
       self.save
