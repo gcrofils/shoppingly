@@ -4,12 +4,39 @@ records:
     chinese_name:
     logo_uid: http://www.leslipfrancais.fr/themes/theme_nq/img/logo_header.png
     banner_uid: http://comevents.fr/sites/default/files/uploads/echo_de_la_com/le-slip-francais.jpg
-    description:
+    description: <p>是的，你没有看错，这个不靠谱的法国品牌就叫“法兰西裤衩”。故事的起源是这样的：2011年，刚刚从培养法国企业家和高管的摇篮－巴黎高商HEC－毕业的纪尧姆－吉博才25岁，他在喝咖啡时跟一个朋友打赌说，只要有精彩的故事和纯正的法国制造，就可打造一个品牌，哪怕是内裤！朋友不信，于是“法兰西裤衩”就这样诞生了。</p>
     established: 2011
     website: www.leslipfrancais.fr
       
   - sprig_id: 2
-    name:
+    name: Pétrusse
+    chinese_name:
+    logo_uid: http://www.petrusse.com/wp-content/themes/petrusse-v3/images/logo-petrusse.png
+    banner_uid:
+    description:
+    established:
+    website: http://www.petrusse.com/
+      
+  - sprig_id: 3
+    name: Alain Figaret
+    chinese_name:
+    logo_uid:
+    banner_uid:
+    description:
+    established: 1968
+    website: http://www.figaret.com/
+      
+  - sprig_id: 4
+    name: Hermès
+    chinese_name:
+    logo_uid:
+    banner_uid:
+    description:
+    established:
+    website:
+
+  - sprig_id: 5
+    name: Gérard Darel
     chinese_name:
     logo_uid:
     banner_uid:
@@ -17,3 +44,211 @@ records:
     established:
     website:
       
+  - sprig_id: 6
+    name: Shang Xia
+    chinese_name:
+    logo_uid:
+    banner_uid:
+    description:
+    established:
+    website:
+      
+  - sprig_id: 7
+    name: Durance
+    chinese_name:
+    logo_uid:
+    banner_uid:
+    description:
+    established:
+    website:
+      
+  - sprig_id: 8
+    name: Aesop
+    chinese_name:
+    logo_uid:
+    banner_uid:
+    description:
+    established:
+    website:
+      
+  - sprig_id: 9
+    name: Vilebrequin
+    chinese_name:
+    logo_uid:
+    banner_uid:
+    description:
+    established:
+    website:
+      
+  - sprig_id: 10
+    name: Pierre Hermé
+    chinese_name:
+    logo_uid:
+    banner_uid:
+    description:
+    established:
+    website:
+      
+  - sprig_id: 11
+    name: Annick Goutal
+    chinese_name:
+    logo_uid:
+    banner_uid:
+    description:
+    established:
+    website:
+      
+  - sprig_id: 12
+    name: Patrick Roger
+    chinese_name:
+    logo_uid:
+    banner_uid:
+    description:
+    established:
+    website:
+      
+  - sprig_id: 13
+    name: Tila March
+    chinese_name:
+    logo_uid:
+    banner_uid:
+    description:
+    established:
+    website:
+      
+  - sprig_id: 14
+    name: Gérard Mulot
+    chinese_name:
+    logo_uid:
+    banner_uid:
+    description:
+    established:
+    website:
+      
+  - sprig_id: 15
+    name: Bonpoint
+    chinese_name:
+    logo_uid:
+    banner_uid:
+    description:
+    established:
+    website:
+      
+  - sprig_id: 16
+    name: Angélina Café
+    chinese_name:
+    logo_uid:
+    banner_uid:
+    description:
+    established:
+    website:
+      
+  - sprig_id: 17
+    name: By Killian
+    chinese_name:
+    logo_uid:
+    banner_uid:
+    description:
+    established: 2007
+    website: http://www.bykilian.com/
+      
+  - sprig_id: 18
+    name: Cyrillus
+    chinese_name:
+    logo_uid:
+    banner_uid:
+    description:
+    established: 
+    website: 
+      
+  - sprig_id: 19
+    name: Bagllerina
+    chinese_name:
+    logo_uid:
+    banner_uid:
+    description:
+    established: 
+    website: 
+      
+  - sprig_id: 20
+    name: Vicomte A
+    chinese_name:
+    logo_uid:
+    banner_uid:
+    description:
+    established: 
+    website: 
+      
+  - sprig_id: 21
+    name: Fragonard
+    chinese_name:
+    logo_uid:
+    banner_uid:
+    description:
+    established: 
+    website: 
+      
+  - sprig_id: 22
+    name: Bellota-Bellota
+    chinese_name:
+    logo_uid:
+    banner_uid:
+    description:
+    established: 
+    website: 
+      
+  - sprig_id: 23
+    name: Kusmi Tea
+    chinese_name:
+    logo_uid:
+    banner_uid:
+    description:
+    established: 
+    website: 
+      
+  - sprig_id: 24
+    name: Francis Kurkdjian
+    chinese_name:
+    logo_uid:
+    banner_uid:
+    description:
+    established: 
+    website: 
+      
+  - sprig_id: 25
+    name: Erès
+    chinese_name:
+    logo_uid:
+    banner_uid:
+    description:
+    established: 
+    website: 
+      
+  - sprig_id: 26
+    name: Smuggler
+    chinese_name:
+    logo_uid:
+    banner_uid:
+    description:
+    established: 
+    website: 
+      
+  - sprig_id: 27
+    name: Camille Fournet
+    chinese_name:
+    logo_uid:
+    banner_uid:
+    description:
+    established: 
+    website: 
+      
+  - sprig_id: 28
+    name: Maison Michel
+    chinese_name:
+    logo_uid:
+    banner_uid:
+    description:
+    established: 
+    website:
+      
+ 
