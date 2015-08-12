@@ -70,6 +70,9 @@ gem 'acts-as-taggable-on', '~> 3.4'
 # Complete Ruby geocoding solution.
 gem 'geocoder'
 
+# Google Maps
+gem 'gmaps4rails'
+
 # Ckeditor integration gem for rails
 gem 'ckeditor'
 

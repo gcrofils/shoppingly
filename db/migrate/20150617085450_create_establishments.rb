@@ -8,7 +8,13 @@ class CreateEstablishments < ActiveRecord::Migration
       t.integer :brand_id
       t.string :establishment_type
       t.string :picture_uid
+      t.integer :picture_width
+      t.integer :picture_height
+      t.integer :picture_size
       t.string :static_map_uid
+      t.integer :static_map_width
+      t.integer :static_map_height
+      t.integer :static_map_size
       t.timestamps null: false
     end
   end

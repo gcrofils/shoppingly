@@ -191,10 +191,11 @@ zh-CN:
       format:
         delimiter: ''
   support:
+    dot: "。"
     array:
-      last_word_connector: ", 和 "
+      last_word_connector: " 和 "
       two_words_connector: " 和 "
-      words_connector: ", "
+      words_connector: "， "
   time:
     am: 上午
     formats:

@@ -1,0 +1,14 @@
+.container-fluid
+  .row
+    .col-xs-12.col-md-8
+      %ul.breadcrumb
+        %li= link_to t('shoppingly.home').humanize, root_path
+        %li= Brand.model_name.human(count: 2).humanize
+      %h1= Brand.model_name.human(count: 2).humanize
+      .row 
+        - test = is_chinese_locale? ? entries.order(:chinese_name) : entries.order(:name)
+        - test.in_groups_of((entries.count / 3.0).ceil, false) do |brands|
+          .col-md-4
+            %ul
+              - brands.each do |brand|
+                %li= link_to brand_name(brand), brand_path(brand)

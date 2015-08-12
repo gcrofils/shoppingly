@@ -193,6 +193,7 @@ fr:
       format:
         delimiter: ''
   support:
+    dot: "."
     array:
       last_word_connector: " et "
       two_words_connector: " et "

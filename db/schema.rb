@@ -32,13 +32,19 @@ ActiveRecord::Schema.define(version: 20150618124622) do
     t.string   "name"
     t.string   "chinese_name"
     t.string   "logo_uid"
+    t.integer  "logo_width"
+    t.integer  "logo_height"
+    t.integer  "logo_size"
     t.string   "banner_uid"
+    t.integer  "banner_width"
+    t.integer  "banner_height"
+    t.integer  "banner_size"
     t.text     "summary"
     t.text     "description"
     t.integer  "established"
     t.string   "website"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "brands_posts", id: false, force: :cascade do |t|

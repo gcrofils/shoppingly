@@ -13,6 +13,12 @@ Rails.application.routes.draw do
   end
   
   resources :brands
+  
+  resources :establishments do
+    collection do 
+      get 'map'
+    end
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

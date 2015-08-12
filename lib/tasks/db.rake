@@ -4,6 +4,11 @@ namespace :db do
     Post.all.each do |p|
       p.download_images
     end
+    
+    Brand.all.each do |b|
+      b.download_images
+    end
+    
   end
 
 end

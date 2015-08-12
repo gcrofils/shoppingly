@@ -1,0 +1,20 @@
+#map
+
+:coffee
+  $(document).ready ->
+    mapurl = "#{map_establishments_path(format: :json)}"
+    $.getJSON( mapurl, {
+        ids: #{@establishments.pluck(:id)}
+      })
+        .done (data) ->
+          handler = Gmaps.build("Google")
+          handler.buildMap
+            provider:
+              disableDefaultUI: false
+              featureType: "poi", stylers: [ { visibility: "off" } ]
+            internal:
+              id: "map"
+            , ->
+              markers = handler.addMarkers(data)
+              handler.bounds.extendWith markers
+              handler.fitMapToBounds()

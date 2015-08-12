@@ -1,0 +1,12 @@
+en:
+  shoppingly:
+    home: Home
+    brand:
+      one: brand
+      other: brands
+  posts:
+    show:
+      about_brands: this post is about
+      other_posts_brands:
+        one: Other posts about this brand
+        other: Other posts about these brands

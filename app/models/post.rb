@@ -4,6 +4,14 @@ class Post < ActiveRecord::Base
   belongs_to :user
   has_and_belongs_to_many :brands
   
+  def self.find_all_by_brands(brands=[])
+    if brands.first.is_a? (Brand)
+      Post.includes(:brands).where('brands.id' => brands.collect{|b| b.id})
+    else
+      Post.includes(:brands).where('brands.id' => brands)
+    end
+  end
+  
   def embedded_body
     body.gsub(/\{\{photo:([0-9]+)\}\}/x) do |match|
       if photo = Photo.find_by_id($1)

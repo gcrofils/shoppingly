@@ -1,0 +1,30 @@
+fr:
+  shoppingly:
+    home: accueil
+    store:
+      one: boutique
+      other: boutiques
+  posts:
+    show:
+      most_commented: Les plus commentés
+      about_brands: Cet article concerne
+      other_posts_brands:
+        one: Autres articles sur cette marque
+        other: Autres articles sur ces marques
+  activerecord:
+    models:
+      brand: 
+        one: Marque
+        other: Marques
+      post:
+        one: Article
+        other: Articles
+    attributes:
+      brand:
+        name: nom
+        chinese_name: nom en chinois
+        summary: résumé
+        description: description
+        established: fondé
+        website: site web
+          
