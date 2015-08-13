@@ -19,4 +19,7 @@
 //= require twitter/bootstrap
 //= require bootstrap
 //= require home
+//= require growlyflash
+//= require shoppingly
+
   

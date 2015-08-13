@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   devise_for :admin_users, {class_name: 'User'}.merge(ActiveAdmin::Devise.config)
   ActiveAdmin.routes(self)
   
-  devise_for :users
+  # https://github.com/plataformatec/devise/wiki/How-To%3a-redirect-to-a-specific-page-on-successful-sign-in
+  devise_for :users, controllers: { registrations: 'users/registrations', passwords: 'users/passwords' }
+
   
   root 'home#show'
   

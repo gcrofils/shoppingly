@@ -34,6 +34,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # views
 gem 'haml'
+gem 'growlyflash'
 
 # bootstrap
 gem "therubyracer"
@@ -55,7 +56,7 @@ gem 'sprig'
 # The administration framework for Ruby on Rails applications. http://activeadmin.info
 gem 'activeadmin', '~> 1.0.0.pre1'
 # Plus integrations with:
-# gem 'cancancan'
+gem 'cancancan'
 # gem 'draper'
 # gem 'pundit' #Minimal authorization through OO design and pure Ruby classes
 
@@ -76,6 +77,8 @@ gem 'gmaps4rails'
 # Ckeditor integration gem for rails
 gem 'ckeditor'
 
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -94,6 +97,9 @@ group :development, :test do
   
   #shotgun config.ru
   gem 'shotgun'  
+  
+  # html2haml
+  gem 'html2haml'
   
 end
 

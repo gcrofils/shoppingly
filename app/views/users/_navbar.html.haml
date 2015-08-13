@@ -1,0 +1,17 @@
+- if current_user
+  %ul.nav.navbar-nav.navbar-right
+    %li
+      = image_tag current_user.avatar.thumb("30x30").url
+    %li
+      = current_user.username
+    %li
+      = link_to 'logout', destroy_user_session_path, :method => :delete
+- else
+  = form_for(User.new, url: session_path(:user), html: {class: "form-horizontal form-inline navbar-form2"}) do |f|
+    .form-group
+      .input-group
+        = f.text_field :login, class: "form-control", placeholder: "email or username..."
+      .input-group
+        = f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "password..."
+      = f.submit "log in"
+      

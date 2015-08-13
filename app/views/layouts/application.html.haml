@@ -33,13 +33,19 @@
                        type: 'image/png',
                        sizes: "114x114"
 
+    = growlyflash_static_notices
+    
     = yield :head
 
   %body
-    
+  
     = render 'layouts/nav'
-      
-    = yield
+    
+    -##flash= render partial: 'layouts/flash', collection: [:notice, :alert], as: :level
+    
+    .container-fluid
+      .row
+        = yield
 
     %footer
       %center

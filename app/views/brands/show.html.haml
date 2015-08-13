@@ -1,50 +1,48 @@
 
-.container-fluid
-  .row
-    .col-xs-12.col-md-8
-      %ul.breadcrumb
-        %li= link_to t('shoppingly.home').humanize, root_path
-        %li= link_to Brand.model_name.human(count: 2).humanize, brands_path
-        %li= breadcrumb_brandname(@brand)
-      %article.brand{itemscope: true, itemtype:"http://schema.org/Article", id:@brand.id}
-        .brand-wrapper
-          %figure.brand-banner 
-            =image_tag @brand.banner ? @brand.banner.thumb('1000x300#').url : "http://placehold.it/1000x300",
-            class: "img-responsive"
-              
-          .branner-inner
-            
-            .pull-left.brand-logo
-              =image_tag @brand.logo ? @brand.logo.thumb('100x100#').url : "http://placehold.it/100x100", 
-              class: "img-responsive"
-            %h1.brand-title= @brand.name
-            %h2= @brand.chinese_name unless @brand.name.eql?(@brand.chinese_name)
-            %p.summary= @brand.summary
-            %p.established= "#{Brand.human_attribute_name("established")}: #{@brand.established}" unless @brand.established.blank?
-            %p.website= link_to @brand.website, "http://#{@brand.website}" unless @brand.website.blank?
-            
-            .clearfix
-            
-            %p.description= @brand.description.html_safe unless @brand.description.blank?
-            
-            - unless (establishments = @brand.establishments).blank?
-              = content_for :javascripts do
-                = javascript_include_tag 'maps', 'data-turbolinks-track' => true
-                %script{src: "//maps.google.com/maps/api/js?v=3.13&sensor=false&libraries=geometry&language=#{I18n.locale}"}
-                %script{src: '//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js'}
-              
-              %h2= t 'shoppingly.stores', :count => establishments.count
-              %ul.establishments
-                - establishments.each do |establishment|
-                  %li.establishment= establishment.label
-              #map-container
-                =image_tag 'spinning.gif'
+.col-xs-12.col-md-8
+  %ul.breadcrumb
+    %li= link_to t('shoppingly.home').humanize, root_path
+    %li= link_to Brand.model_name.human(count: 2).humanize, brands_path
+    %li= breadcrumb_brandname(@brand)
+  %article.brand{itemscope: true, itemtype:"http://schema.org/Article", id:@brand.id}
+    .brand-wrapper
+      %figure.brand-banner 
+        =image_tag @brand.banner ? @brand.banner.thumb('1000x300#').url : "http://placehold.it/1000x300",
+        class: "img-responsive"
+          
+      .branner-inner
+        
+        .pull-left.brand-logo
+          =image_tag @brand.logo ? @brand.logo.thumb('100x100#').url : "http://placehold.it/100x100", 
+          class: "img-responsive"
+        %h1.brand-title= @brand.name
+        %h2= @brand.chinese_name unless @brand.name.eql?(@brand.chinese_name)
+        %p.summary= @brand.summary
+        %p.established= "#{Brand.human_attribute_name("established")}: #{@brand.established}" unless @brand.established.blank?
+        %p.website= link_to @brand.website, "http://#{@brand.website}" unless @brand.website.blank?
+        
+        .clearfix
+        
+        %p.description= @brand.description.html_safe unless @brand.description.blank?
+        
+        - unless (establishments = @brand.establishments).blank?
+          = content_for :javascripts do
+            = javascript_include_tag 'maps', 'data-turbolinks-track' => true
+            %script{src: "//maps.google.com/maps/api/js?v=3.13&sensor=false&libraries=geometry&language=#{I18n.locale}"}
+            %script{src: '//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js'}
+          
+          %h2= t 'shoppingly.stores', :count => establishments.count
+          %ul.establishments
+            - establishments.each do |establishment|
+              %li.establishment= establishment.label
+          #map-container
+            =image_tag 'spinning.gif'
 
-            - unless (posts = @brand.posts).blank?
-              %h2= t '.related_posts'
-              %ul
-                - posts.each do |post|
-                  %li= link_to post.title, post_path(post)
+        - unless (posts = @brand.posts).blank?
+          %h2= t '.related_posts'
+          %ul
+            - posts.each do |post|
+              %li= link_to post.title, post_path(post)
 
 
                   

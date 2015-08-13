@@ -15,6 +15,7 @@
  *= require 'post'
  *= require 'sidebar'
  *= require 'style'
+ *= require 'maps'
  *= require_self
  
  */

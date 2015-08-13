@@ -106,7 +106,7 @@
                 }
             },
 
-            debug: true // enable debug
+            debug: false // enable debug
         };
 
     /*

@@ -28,4 +28,14 @@ body {
   margin-right: -2px;
 }
 
-@import "maps";
+/************************************************************************************
+FLASH
+*************************************************************************************/
+
+
+// https://github.com/estum/growlyflash
+$growlyflash-top:     100px !default;
+$growlyflash-side:    20px !default;
+$growlyflash-width:   100px !default;
+$growlyflash-zindex:  9999 !default;
+@import "growlyflash";
