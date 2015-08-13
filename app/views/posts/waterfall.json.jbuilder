@@ -14,6 +14,7 @@ json.result @posts do |p|
   json.date       p.published_at < 15.days.ago ? I18n.l(p.published_at, format: :long) : distance_of_time_in_words(p.published_at, Time.now)
   
   # author
+  json.author_href    "#{user_path(p.user)}"
   json.author_avatar  p.user.avatar.thumb("30x30").url
   json.author_name    p.user.name
   

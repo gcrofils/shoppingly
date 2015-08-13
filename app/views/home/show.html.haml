@@ -18,7 +18,8 @@
       .pin-inner
         
         .pin-avatar.pull-left
-          %img.img-circle{src: "{{author_avatar}}", width:"30", height:"30"}
+          %a{href: "{{author_href}}"}
+            %img.img-circle{src: "{{author_avatar}}", width:"30", height:"30"}
         
         %h1.pin-title{itemprop:"name"}
           %a{href: "{{post_href}}"} {{title}}

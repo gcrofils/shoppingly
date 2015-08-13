@@ -3,7 +3,7 @@
     .row
       .col-xs-8
         
-        = form_tag("/search", method: "get", class: "form-horizontal navbar-form2", role: "search") do
+        = form_tag("/do/search", method: "get", class: "form-horizontal navbar-form2", role: "search") do
           .form-group
             .input-group
             
@@ -28,8 +28,23 @@
               
 
       .col-xs-3
-        avatar
-        = I18n.locale
+        - if current_user
+          %ul.nav.navbar-nav.navbar-right
+            %li
+              = image_tag current_user.avatar.thumb("30x30").url
+            %li
+              = current_user.username
+            %li
+              = link_to 'logout', destroy_user_session_path, :method => :delete
+        - else
+          = form_tag(user_session_path, method: "post", class: "form-horizontal navbar-form2") do
+            .form-group
+              .input-group
+                = text_field_tag("user[email]", nil, class: "form-control", placeholder: "email...")
+                = text_field_tag("user[password]", nil, class: "form-control", placeholder: "password...")
+                %button.btn.btn-default{type: "submit"} Submit
+                
+                = render 'devise/menu/login_items'
 
 
     

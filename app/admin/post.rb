@@ -16,7 +16,7 @@ ActiveAdmin.register Post do
 
   permit_params :title, :summary, :body
   
-  menu label: proc{ (I18n.t "posts").capitalize }
+  #menu label: proc{ (I18n.t "posts").capitalize }
   
   index do |post|
     selectable_column

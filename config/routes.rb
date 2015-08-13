@@ -1,24 +1,35 @@
 Rails.application.routes.draw do
   
   mount Ckeditor::Engine => '/ckeditor'
-  devise_for :users, ActiveAdmin::Devise.config
+  
+  devise_for :admin_users, {class_name: 'User'}.merge(ActiveAdmin::Devise.config)
   ActiveAdmin.routes(self)
+  
+  devise_for :users
   
   root 'home#show'
   
-  resources :posts do
-    collection do 
-      get 'waterfall'
+  scope "/do" do 
+  
+    resources :posts do
+      collection do 
+        get 'waterfall'
+      end
     end
+  
+    resources :brands
+  
+    resources :establishments do
+      collection do 
+        get 'map'
+      end
+    end
+  
   end
   
-  resources :brands
+  get ':username', :to => "users#show", constraints: { username: /[A-Za-z]+[A-Za-z0-9\.]*/ }, as: 'user'
   
-  resources :establishments do
-    collection do 
-      get 'map'
-    end
-  end
+  
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

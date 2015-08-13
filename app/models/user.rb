@@ -7,4 +7,8 @@ class User < ActiveRecord::Base
   dragonfly_accessor :avatar
   
   has_many :posts
+  
+  def to_param
+    username
+  end
 end

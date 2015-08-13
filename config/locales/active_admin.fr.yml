@@ -1,2 +1,3 @@
 fr:
-  posts: articles
+  active_admin:
+    posts: articles

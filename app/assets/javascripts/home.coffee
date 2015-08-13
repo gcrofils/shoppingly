@@ -59,5 +59,5 @@ $(document).ready ->
           return
       }
       path:  (page) -> 
-          return "/posts/waterfall.json?locale=" + I18n_locale+ "&page=" + page
+          return "/do/posts/waterfall.json?locale=" + I18n_locale+ "&page=" + page
   });

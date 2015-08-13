@@ -7,16 +7,14 @@ html {
 }
 
 body {
-	font: 80%/150% Georgia, "Times New Roman", Times, serif;
-	background: #fffef1 asset-data-url("body-bg.png");
-	color: #666;
-	-webkit-font-smoothing: antialiased;
-	word-wrap: break-word;
+  background: #fffef1 asset-data-url("body-bg.png");
+  color: #666;
+  -webkit-font-smoothing: antialiased;
+  word-wrap: break-word;
   padding-top: 70px;
 }
 
 @media (max-width: 480px) {
-  
   body {
     padding-top: 60px;
   }
