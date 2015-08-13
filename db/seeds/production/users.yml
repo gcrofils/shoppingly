@@ -1,11 +1,20 @@
 records:
   - sprig_id: 1
     email: 'john@doe.net'
+    username: doe1
     password: 'secret15'
     password_confirmation: 'secret15'
     name: 张铁林
   - sprig_id: 2
     email: 'john2@doe.net'
+    username: john.doe
     password: 'secret15'
     password_confirmation: 'secret15'
     name: 李小牧
+  - sprig_id: 3
+    email: 'gilles@example.net'
+    username: gilles.doe
+    password: 'secret15'
+    password_confirmation: 'secret15'
+    superadmin: true
+    name: Gilles

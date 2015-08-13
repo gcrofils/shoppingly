@@ -11,9 +11,22 @@ records:
     brand_id: "<%= sprig_record(Brand, 3).id %>"
     address: 21 rue de la Paix, 75002 Paris, France
       
-  - sprig_id: 2
+  - sprig_id: 3
     label: Rive Gauche
     establishment_type: Store
     brand_id: "<%= sprig_record(Brand, 3).id %>"
     address: 16 rue de Sèvres, 75007 Paris, France
     
+  - sprig_id: 4
+    label: Le Temple du Slip
+    establishment_type: Store
+    brand_id: "<%= sprig_record(Brand, 1).id %>"
+    address: 137 rue Vieille du Temple, 75003 Paris, France
+    picture_uid: http://www.leslipfrancais.fr/img/cms/Devanture_Boutique.jpg
+    
+  - sprig_id: 5
+    label: Abbesses ton Slip
+    establishment_type: Store
+    brand_id: "<%= sprig_record(Brand, 1).id %>"
+    address: 46 rue des Abbesses, 75018 Paris, France
+    picture_uid: http://www.leslipfrancais.fr/img/cms/devanture_abbesses.JPG

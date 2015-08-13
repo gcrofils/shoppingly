@@ -647,4 +647,29 @@ records:
       {{http://mmbiz.qpic.cn/mmbiz/77N53homBLxOqrDku7UvgCglTuoLkjsypLeFnt16WLrBIpHHNo9S7GC0ficFLQceapyq5sn3nLYojNFYSsHGpJw/0?wx_fmt=jpeg}}
       {{http://mmbiz.qpic.cn/mmbiz/77N53homBLxOqrDku7UvgCglTuoLkjsyTBQ2uibsicfg9dLCqIRWgkrY0HH3dosMkSMRyLDMSibK3jTTxJ4rFxkUQ/0?wx_fmt=jpeg}}
       <p>除了Chanel，其他很多大牌如Dior, Givenchy, Lacroix, Valentino等也是Lemarié的忠实客户。</p>
+
+  - sprig_id: 20
+    title: "Tila March, Figaret"
+    summary: Article concernant Tila March et Figaret
+    user_id: "<%= sprig_record(User, 1).id %>"
+    published_at: 2015-02-20
+    body:       
+      $$http://mmbiz.qpic.cn/mmbiz/77N53homBLxOqrDku7UvgCglTuoLkjsyhnk3hBibpztnzwYkpevmPjU4JCiaIc4c93YfZYthzxicgoiah3YXFeTNiaQ/0?wx_fmt=jpeg$$
+      <p>Tila march, Figaret</p>
+    brand_ids:
+      - "<%= sprig_record(Brand, 3).id %>"
+      - "<%= sprig_record(Brand, 13).id %>"
+      
+  - sprig_id: 21
+    title: "Tila March, Figaret, Smuggler"
+    summary: Article concernant Tila March, Figaret et Smuggler
+    user_id: "<%= sprig_record(User, 1).id %>"
+    published_at: 2015-02-20
+    body:       
+      $$http://mmbiz.qpic.cn/mmbiz/77N53homBLxOqrDku7UvgCglTuoLkjsyhnk3hBibpztnzwYkpevmPjU4JCiaIc4c93YfZYthzxicgoiah3YXFeTNiaQ/0?wx_fmt=jpeg$$
+      <p>Tila march, Figaret, Smuggler</p>
+    brand_ids:
+      - "<%= sprig_record(Brand, 3).id %>"
+      - "<%= sprig_record(Brand, 13).id %>"
+      - "<%= sprig_record(Brand, 26).id %>"
       

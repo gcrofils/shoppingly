@@ -4,7 +4,12 @@ records:
     chinese_name:
     logo_uid: http://www.leslipfrancais.fr/themes/theme_nq/img/logo_header.png
     banner_uid: http://comevents.fr/sites/default/files/uploads/echo_de_la_com/le-slip-francais.jpg
-    description: <p>是的，你没有看错，这个不靠谱的法国品牌就叫“法兰西裤衩”。故事的起源是这样的：2011年，刚刚从培养法国企业家和高管的摇篮－巴黎高商HEC－毕业的纪尧姆－吉博才25岁，他在喝咖啡时跟一个朋友打赌说，只要有精彩的故事和纯正的法国制造，就可打造一个品牌，哪怕是内裤！朋友不信，于是“法兰西裤衩”就这样诞生了。</p>
+    summary: <p>是的，你没有看错，这个不靠谱的法国品牌就叫“法兰西裤衩”。故事的起源是这样的：2011年，刚刚从培养法国企业家和高管的摇篮－巴黎高商HEC－毕业的纪尧姆－吉博才25岁，他在喝咖啡时跟一个朋友打赌说，只要有精彩的故事和纯正的法国制造，就可打造一个品牌，哪怕是内裤！朋友不信，于是“法兰西裤衩”就这样诞生了。</p>
+    description: 
+      <h1>谱的法国品牌就</h1>
+      <p>是的，你没有看错，这个不靠谱的法国品牌就叫“法兰西裤衩”。故事的起源是这样的：2011年，刚刚从培养法国企业家和高管的摇篮－巴黎高商HEC－毕业的纪尧姆－吉博才25岁，他在喝咖啡时跟一个朋友打赌说，只要有精彩的故事和纯正的法国制造，就可打造一个品牌，哪怕是内裤！朋友不信，于是“法兰西裤衩”就这样诞生了。</p>
+      <h1>谱的法国品牌就</h1>
+      <p>是的，你没有看错，这个不靠谱的法国品牌就叫“法兰西裤衩”。故事的起源是这样的：2011年，刚刚从培养法国企业家和高管的摇篮－巴黎高商HEC－毕业的纪尧姆－吉博才25岁，他在喝咖啡时跟一个朋友打赌说，只要有精彩的故事和纯正的法国制造，就可打造一个品牌，哪怕是内裤！朋友不信，于是“法兰西裤衩”就这样诞生了。只要有精彩的故事和纯正的法国制造，就可打造一个品牌，哪怕是内裤！朋友不信，于是“法兰西裤衩”就这样诞生了。 只要有精彩的故事和纯正的法国制造，就可打造一个品牌，哪怕是内裤！朋友不信，于是“法兰西裤衩”就这样诞生了。</p>
     established: 2011
     website: www.leslipfrancais.fr
       
@@ -15,7 +20,7 @@ records:
     banner_uid:
     description:
     established:
-    website: http://www.petrusse.com/
+    website: www.petrusse.com
       
   - sprig_id: 3
     name: Alain Figaret
@@ -24,7 +29,7 @@ records:
     banner_uid:
     description:
     established: 1968
-    website: http://www.figaret.com/
+    website: www.figaret.com
       
   - sprig_id: 4
     name: Hermès
