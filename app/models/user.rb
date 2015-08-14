@@ -10,6 +10,9 @@ class User < ActiveRecord::Base
   
   has_many :posts
   
+  # thumbs_up
+  acts_as_voter
+  
   def to_param
     username
   end

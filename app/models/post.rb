@@ -4,6 +4,9 @@ class Post < ActiveRecord::Base
   belongs_to :user
   has_and_belongs_to_many :brands
   
+  # thumbs_up
+  acts_as_voteable
+  
   def self.find_all_by_brands(brands=[])
     if brands.first.is_a? (Brand)
       Post.includes(:brands).where('brands.id' => brands.collect{|b| b.id})

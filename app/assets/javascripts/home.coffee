@@ -22,6 +22,9 @@ $(document).ready ->
       imagex = $(this)
       $(imagex).removeClass('lazy')
       return
+    $(".pin-social").each (i, el)-> 
+      url = '/do/posts/' + $(el).data('post-id') + '/likes'
+      $(this).load(url)
     return
     
   fill_lazy_container = ->

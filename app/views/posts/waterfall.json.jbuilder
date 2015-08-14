@@ -19,7 +19,6 @@ json.result @posts do |p|
   json.author_name    p.user.name
   
   # social
-  json.likes          rand(15)
   json.views          rand(150)
   
   # post picture

@@ -11,4 +11,28 @@ class PostsController < CrudController
     #@posts = Post.all.sample(3)
   end
   
+  def likes
+    @post = Post.find(params[:id])
+    render :layout => false
+  end
+  
+  def liked
+    @post = Post.find(params[:id])
+    current_user.vote_for(@post)
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.js {render 'likes'}
+    end
+    
+  end
+  
+  def unliked
+    @post = Post.find(params[:id])
+    current_user.unvote_for(@post)
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.js {render 'likes'}
+    end
+  end
+  
 end

@@ -50,14 +50,8 @@
         .pin-summary{itemprop:"articleBody"}
           %p {{summary}}
       
-        %p.pin-social
-          
-          %i.fa.fa-heart-o.likes
-          {{likes}}
+        %p.pin-social{id: 'pin-social-{{post_id}}', data: {'post-id' => "{{post_id}}"}}
 
-      
-      
-      
       
   {{/result}}
 

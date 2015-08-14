@@ -17,6 +17,11 @@ Rails.application.routes.draw do
       collection do 
         get 'waterfall'
       end
+      member do
+        get 'likes'
+        get 'liked'
+        get 'unliked'
+      end
     end
   
     resources :brands

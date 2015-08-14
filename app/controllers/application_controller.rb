@@ -10,11 +10,6 @@ class ApplicationController < ActionController::Base
   # https://github.com/plataformatec/devise#strong-parameters
   before_action :configure_permitted_parameters, if: :devise_controller?
   
-  before_action :debug_stored_location_for
-  
-  def debug_stored_location_for
-    puts "****** stored_location_for(resource) **** #{stored_location_for(:user)}"
-  end
   
   # https://github.com/estum/growlyflash
   #use_growlyflash except: %i[actions without growlyflash]

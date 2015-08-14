@@ -77,7 +77,8 @@ gem 'gmaps4rails'
 # Ckeditor integration gem for rails
 gem 'ckeditor'
 
-
+# Dead-Simple Vote and Karma Management
+gem 'thumbs_up', github: 'bouchard/thumbs_up'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
