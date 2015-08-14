@@ -7,8 +7,6 @@
 #    .data('bootstrap-waterfall-template', $('#waterfall-template').html())
 #    .waterfall();
 
-
-
 $(document).ready ->
   
   onProgress = ( imgLoad, image ) ->
@@ -22,10 +20,12 @@ $(document).ready ->
       imagex = $(this)
       $(imagex).removeClass('lazy')
       return
-    $(".pin-social").each (i, el)-> 
+    return
+    
+  fill_social_block = ->
+    $(".pin-social").each (i, el) -> 
       url = '/do/posts/' + $(el).data('post-id') + '/likes'
       $(this).load(url)
-    return
     
   fill_lazy_container = ->
     $('img.lazy').each (i, el) -> 
@@ -55,6 +55,7 @@ $(document).ready ->
           return template(data)
         loadingFinished: ($loading, isBeyondMaxPage) ->
           if !isBeyondMaxPage then $loading.fadeOut() else $loading.remove()
+          fill_social_block()
           fill_lazy_container()
           
           #console.log ('WILL CALL IMAGES LOADED')
