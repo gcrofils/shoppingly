@@ -5,12 +5,16 @@ class ApplicationController < ActionController::Base
   
   before_action :set_locale, :set_meta
   
-  #before_filter :store_location
-  
-  #before_action :
+  before_filter :store_location, :unless => :devise_controller?
   
   # https://github.com/plataformatec/devise#strong-parameters
   before_action :configure_permitted_parameters, if: :devise_controller?
+  
+  before_action :debug_stored_location_for
+  
+  def debug_stored_location_for
+    puts "****** stored_location_for(resource) **** #{stored_location_for(:user)}"
+  end
   
   # https://github.com/estum/growlyflash
   #use_growlyflash except: %i[actions without growlyflash]
@@ -50,6 +54,10 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:username, :email, :password, :password_confirmation, :remember_me) }
     devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:login, :username, :email, :password, :remember_me) }
     devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:username, :email, :password, :password_confirmation, :current_password) }
+  end
+  
+  def store_location
+    store_location_for(:user, request.url)
   end
     
 end

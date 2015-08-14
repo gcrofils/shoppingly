@@ -1,0 +1,10 @@
+.row
+  .col-md-3.jumbotron
+    %ul
+      %li Mes articles
+      %li Mes itinéraires
+      %li Mes marques
+    = link_to 'logout', destroy_user_session_path, :method => :delete
+    
+  .col-md-9
+    Hello

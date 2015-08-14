@@ -1,7 +1,7 @@
 %nav.navbar.navbar-default.navbar-fixed-top{role: 'navigation'}
   .container-fluid
     .row
-      .col-xs-7
+      .hidden-xs.col-sm-6.col-md-7.col-lg-8
         
         = form_tag("/do/search", method: "get", class: "form-horizontal navbar-form2", role: "search") do
           .form-group
@@ -27,8 +27,8 @@
                   %li b
               
 
-      .col-xs-5
-        = render 'users/navbar.html.haml' unless controller_name.eql?('sessions')
+      .col-xs-12.col-sm-6.col-md-5.col-lg-4
+        = render 'users/nav.html.haml' unless devise_controller?
                 
                 
 

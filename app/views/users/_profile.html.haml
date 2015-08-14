@@ -1,0 +1,5 @@
+.row
+  .col-xs-12
+    %center
+      = image_tag(current_user.avatar.thumb("100x100").url, class: "img-circle")
+      %h1= @user.username

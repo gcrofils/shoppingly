@@ -1,0 +1,26 @@
+- if current_user
+  .btn-group.navbar-btn-group
+    .btn-group.wide
+      = link_to user_path(current_user), class: "btn btn-default avatar", type: "button" do
+        = image_tag(current_user.avatar.thumb("30x30").url, class: "img-circle")
+        = current_user.username
+    .btn-group.visible-xs-block
+      %button.btn.btn-default.dropdown-toggle{type: "button", data: {toggle: "dropdown"}}
+        %i.fa.fa-bars
+        %span.caret
+      %ul.dropdown-menu.pull-right
+        %li a
+        %li b
+    .btn-group
+      %button.btn.btn-primary.dropdown-toggle{type: "button", data: {toggle: "dropdown"}}
+        %i.fa.fa-comment
+        %span.badge 3
+- else
+  = form_for(User.new, url: session_path(:user), html: {class: "form-horizontal form-inline navbar-form2"}) do |f|
+    .form-group
+      .input-group
+        = f.text_field :login, class: "form-control", placeholder: "email or username..."
+      .input-group
+        = f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "password..."
+      = f.submit "log in"
+      

@@ -1,2 +1,5 @@
-%h1= @user.username
-%h2= current_user
+.container
+  - if @user.eql?(current_user)
+    = render 'dashboard'
+  - else
+    = render 'profile'

@@ -20,13 +20,34 @@ body {
   }
 }
 
-.navbar-form2 {
+/************************************************************************************
+NAVBAR
+*************************************************************************************/
+
+.navbar-form2, .navbar-btn-group {
   padding: 10px 0px 0px 10px;
+  width:100%;
 }
 
 .input-group-btn:first-child>.btn {
   margin-right: -2px;
 }
+
+.avatar {
+  padding-top:1px;
+  padding-bottom:1px;
+  width:100%;
+  text-align: left;
+}
+
+.wide {
+  width:60%;
+}
+
+.blue {
+  background: blue;
+}
+
 
 /************************************************************************************
 FLASH
