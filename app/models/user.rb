@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
   
   # thumbs_up
   acts_as_voter
+  acts_as_voteable
   
   def to_param
     username

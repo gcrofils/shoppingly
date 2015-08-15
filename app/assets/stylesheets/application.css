@@ -13,6 +13,7 @@
  *= require bootstrap_and_overrides 
  *= require 'waterfall'
  *= require 'post'
+ *= require 'brand'
  *= require 'sidebar'
  *= require 'style'
  *= require 'maps'

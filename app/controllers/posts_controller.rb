@@ -12,7 +12,7 @@ class PostsController < CrudController
   
   def likes
     @post = Post.find(params[:id])
-    render :partial => 'likes', locals: {post: @post}
+    render :partial => 'likes', locals: {resource: @post}
   end
   
   def liked

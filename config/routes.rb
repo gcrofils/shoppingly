@@ -17,11 +17,6 @@ Rails.application.routes.draw do
       collection do 
         get 'waterfall'
       end
-      member do
-        get 'likes'
-        get 'liked'
-        get 'unliked'
-      end
     end
   
     resources :brands
@@ -31,10 +26,15 @@ Rails.application.routes.draw do
         get 'map'
       end
     end
+    
+     get 'likes/:voteable/:id',          :to => "users#likes"
+     get 'user/liked/:voteable/:id',     :to => "users#liked",    as: 'user_liked'
+     get 'user/unliked/:voteable/:id',   :to => "users#unliked",  as: 'user_unliked'
   
   end
   
-  get ':username', :to => "users#show", constraints: { username: /[A-Za-z]+[A-Za-z0-9\.]*/ }, as: 'user'
+ 
+  get ':username',        :to => "users#show" , constraints: { username: /[A-Za-z]+[A-Za-z0-9\.]*/ }, as: 'user'
   
   
 

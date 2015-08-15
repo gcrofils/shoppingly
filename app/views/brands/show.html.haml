@@ -20,6 +20,8 @@
         %p.summary= @brand.summary
         %p.established= "#{Brand.human_attribute_name("established")}: #{@brand.established}" unless @brand.established.blank?
         %p.website= link_to @brand.website, "http://#{@brand.website}" unless @brand.website.blank?
+        %p.brand-social{id: "#{dom_id(@brand, 'social')}"}
+          = render partial:"users/likes", locals: {resource: @brand}
         
         .clearfix
         

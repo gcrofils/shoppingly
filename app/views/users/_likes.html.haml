@@ -1,0 +1,8 @@
+- if current_user
+  - link = current_user.voted_for?(resource) ? user_unliked_path(voteable: resource.class.name.downcase, id: resource.id) : user_liked_path(voteable: resource.class.name.downcase, id: resource.id)
+  = link_to link, :remote => true do 
+    %i.fa.likes{class: current_user.voted_for?(resource) ? 'fa-heart' : 'fa-heart-o'}
+- else
+  %i.fa.likes.fa-heart-o
+  
+= resource.votes_for

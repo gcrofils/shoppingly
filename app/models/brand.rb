@@ -7,6 +7,9 @@ class Brand < ActiveRecord::Base
   
   before_save :default_chinese_name
   
+  # thumbs_up
+  acts_as_voteable
+  
   # initial data migration
   def download_images
     begin

@@ -24,7 +24,7 @@ $(document).ready ->
     
   fill_social_block = ->
     $(".pin-social").each (i, el) -> 
-      url = '/do/posts/' + $(el).data('post-id') + '/likes'
+      url = '/do/likes/post/' + $(el).data('post-id')
       $(this).load(url)
     
   fill_lazy_container = ->
