@@ -18,7 +18,8 @@ json.result @posts do |p|
   json.author_avatar  p.user.avatar.thumb("30x30").url
   json.author_name    p.user.name
   
-  # social
+  # social 
+  json.pin_social_id  dom_id(p, 'social')
   json.views          rand(150)
   
   # post picture

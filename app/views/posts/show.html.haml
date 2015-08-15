@@ -13,6 +13,9 @@
       .post-inner
         %h1.post-title= @post.title
         = @post.embedded_body.html_safe
+        
+        %p.post-social{id: "#{dom_id(@post, 'social')}"}
+          = render partial:"likes", locals: {post: @post}
 
 .col-xs-12.col-md-4
   %aside{id: 'sidebar'}

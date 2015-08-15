@@ -1,8 +1,0 @@
-- if current_user
-  - link = current_user.voted_for?(@post) ? unliked_post_path(@post) : liked_post_path(@post)
-  = link_to link, :remote => true do 
-    %i.fa.likes{class: current_user.voted_for?(@post) ? 'fa-heart' : 'fa-heart-o'}
-- else
-  %i.fa.likes.fa-heart-o
-  
-= @post.votes_for

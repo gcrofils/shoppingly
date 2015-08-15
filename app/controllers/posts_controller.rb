@@ -5,7 +5,6 @@ class PostsController < CrudController
   self.permitted_attrs = [:title, :body]
   
   def waterfall
-    puts I18n.locale
     page = (params[:page] || 1).to_i
     @posts = Post.limit(3).offset(3 * (page - 1) )
     #@posts = Post.all.sample(3)
@@ -13,26 +12,27 @@ class PostsController < CrudController
   
   def likes
     @post = Post.find(params[:id])
-    render :layout => false
+    render :partial => 'likes', locals: {post: @post}
   end
   
   def liked
-    @post = Post.find(params[:id])
-    current_user.vote_for(@post)
-    respond_to do |format|
-      format.html { redirect_to root_path }
-      format.js {render 'likes'}
-    end
-    
+    vote_unvote true
   end
   
   def unliked
+    vote_unvote false
+  end
+  
+  private
+  
+  def vote_unvote(choice=true)
     @post = Post.find(params[:id])
-    current_user.unvote_for(@post)
+    choice ? current_user.vote_for(@post) : current_user.unvote_for(@post) 
     respond_to do |format|
-      format.html { redirect_to root_path }
+      format.html { redirect_to stored_location_for(:user) }
       format.js {render 'likes'}
     end
+    
   end
   
 end
