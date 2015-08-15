@@ -1,3 +1,6 @@
+= content_for :javascripts do
+  = javascript_include_tag 'profile', 'data-turbolinks-track' => true
+
 .container
   - if @user.eql?(current_user)
     = render 'dashboard'

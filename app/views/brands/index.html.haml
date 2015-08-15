@@ -10,4 +10,7 @@
       .col-md-4
         %ul
           - brands.each do |brand|
-            %li= link_to brand_name(brand), brand_path(brand)
+            %li
+              = link_to brand_name(brand), brand_path(brand)
+              %span{id: "#{dom_id(brand, 'social')}"}
+                = render partial: "users/likes", locals: {resource: brand}

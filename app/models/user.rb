@@ -14,6 +14,18 @@ class User < ActiveRecord::Base
   acts_as_voter
   acts_as_voteable
   
+  def brands
+    Brand.tally.where('votes.voter_id' => id).where('voteable_type = ?', 'Brand')
+  end
+  
+  def posts
+    Post.tally.where('votes.voter_id' => id).where('voteable_type = ?', 'Post')
+  end
+  
+  def itineraries
+    Itinerary.tally.where('votes.voter_id' => id).where('voteable_type = ?', 'Itinerary')
+  end
+  
   def to_param
     username
   end

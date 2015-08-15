@@ -1,10 +1,19 @@
 .row
   .col-md-3.jumbotron
     %ul
-      %li Mes articles
-      %li Mes itinéraires
-      %li Mes marques
+      %li.dashboard{data: {resource: 'posts'}}= link_to 'Mes Articles', '#'
+      %li.dashboard{data: {resource: 'itineraries'}}= link_to 'Mes Itinéraires', '#'
+      %li.dashboard{data: {resource: 'brands'}}= link_to 'Mes marques', '#'
     = link_to 'logout', destroy_user_session_path, :method => :delete
     
   .col-md-9
-    Hello
+    #dashboard
+      Hello
+      = render partial: 'itineraries'
+      
+      
+:coffee
+  $(document).ready ->
+    $('li.dashboard').click ->
+      resource = $(this).data('resource')
+      $('#dashboard').load('/do/users/' + #{current_user.id}+ '/' + resource)

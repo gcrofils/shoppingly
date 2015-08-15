@@ -1,0 +1,7 @@
+%h1 Itineraries I Like
+%ul
+  - itineraries.each do |itinary|
+    %li
+      = link_to itinerary.title, itinerary_path(brand)
+      %span{id: "#{dom_id(itinerary, 'social')}"}
+        = render partial: "users/likes", locals: {resource: itinerary}

@@ -6,6 +6,24 @@ class UsersController < CrudController
     @user = User.find_by_username!(params[:username])
   end
   
+  def brands
+    @user = User.find(params[:id])
+    @brands = @user.brands
+    render :partial => 'users/liked/brands', locals: {brands: @brands}
+  end
+  
+  def posts
+    @user = User.find(params[:id])
+    @posts = @user.posts
+    render :partial => 'users/liked/posts', locals: {posts: @posts}
+  end
+  
+  def itineraries
+    @user = User.find(params[:id])
+    @itineraries = @user.itineraries
+    render :partial => 'users/liked/itineraries', locals: {itineraries: @itineraries}
+  end
+  
   def likes
     resource  = voteable.find(params[:id])
     render :partial => 'likes', locals: {resource: resource}

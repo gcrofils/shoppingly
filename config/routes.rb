@@ -27,14 +27,32 @@ Rails.application.routes.draw do
       end
     end
     
+    resources :itineraries do
+      resources :stops
+    end
+    
      get 'likes/:voteable/:id',          :to => "users#likes"
-     get 'user/liked/:voteable/:id',     :to => "users#liked",    as: 'user_liked'
-     get 'user/unliked/:voteable/:id',   :to => "users#unliked",  as: 'user_unliked'
+     
+     resource :user, :except => [:show] do
+       member do
+         get 'liked/:voteable/:id',     :to => "users#liked",    as: 'liked'
+         get 'unliked/:voteable/:id',   :to => "users#unliked",  as: 'unliked'
+       end
+     end
+     
+     resources :users, :only => [:index] do
+       member do
+         get 'brands'
+         get 'posts'
+         get 'itineraries'
+       end
+     end
   
   end
   
+  get ':username',        :to => "users#show" , constraints: { username: /[A-Za-z]+[A-Za-z0-9\.]*/ }, as: "profile"
  
-  get ':username',        :to => "users#show" , constraints: { username: /[A-Za-z]+[A-Za-z0-9\.]*/ }, as: 'user'
+ 
   
   
 

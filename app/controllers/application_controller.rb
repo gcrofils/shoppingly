@@ -56,7 +56,9 @@ class ApplicationController < ActionController::Base
   end
   
   def dont_store_location
-    devise_controller? || controller_name.eql?('posts') && %[liked unliked likes waterfall].include?(action_name)
+    devise_controller? || 
+    controller_name.eql?('posts') && %[waterfall].include?(action_name) ||
+    controller_name.eql?('users') && %[liked unliked likes brands].include?(action_name)
   end
     
 end

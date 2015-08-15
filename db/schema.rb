@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150814105846) do
+ActiveRecord::Schema.define(version: 20150815083156) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -95,6 +95,15 @@ ActiveRecord::Schema.define(version: 20150814105846) do
     t.datetime "updated_at",         null: false
   end
 
+  create_table "itineraries", force: :cascade do |t|
+    t.string   "title"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "itineraries", ["user_id"], name: "index_itineraries_on_user_id"
+
   create_table "photos", force: :cascade do |t|
     t.string   "image_uid"
     t.string   "title"
@@ -115,6 +124,20 @@ ActiveRecord::Schema.define(version: 20150814105846) do
     t.datetime "updated_at",   null: false
     t.date     "published_at"
   end
+
+  add_index "posts", ["user_id"], name: "index_posts_on_user_id"
+
+  create_table "stops", force: :cascade do |t|
+    t.integer  "itinerary_id"
+    t.integer  "establishment_id"
+    t.integer  "order"
+    t.text     "description"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "stops", ["establishment_id", "itinerary_id"], name: "idx_establishments_itineraries_uniq", unique: true
+  add_index "stops", ["itinerary_id"], name: "index_stops_on_itinerary_id"
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"

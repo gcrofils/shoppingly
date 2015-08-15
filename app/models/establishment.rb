@@ -1,10 +1,13 @@
 class Establishment < ActiveRecord::Base
   belongs_to :brand
+  has_many :itineraries, through: :stops
   geocoded_by :address
   after_validation :geocode, if: Proc.new { |_| _.address.present? && _.address_changed? }
   
   dragonfly_accessor :picture
   dragonfly_accessor :static_map
+  
+  
   
   # initial data migration
   def download_images
