@@ -1,0 +1,14 @@
+%tr.nested-fields.form-group{id: dom_id(f.object)}
+  = f.hidden_field :establishment_id, class: 'establishment_id'
+  = f.hidden_field :order, class: 'order_id', :value => 3
+  %td
+    %p.form-control-static= f.object.order
+  %td
+    %p.form-control-static{id: "brand_name_#{f.options[:child_index]}"}= f.object.establishment.try(:brand).try(:name)
+  %td
+    %p.form-control-static{id: "establishment_label_#{f.options[:child_index]}"}= f.object.establishment.try(:label)
+  %td
+    = f.text_area :description, class: "form-control", rows: 2
+  %td
+    - if f.object.persisted?
+      = f.check_box :_destroy

@@ -1,0 +1,11 @@
+%h1 My Itinerary
+
+= @itinerary.title
+%ul
+  - @itinerary.stops.each do |stop|
+    %li
+      = stop.establishment.try(:brand).try(:name)
+      |
+      = stop.establishment.try(:label)
+      
+= link_to 'edit', edit_itinerary_path(@itinerary)

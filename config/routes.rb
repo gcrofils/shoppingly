@@ -18,14 +18,17 @@ Rails.application.routes.draw do
         get 'waterfall'
       end
     end
+    
+    resource :map, :only => [:none] do
+      member do
+        get 'static'
+        get 'selectable'
+      end
+    end
   
     resources :brands
   
-    resources :establishments do
-      collection do 
-        get 'map'
-      end
-    end
+    resources :establishments
     
     resources :itineraries do
       resources :stops

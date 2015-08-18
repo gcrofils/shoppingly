@@ -2,7 +2,7 @@ class CreateItineraries < ActiveRecord::Migration
   def change
     create_table :itineraries do |t|
       t.string :title
-      t.references :user, :index => true
+      t.references :user, :index => true, :null => false
       t.timestamps null: false
     end
   end

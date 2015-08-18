@@ -1,0 +1,6 @@
+%h1 Initeraries
+%ul
+  - @itineraries.each do |itinerary|
+    %li
+      = itinerary.title
+      = itinerary.user.username

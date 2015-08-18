@@ -40,6 +40,8 @@ gem 'growlyflash'
 gem "therubyracer"
 gem "less-rails"
 gem "twitter-bootstrap-rails"
+gem 'formtastic'
+gem "cocoon" # Dynamic nested forms using jQuery made easy
 
 # A set of responders modules to dry up your Rails 4.2+ app.
 gem 'responders'

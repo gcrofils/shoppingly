@@ -50,4 +50,4 @@
                   
 :coffee
   $(document).ready ->
-    $("#map-container").load("#{map_establishments_path(:ids => @brand.establishments.pluck(:id))}")
+    $("#map-container").load("#{static_map_path(:ids => @brand.establishments.pluck(:id))}")

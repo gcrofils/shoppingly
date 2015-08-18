@@ -1,4 +1,4 @@
-%h1 Créer un itinéraire
+%h1 Modifier un itinéraire
   
 = content_for :javascripts do
   = javascript_include_tag 'itineraries', 'data-turbolinks-track' => true
@@ -8,14 +8,12 @@
 
 .row
   .col-md-6
-    #map-container
-      =image_tag 'spinning.gif'
+    %ul
+      - Establishment.all.each do |e|
+        %li= link_to("#{e.id} #{e.brand.name} #{e.label}", '#', class: 'add_establishment', data: {establishment: {id: e.id, establishment: e.label, brand: e.brand.name}})
+    
   
   .col-md-5
     = render 'form'
-  
-
-
-:coffee
-  $(document).ready ->
-    $("#map-container").load("#{selectable_map_path}")
+    
+    

@@ -1,0 +1,25 @@
+#map
+
+:coffee
+  $(document).ready ->
+    mapurl = "#{static_map_path(format: :json)}"
+    count = #{@establishments.count}
+    $.getJSON( mapurl, {
+        ids: #{@establishments.pluck(:id)}
+      })
+        .done (data) ->
+          handler = Gmaps.build("Google")
+          handler.buildMap
+            provider:
+              disableDefaultUI: false
+              mapMaker: false
+              zoom: 16
+              center: new google.maps.LatLng(#{@establishments.first.latitude}, #{@establishments.first.longitude})
+              styles: [ featureType: "poi.business", stylers: [ { visibility: "off" } ] ]
+            internal:
+              id: "map"
+            , ->
+              markers = handler.addMarkers(data)
+              handler.bounds.extendWith markers
+              if count > 1
+                handler.fitMapToBounds() 
