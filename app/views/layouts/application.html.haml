@@ -43,9 +43,7 @@
     
     #flash= render partial: 'layouts/flash', collection: [:notice, :alert], as: :level
     
-    .container-fluid
-      .row
-        = yield
+    = yield
 
     %footer
       %center

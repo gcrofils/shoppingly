@@ -3,8 +3,9 @@ json.array! @establishments do |e|
   json.lng  e.longitude
   json.establishment do
     json.id             e.id
-    json.establishment  e.label
-    json.brand          e.brand.name
+    json.label          e.label
+    json.brand_name     e.brand.name
+    json.brand_logo     logo_tag(e.brand)
   end
   json.picture do 
     json.url "#{asset_path('maps/pointer.png')}"

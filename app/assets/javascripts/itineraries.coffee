@@ -21,5 +21,5 @@ $(document).ready ->
     debugger
     $('table.stops tr:last').after(template.data('fields').replace(regexp, id))
     $('#itinerary_stops_attributes_' + id + '_establishment_id').val(establishment.id)
-    $('#brand_name_' + id).text(establishment.brand)
-    $('#establishment_label_' + id).text(establishment.establishment)
+    $('#brand_name_' + id).text(establishment.brand_name)
+    $('#establishment_label_' + id).text(establishment.label)

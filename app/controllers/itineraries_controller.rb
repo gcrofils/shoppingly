@@ -5,6 +5,7 @@ class ItinerariesController < ApplicationController
   def new
      @itinerary = Itinerary.new
      @itinerary.user = current_user
+     render 'form'
   end
   
   def show
@@ -19,12 +20,13 @@ class ItinerariesController < ApplicationController
       redirect_to @itinerary
     else
       flash[:alert] = "error"
-      render 'new'
+      render 'form'
     end
   end
   
   def edit
     @itinerary = Itinerary.find(params[:id])
+    render 'form'
   end
   
   def update
@@ -35,7 +37,7 @@ class ItinerariesController < ApplicationController
       redirect_to @itinerary
     else
       flash[:alert] = "error"
-      render 'edit'
+      render 'form'
     end
   end
    
