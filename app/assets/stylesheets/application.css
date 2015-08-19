@@ -17,6 +17,7 @@
  *= require 'sidebar'
  *= require 'style'
  *= require 'maps'
+ *= require 'itineraries'
  *= require_self
  
  */

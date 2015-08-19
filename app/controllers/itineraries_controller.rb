@@ -1,6 +1,10 @@
 class ItinerariesController < ApplicationController
  
   layout "application"
+  
+  def index
+    @itineraries = Itinerary.all
+  end
    
   def new
      @itinerary = Itinerary.new
@@ -15,6 +19,7 @@ class ItinerariesController < ApplicationController
   def create
     @itinerary = Itinerary.new(itinerary_params)
     @itinerary.user = current_user
+    debugger
     if @itinerary.save
       flash[:notice] = "Welcome to the Sample App!"
       redirect_to @itinerary

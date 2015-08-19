@@ -1,0 +1,61 @@
+.stops {
+  
+  font-size: 9px;
+  
+  textarea {
+    font-size: 9px;
+  }
+  
+  p {
+    margin: 0;
+    padding: 0;
+    
+    .brand_name {
+      font-weight: bold;
+    }
+  }
+  
+  .row-stop {
+    margin: 2px 0 2px 0;
+  }
+  
+  .no-padding {
+    padding: 0;
+  }
+  
+  .no-margin {
+    margin: 0;
+  }
+
+  .row-stop:nth-child(even){
+    background-color: #dcdcdc;
+  }
+  .row-stop:nth-child(odd){
+    background-color: #aaaaaa;
+  }
+
+  .middle {
+    vertical-align: middle;
+    display: inline-block;
+    float: none;
+  }
+  
+  .logo {
+    padding: 0 3px 0 5px;
+  }
+  
+  .trash-icon {
+    width: 45px;
+    height: 45px;
+    background: red;
+  }
+}
+
+@media (max-width: 480px) {
+  .stops {
+    textarea {
+      padding: 0px;
+      margin: 2px 0 2px;
+    }
+  }
+}

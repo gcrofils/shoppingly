@@ -20,6 +20,20 @@ body {
   }
 }
 
+.blue {
+  background: #7dc6f5;
+}
+
+.red {
+  background: #fab0b6;
+}
+
+.green {
+  background: #bdfab0;
+}
+
+
+
 /************************************************************************************
 NAVBAR
 *************************************************************************************/
@@ -44,10 +58,6 @@ NAVBAR
   width:60%;
 }
 
-.blue {
-  background: blue;
-}
-
 
 /************************************************************************************
 FLASH
@@ -60,3 +70,5 @@ $growlyflash-side:    20px !default;
 $growlyflash-width:   100px !default;
 $growlyflash-zindex:  9999 !default;
 @import "growlyflash";
+
+

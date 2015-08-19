@@ -14,15 +14,17 @@
         .form-group
           = f.label :title, :class => 'control-label'
           = f.text_field :title, :class => 'form-control', :placeholder => 'title'
-          %h3 stops
-          = f.fields_for :stops do |stop_form|
-            = render 'stop_fields', f: stop_form
-
-        = link_to_add_fields "Add Field", f, :stops
+          
+          .stops
+            %h2 Stops
+          
+            #stops
+              = f.fields_for :stops, include_id: false  do |stop_form|
+                = render 'stop_fields', f: stop_form
   
         - stop_fields_template f, :stops
   
-        = f.submit
+        = f.submit class: 'btn btn-info', value: "#{@itinerary.persisted? ? 'Modifier' : 'Créer'}"
     
     
 :coffee

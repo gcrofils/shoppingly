@@ -4,4 +4,4 @@
     %li= link_to("#{e.id} #{e.brand.name} #{e.label}", '#', class: 'add_establishment', data: { establishment: { id: e.id, label: e.label, brand_name: e.brand.name, brand_logo: logo_tag(e.brand) } })
     
 #map-container
-  =image_tag 'spinning.gif'
+  %i.fa.fa-spinner.fa-pulse
