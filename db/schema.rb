@@ -97,9 +97,10 @@ ActiveRecord::Schema.define(version: 20150815083156) do
 
   create_table "itineraries", force: :cascade do |t|
     t.string   "title"
-    t.integer  "user_id",    null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.text     "description"
+    t.integer  "user_id",     null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   add_index "itineraries", ["user_id"], name: "index_itineraries_on_user_id"
@@ -130,7 +131,7 @@ ActiveRecord::Schema.define(version: 20150815083156) do
   create_table "stops", force: :cascade do |t|
     t.integer  "itinerary_id"
     t.integer  "establishment_id"
-    t.integer  "order"
+    t.integer  "position"
     t.text     "description"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false

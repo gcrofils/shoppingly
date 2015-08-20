@@ -1,0 +1,43 @@
+#map
+
+:coffee
+  $(document).ready ->
+    mapurl = "#{itinerary_map_path(@itinerary, format: :json)}"
+    $.getJSON( mapurl )
+        .done (data) ->
+          calcRoute = ->
+            origin = data[0]
+            destination = data[data.length-1]
+            origin = new google.maps.LatLng(origin.lat, origin.lng)
+            destination = new google.maps.LatLng(destination.lat, destination.lng)
+            waypts = []
+            max = data.length-2
+            if max > 0
+              for i in [1..max]
+                stop = data[i]
+                waypts.push({
+                  location: new google.maps.LatLng(stop.lat, stop.lng),
+                  stopover: true
+                })
+            request =
+              origin: origin
+              destination: destination
+              travelMode: google.maps.TravelMode.WALKING
+              waypoints: waypts
+
+            directionsService.route request, (response, status) ->
+              directionsDisplay.setDirections response  if status is google.maps.DirectionsStatus.OK
+
+          directionsDisplay = new google.maps.DirectionsRenderer({
+            suppressMarkers: true
+          })
+          directionsService = new google.maps.DirectionsService()
+          calcRoute()
+          handler = Gmaps.build("Google")
+          handler.buildMap
+            internal:
+              id: "map"
+          , ->
+            directionsDisplay.setMap handler.getMap()
+            markers = handler.addMarkers(data)
+            handler.bounds.extendWith markers

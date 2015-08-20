@@ -1,11 +1,43 @@
-%h1 My Itinerary
+= render 'javascripts'
 
-= @itinerary.title
-%ul
-  - @itinerary.stops.each do |stop|
-    %li
-      = stop.establishment.try(:brand).try(:name)
-      |
-      = stop.establishment.try(:label)
+.container-fluid.itinerary
+
+  .row
+    .col-xs-12
+      %h1
+        = @itinerary.title
+        
+      %p= @itinerary.description.html_safe
+
+      %p
+        = "updated #{l(@itinerary.updated_at, :format => :short)}"
+        = "by #{@itinerary.user.username}"
+        = link_to edit_itinerary_path(@itinerary) do
+          %i.fa.fa-edit
+
+  .row 
+    .col-xs-12.col-md-6
       
-= link_to 'edit', edit_itinerary_path(@itinerary)
+      - unless @itinerary.stops.blank?
+      
+        %ul.itinerary-stops
+          - @itinerary.stops.each do |stop|
+            %li
+              = render 'brands/namecard', { brand: stop.establishment.brand, responsive: true}
+              .establishment
+                = stop.establishment.try(:label)
+              .stop
+                = stop.description.html_safe
+      
+
+    .col-xs-12.col-md-6
+      #map-container.thumbnail
+        - if @itinerary.stops.blank?
+          Ajouter des étapes pour afficher la carte
+        - else
+          %i.fa.fa-spinner.fa-pulse
+
+- unless @itinerary.stops.blank?
+  :coffee
+    $(document).ready ->
+      $("#map-container").load("#{itinerary_map_path(@itinerary)}")

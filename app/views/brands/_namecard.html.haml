@@ -1,0 +1,11 @@
+.container-fluid.brand
+  .row
+    .col-xs-2.center-block.middle<>
+      = logo_tag brand, :original, {class: local_assigns.has_key?(:responsive) ? 'img-responsive' : nil}
+    .col-xs-10.middle<>
+      %h1.brand-title= brand_name(brand)
+      %p.summary= brand.summary.html_safe unless brand.summary.blank?
+      %p.established= "#{Brand.human_attribute_name("established")}: #{brand.established}" unless brand.established.blank?
+      %p.website= link_to brand.website, "http://#{brand.website}" unless brand.website.blank?
+      %p.brand-social{id: "#{dom_id(brand, 'social')}"}
+        = render partial:"users/likes", locals: {resource: brand}

@@ -12,16 +12,7 @@
           
       .branner-inner
         
-        .pull-left.brand-logo
-          =image_tag @brand.logo ? @brand.logo.thumb('100x100#').url : "http://placehold.it/100x100", 
-          class: "img-responsive"
-        %h1.brand-title= @brand.name
-        %h2= @brand.chinese_name unless @brand.name.eql?(@brand.chinese_name)
-        %p.summary= @brand.summary
-        %p.established= "#{Brand.human_attribute_name("established")}: #{@brand.established}" unless @brand.established.blank?
-        %p.website= link_to @brand.website, "http://#{@brand.website}" unless @brand.website.blank?
-        %p.brand-social{id: "#{dom_id(@brand, 'social')}"}
-          = render partial:"users/likes", locals: {resource: @brand}
+        = render partial: 'namecard', locals: {responsive: true, brand: @brand, toto: 'titi'}
         
         .clearfix
         
@@ -37,7 +28,7 @@
           %ul.establishments
             - establishments.each do |establishment|
               %li.establishment= establishment.label
-          #map-container
+          #map-container.thumbnail
             =image_tag 'spinning.gif'
 
         - unless (posts = @brand.posts).blank?
@@ -45,6 +36,12 @@
           %ul
             - posts.each do |post|
               %li= link_to post.title, post_path(post)
+              
+        - unless (itineraries = @brand.itineraries).blank?
+          %h2= t '.related_itineraries'
+          %ul
+            - itineraries.each do |itinerary|
+              %li= link_to itinerary.title, itinerary_path(itinerary)
 
 
                   

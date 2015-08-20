@@ -3,7 +3,7 @@ class CreateStops < ActiveRecord::Migration
     create_table :stops do |t|
       t.references :itinerary
       t.references :establishment
-      t.integer :order
+      t.integer :position
       t.text :description
 
       t.timestamps null: false

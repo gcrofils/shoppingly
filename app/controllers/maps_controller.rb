@@ -18,6 +18,11 @@ class MapsController < ApplicationController
     end
     render :layout => false
   end
+  
+  def itinerary
+    @itinerary = Itinerary.find(params[:itinerary_id])
+    render :layout => false
+  end
 
 
 end

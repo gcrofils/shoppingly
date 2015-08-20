@@ -19,7 +19,7 @@ class ItinerariesController < ApplicationController
   def create
     @itinerary = Itinerary.new(itinerary_params)
     @itinerary.user = current_user
-    debugger
+    #debugger
     if @itinerary.save
       flash[:notice] = "Welcome to the Sample App!"
       redirect_to @itinerary
@@ -37,6 +37,7 @@ class ItinerariesController < ApplicationController
   def update
     @itinerary = Itinerary.find(params[:id])
     @itinerary.user = current_user
+    #debugger
     if @itinerary.update_attributes(itinerary_params)
       flash[:notice] = "Welcome to the Sample App!"
       redirect_to @itinerary
@@ -49,7 +50,7 @@ class ItinerariesController < ApplicationController
   private
    
   def itinerary_params
-    params.require(:itinerary).permit(:user_id, :title, stops_attributes: [:id, :description, :establishment_id, :itinerary_id, :order, :_destroy])
+    params.require(:itinerary).permit(:user_id, :title, :description, stops_attributes: [:id, :description, :establishment_id, :itinerary_id, :position, :_destroy])
   end
 
  

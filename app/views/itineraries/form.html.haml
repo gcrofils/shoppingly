@@ -14,11 +14,18 @@
         .form-group
           = f.label :title, :class => 'control-label'
           = f.text_field :title, :class => 'form-control', :placeholder => 'title'
+        .form-group
+          = f.label :description, :class => 'control-label'
+          = link_to "#itinerary-description", id: 'collapse-itinerary-description', class: 'collapsed', role: "button", data: {toggle: "collapse"}, aria: {expanded: false, controls: "itinerary-description" } do
+            %i.fa.fa-chevron-circle-up
+            %i.fa.fa-chevron-circle-down
+          #itinerary-description.collapse
+            = f.cktext_area :description, :class => 'form-control', :placeholder => 'Description', rows: 5
           
           .stops
             %h2 Stops
           
-            #stops
+            #stops.sortable
               = f.fields_for :stops, include_id: false  do |stop_form|
                 = render 'stop_fields', f: stop_form
   

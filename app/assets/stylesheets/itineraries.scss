@@ -1,6 +1,42 @@
+#collapse-itinerary-description.collapsed  {
+  
+  .fa-chevron-circle-down {
+    display: inline-block;
+  }
+  
+  .fa-chevron-circle-up {
+    display: none;
+  }
+  
+}
+
+#collapse-itinerary-description {
+  .fa-chevron-circle-down {
+    display: none;
+  }
+}
+
+.itinerary {
+  
+  ul.itinerary-stops {
+    
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+    
+    li {
+      padding: 5px 0 5px;
+      border-bottom: solid 1px black;
+    }
+  }
+  
+}
+
+
 .stops {
   
   font-size: 9px;
+  cursor: move;
   
   textarea {
     font-size: 9px;
@@ -34,11 +70,7 @@
     background-color: #aaaaaa;
   }
 
-  .middle {
-    vertical-align: middle;
-    display: inline-block;
-    float: none;
-  }
+  
   
   .logo {
     padding: 0 3px 0 5px;

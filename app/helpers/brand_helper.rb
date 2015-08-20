@@ -12,7 +12,7 @@ module BrandHelper
   end
   
   
-  def logo_tag(brand, size=:medium)
+  def logo_tag(brand, size=:medium, options={})
     
     brand ||= Brand.new 
     
@@ -25,8 +25,8 @@ module BrandHelper
       height  = 100
     when :original
       if brand.logo
-        width   = brand.logo.image_width
-        height  = brand.logo.image_height
+        width   = brand.logo.width
+        height  = brand.logo.height
       else
         width   = 200
         height  = 200
@@ -37,7 +37,9 @@ module BrandHelper
     
     url = brand.logo ? brand.logo.thumb("#{width}x#{height}#").url : "http://placehold.it/#{width}x#{height}"
     
-    image_tag url, size: "#{width}x#{height}", alt: "#{brand_name brand}", class: "brand-logo"
+    options[:class] ||= '' 
+    options[:class] << " brand-logo img-rounded"
+    image_tag url, alt: "#{brand_name brand}", class: options[:class]
     
   end
 end

@@ -16,6 +16,7 @@ gem 'coffee-rails', '~> 4.1.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -42,6 +43,7 @@ gem "less-rails"
 gem "twitter-bootstrap-rails"
 gem 'formtastic'
 gem "cocoon" # Dynamic nested forms using jQuery made easy
+
 
 # A set of responders modules to dry up your Rails 4.2+ app.
 gem 'responders'

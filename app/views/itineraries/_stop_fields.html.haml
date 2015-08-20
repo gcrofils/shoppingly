@@ -2,7 +2,7 @@
   .col-xs-2.col-md-1.middle.logo.text-center><
     = f.hidden_field :id
     = f.hidden_field :establishment_id
-    = f.hidden_field :order,  value: 3
+    = f.hidden_field :position
     = logo_tag f.object.establishment.try(:brand), :small
   
   .col-xs-8.col-md-11.middle><
@@ -25,6 +25,6 @@
           %i.fa.fa-trash-o
         
   .col-xs-2.visible-xs-inline-block.middle.text-center><
-    %button.btn.btn-danger 
+    = link_to '#', class: 'btn btn-danger remove_stop', role: 'button' do 
       %i.fa.fa-trash-o
       

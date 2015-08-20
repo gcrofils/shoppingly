@@ -10,6 +10,10 @@ class Brand < ActiveRecord::Base
   # thumbs_up
   acts_as_voteable
   
+  def itineraries
+    Itinerary.includes('stops').where('stops.establishment_id' => establishments)
+  end
+  
   # initial data migration
   def download_images
     begin

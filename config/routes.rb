@@ -23,6 +23,7 @@ Rails.application.routes.draw do
       member do
         get 'static'
         get 'selectable'
+        get 'itinerary/:itinerary_id', :to => 'maps#itinerary', as: 'itinerary'
       end
     end
   

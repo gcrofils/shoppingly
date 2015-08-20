@@ -20,6 +20,7 @@
 //= require bootstrap
 //= require home
 //= require growlyflash
+//= require bootbox-v4.4.0.min
 //= require shoppingly
 
   

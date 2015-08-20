@@ -13,12 +13,15 @@ ActiveAdmin::Comment.all.destroy_all
 Photo.all.destroy_all
 
 ### Posts and Users
+Stop.all.destroy_all
+Itinerary.all.destroy_all
 Post.all.destroy_all
 User.all.destroy_all
 Establishment.all.destroy_all
 Brand.all.destroy_all
 
-sprig [User, Post, Brand, Establishment]
+
+sprig [User, Post, Brand, Establishment, Itinerary, Stop]
 
 # add avatar to users
 avatars = %w(uxceo pixeliris jadlimcaco)
