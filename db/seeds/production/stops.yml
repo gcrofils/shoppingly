@@ -1,0 +1,40 @@
+records:
+  - sprig_id: 1
+    position: 1
+    itinerary_id: "<%= sprig_record(Itinerary, 1).id %>"
+    establishment_id: "<%= sprig_record(Establishment, 1).id %>"
+    description: 
+      "{{http://mmbiz.qpic.cn/mmbiz/77N53homBLzfh1AZ9P163yMBwVQUPN48bYpc9UfmzOPtmPJNqEuZbJVl8iclPlnqBHWwsZexK871QFB3EyKfXUQ/0?wx_fmt=jpeg}}
+      <p>16号是有型有格的法国男人钟爱的休闲品牌，Vicomte A。Vicomte A是VicomteArthur的缩写，即亚瑟子爵的意思。他家的设计即经典又反叛，品牌徽记是戴着王冠的字母V和A，充满贵族气息；同时又大胆使用各种鲜艳亮色，如玫瑰红，苹果绿，效果很是惊人，充分演绎了一种另类时尚。由于热衷赞助各种高尚体育赛事，从马球，高尔夫到赛艇赛车，VicomteA成功缔造了一个高端休闲品牌。</p>"
+      
+  - sprig_id: 2
+    position: 2
+    itinerary_id: "<%= sprig_record(Itinerary, 1).id %>"
+    establishment_id: "<%= sprig_record(Establishment, 2).id %>"
+    description: 
+      "{{http://mmbiz.qpic.cn/mmbiz/77N53homBLzfh1AZ9P163yMBwVQUPN48Q54IDGMqMaLSE8iaar9fzNueD9iavoC9awr7OGCdODJMagnXFAQRSETQ/0?wx_fmt=jpeg}}
+      <p>Vicomte A的隔壁就是另类的英国个人护理品牌Lush，他家的香皂，洗发皂和浴液都采用天然原材料，全手工制造。这个品牌不仅以天然环保为己任，还给自己的产品起了各种可爱有趣的名字，比如说：“亲爱的，我给孩子们洗过澡了”是一款蜂蜜香皂，“超级闪”是一款洗头皂，而“法兰西之吻”则是用来洗泡泡浴的！</p>"
+  
+  - sprig_id: 3
+    position: 3
+    itinerary_id: "<%= sprig_record(Itinerary, 1).id %>"
+    establishment_id: "<%= sprig_record(Establishment, 3).id %>"
+    description: 
+      "{{http://mmbiz.qpic.cn/mmbiz/77N53homBLzfh1AZ9P163yMBwVQUPN48IH6zL7w6YKGoYHykVk5icRlVos02zuzccXZWg1YtcD5p6eoPibyMEWEA/0?wx_fmt=jpeg}}
+      <p>Nodus是一个颇具拉丁风情的男士衬衣品牌。大胆使用掐腰修身和印花图案以及对比色，不甘于整日穿中规中矩纯色衬衣的男士不妨看一看。除了衬衣T恤，他家的领带和轻薄围巾也相当有型。</p>"
+      
+  - sprig_id: 4
+    position: 4
+    itinerary_id: "<%= sprig_record(Itinerary, 1).id %>"
+    establishment_id: "<%= sprig_record(Establishment, 4).id %>"
+    description: 
+      "{{http://mmbiz.qpic.cn/mmbiz/77N53homBLzfh1AZ9P163yMBwVQUPN48ribGK1uSibVv4Urd9oem7pHRTicf0Uyfl61ibSIOULvMFruLmIjyZjhiaOQ/0?wx_fmt=jpeg}}
+      <p>对面的Princess Tam Tam大约是法国最畅销的女士内衣品牌，由于性价比合适，从高中女生到职业女性都钟爱他家的产品。在这里既能找到年轻活泼的小清新系列，也有展示成熟魅力的性感款式。除了内衣，他家的泳装系列和家居服也值得一看。</p>"
+      
+  - sprig_id: 5
+    position: 5
+    itinerary_id: "<%= sprig_record(Itinerary, 1).id %>"
+    establishment_id: "<%= sprig_record(Establishment, 5).id %>"
+    description: 
+      "{{http://mmbiz.qpic.cn/mmbiz/77N53homBLzfh1AZ9P163yMBwVQUPN48DzicT5PQvSYFoCzKd4CBgFVMNRa4sLicfM4bk2vmYWFriavWdrgRSsYYg/0?wx_fmt=jpeg}}
+      <p>这是老佛爷自创品牌在巴黎的第二家专卖店，不管你是否喜欢他家的设计，都可以去体验一下老佛爷自家店的感觉。</p>"

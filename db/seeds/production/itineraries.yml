@@ -1,0 +1,13 @@
+records:
+  - sprig_id: 1
+    user_id: "<%= sprig_record(User, 2).id %>"
+    title: "探秘玛黑区：巴黎精品攻略购物路线（二）"
+    description: 
+      "{{http://mmbiz.qpic.cn/mmbiz/77N53homBLz3eWOFDEXLCviaHeFqnh4KWPffM4XEmcM9caStJ7VVdPsJYZhZGTxvbibDRtKdHrD8A2v7vibiaiaGQ0g/0?wx_fmt=jpeg}}
+      <p>玛黑区是指塞纳河右岸，在市政府，巴士底广场和共和国广场之间的这个区域。玛黑区虽然没有特别著名的名胜古迹，却是巴黎的一个旅游热点，据统计，去年该区的Airbnb短租住客居然超过了当地人口，可见游客对这个区的情有独钟。其实玛黑区的魅力就在于它代表了年轻一代的巴黎范儿！这里是艺术家，设计师和时尚潮人的地盘，也是著名的同志酒吧区。众多敢于创新，大胆另类的设计师都首选在这里试水开店，正因为玛黑区是巴黎最充满活力，最富有包容精神的街区。</p>
+      <p>对于游客，这里是发现新晋设计师品牌，体验巴黎人生活方式的最理想地段，一条条纵横交错的小街小巷，无处不暗藏惊喜。</p>
+      <p>今天攻略君就带你逛一逛玛黑区最具特色的一条商业街，rue Vieille du Temple。这条街上既有大家熟悉的国际潮牌，也有很多尚属私密的巴黎本土设计师品牌，好，一起边走边看吧！</p>
+      <p>从地铁Saint-Paul出来，直奔rue Vieille du Temple.</p>
+      {{http://mmbiz.qpic.cn/mmbiz/77N53homBLzfh1AZ9P163yMBwVQUPN482AuzytERrxkrIVf7jaZWKSictLAo0A2hib2gFicibUSS4mG7ZAFgU2Y0CQ/0?wx_fmt=jpeg}}"
+      
+      
