@@ -1,0 +1,4 @@
+%ul.breadcrumb
+  %li= link_to t('shoppingly.home').humanize, root_path
+  %li= link_to Brand.model_name.human(count: 2).humanize, brands_path
+  %li= breadcrumb_brandname(@brand)

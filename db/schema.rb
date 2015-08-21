@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150815083156) do
+ActiveRecord::Schema.define(version: 20150821071238) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -97,6 +97,7 @@ ActiveRecord::Schema.define(version: 20150815083156) do
 
   create_table "itineraries", force: :cascade do |t|
     t.string   "title"
+    t.text     "summary"
     t.text     "description"
     t.integer  "user_id",     null: false
     t.datetime "created_at",  null: false
@@ -114,6 +115,16 @@ ActiveRecord::Schema.define(version: 20150815083156) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
+
+  create_table "pins", force: :cascade do |t|
+    t.integer  "pinnable_id"
+    t.string   "pinnable_type"
+    t.text     "keywords"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "pins", ["pinnable_type", "pinnable_id"], name: "index_pins_on_pinnable_type_and_pinnable_id"
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"

@@ -1,0 +1,46 @@
+%script{id: "post-tpl", type: "text/x-handlebars-template"}
+  
+  %article.pin{itemscope: true, itemtype:"http://schema.org/Article", id:"{{pinnable_id}}"}
+  
+    .pin-wrapper
+      
+      = render 'pins/image'
+
+      .pin-inner
+        
+        .pin-avatar.pull-left
+          %a{href: "{{author_href}}"}
+            %img.img-circle{src: "{{author_avatar}}", width:"30", height:"30"}
+        
+        %h1.pin-title{itemprop:"name"}
+          %a{href: "{{pinnable_href}}"} {{title}}
+    
+        %p
+          %time.pin-date{datetime: "{{datetime}}", itemprop:"datePublished"}
+            {{date}}
+            %em .
+          %span.pin-views
+            %i.fa.fa-eye
+            {{views}}
+      
+        .clearfix
+        
+        %p
+          %span.pin-author
+            {{author_name}}
+            %em .
+          %span.pin-tags
+            %a{href: "#"} 百年老店
+            %em .
+            %a{href: "#"} 奢侈品牌
+            %em .
+            %a{href: "#"} 内衣
+            %em .            
+          %span.pin-comments
+            %i.fa.fa-comment
+            {{comments}}
+      
+        .pin-summary{itemprop:"articleBody"}
+          %p {{summary}}
+      
+        = render 'pins/social'

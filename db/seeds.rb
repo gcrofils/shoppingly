@@ -31,3 +31,19 @@ User.all.each_with_index do |u, i|
   u.save!
 end
 
+#add posts to pin collection
+Post.all.each do |p|
+  Pin.create(pinnable: p, keywords: p.body)
+end
+
+#add brands to pin collection
+Brand.all.each do |b|
+  Pin.create(pinnable: b, keywords: b.description)
+end
+
+#add itineraries to pin collection
+Itinerary.all.each do |i|
+  Pin.create(pinnable: i, keywords: i.description)
+end
+
+

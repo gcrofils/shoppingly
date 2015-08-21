@@ -1,0 +1,26 @@
+article.brand {
+  margin-top: -10px;
+  
+  .brand-wrapper, .brand-banner {
+    position: relative;
+  }
+  
+  .brand-logo {
+    position: absolute;
+    bottom: -20px;
+    left: 20px;
+    width: 20%;
+  }
+  
+  .brand-name {
+    width: 70%;
+    position: absolute;
+    bottom: 0px;
+    left: 27%;
+    color: #ffffff;
+    font-size: 2em;
+    /* font-size: 4vw; */
+    text-shadow: 2px 2px 4px #000000;
+  }
+
+}

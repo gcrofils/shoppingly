@@ -1,21 +1,23 @@
 .container-fluid
   .row
     .col-xs-12.col-md-8
-      %ul.breadcrumb
-        %li= link_to t('shoppingly.home').humanize, root_path
-        %li= link_to Brand.model_name.human(count: 2).humanize, brands_path
-        %li= breadcrumb_brandname(@brand)
       %article.brand{itemscope: true, itemtype:"http://schema.org/Article", id:@brand.id}
         .brand-wrapper
           %figure.brand-banner 
-            =image_tag @brand.banner ? @brand.banner.thumb('1000x300#').url : "http://placehold.it/1000x300",
-            class: "img-responsive"
-          
-          .branner-inner
+            =image_tag @brand.banner ? @brand.banner.thumb('1000x300#').url : "http://placehold.it/1000x300", class: "img-responsive"
+            .brand-logo
+              = logo_tag @brand, :large, {class: 'img-responsive img-thumbnail'}
+            %h1.brand-name= brand_name(@brand)
+            
+          .clearfix
+            
+          .brand-inner
+            
+            %span.brand-social{id: "#{dom_id(@brand, 'social')}"}
+              = render partial:"users/likes", locals: {resource: @brand}
+            
         
-            = render partial: 'namecard', locals: {responsive: true, brand: @brand}
-        
-            .clearfix
+            
         
             %p.description= @brand.description.html_safe unless @brand.description.blank?
         

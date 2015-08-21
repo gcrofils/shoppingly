@@ -3,6 +3,7 @@ class Post < ActiveRecord::Base
   belongs_to :photo
   belongs_to :user
   has_and_belongs_to_many :brands
+  has_one :pin, as: :pinnable
   
   # thumbs_up
   acts_as_voteable

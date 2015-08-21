@@ -4,12 +4,6 @@ class PostsController < CrudController
   
   self.permitted_attrs = [:title, :body]
   
-  def waterfall
-    page = (params[:page] || 1).to_i
-    @posts = Post.limit(3).offset(3 * (page - 1) )
-    #@posts = Post.all.sample(3)
-  end
-  
   def likes
     @post = Post.find(params[:id])
     render :partial => 'likes', locals: {resource: @post}

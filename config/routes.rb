@@ -13,11 +13,7 @@ Rails.application.routes.draw do
   
   scope "/do" do 
   
-    resources :posts do
-      collection do 
-        get 'waterfall'
-      end
-    end
+    resources :posts, :brands, :establishments, :pins
     
     resource :map, :only => [:none] do
       member do
@@ -26,16 +22,12 @@ Rails.application.routes.draw do
         get 'itinerary/:itinerary_id', :to => 'maps#itinerary', as: 'itinerary'
       end
     end
-  
-    resources :brands
-  
-    resources :establishments
     
     resources :itineraries do
       resources :stops
     end
     
-     get 'likes/:voteable/:id',          :to => "users#likes"
+     get 'likes/:voteable/:id',          :to => "users#likes", as: 'user_likes'
      
      resource :user, :except => [:show] do
        member do

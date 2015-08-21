@@ -24,8 +24,7 @@ $(document).ready ->
     
   fill_social_block = ->
     $(".pin-social").each (i, el) -> 
-      url = '/do/likes/post/' + $(el).data('post-id')
-      $(this).load(url)
+      $(this).load($(el).data('url'))
     
   fill_lazy_container = ->
     $('img.lazy').each (i, el) -> 
@@ -50,9 +49,19 @@ $(document).ready ->
       callbacks: {
         renderData: (data, dataType) ->
           $('#container-waterfall').waterfall('pause') if data.total < 1 
-          tpl = $('#waterfall-tpl').html()
-          template = Handlebars.compile(tpl)
-          return template(data)
+          models = ['brand', 'post', 'itinerary']
+          templates = []
+         
+          for model in models
+            tpl = $('#' + model + '-tpl').html()
+            templates[model] = Handlebars.compile(tpl)
+          
+          result = ""
+          for pin in data['pins']
+            template = templates[pin['pinnable_type']]
+            result += template(pin)
+            
+          return result
         loadingFinished: ($loading, isBeyondMaxPage) ->
           if !isBeyondMaxPage then $loading.fadeOut() else $loading.remove()
           fill_social_block()
@@ -63,5 +72,5 @@ $(document).ready ->
           return
       }
       path:  (page) -> 
-          return "/do/posts/waterfall.json?locale=" + I18n_locale+ "&page=" + page
+          return "/do/pins.json?locale=" + I18n_locale+ "&page=" + page
   });

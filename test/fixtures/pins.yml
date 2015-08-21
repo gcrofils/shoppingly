@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pinnable_id: 1
+  pinnable_type: MyString
+  keywords: MyText
+
+two:
+  pinnable_id: 1
+  pinnable_type: MyString
+  keywords: MyText
