@@ -3,3 +3,4 @@
 //= require jquery-ui/sortable
 //= require jquery/jquery.ui.touch-punch.min
 //= require ckeditor/init
+//= require markerclusterer_packed

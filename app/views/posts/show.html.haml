@@ -1,43 +1,44 @@
-
-.col-xs-12.col-md-8
-  %ul.breadcrumb
-    %li= link_to t('shoppingly.home').humanize, root_path
-    %li= @post.title
-  %article.post{itemscope: true, itemtype:"http://schema.org/Article", id: @post.id}
-    .post-wrapper
-      %figure.post-image
-        - if @post.photo
-          =image_tag @post.photo.image.thumb('1000x500#').url, class: "img-responsive"
-        - else
-          =image_tag "http://placehold.it/1000x500", class: "img-responsive"
-      .post-inner
-        %h1.post-title= @post.title
-        = @post.embedded_body.html_safe
+.container-fluid
+  .row
+    .col-xs-12.col-md-8
+      %ul.breadcrumb
+        %li= link_to t('shoppingly.home').humanize, root_path
+        %li= @post.title
+      %article.post{itemscope: true, itemtype:"http://schema.org/Article", id: @post.id}
+        .post-wrapper
+          %figure.post-image
+            - if @post.photo
+              =image_tag @post.photo.image.thumb('1000x500#').url, class: "img-responsive"
+            - else
+              =image_tag "http://placehold.it/1000x500", class: "img-responsive"
+          .post-inner
+            %h1.post-title= @post.title
+            = @post.embedded_body.html_safe
         
-        %p.post-social{id: "#{dom_id(@post, 'social')}"}
-          = render partial:"users/likes", locals: {resource: @post}
+            %p.post-social{id: "#{dom_id(@post, 'social')}"}
+              = render partial:"users/likes", locals: {resource: @post}
 
-.col-xs-12.col-md-4
-  %aside{id: 'sidebar'}
+    .col-xs-12.col-md-4
+      %aside{id: 'sidebar'}
     
-    #most-commented.widget
-      %h4.widgettitle= t('.most_commented')
-      %ul
-        - Post.limit(5).order("RANDOM()").each do |post|
-          %li= link_to post.title, post_path(post)
-    
-    - brands = @post.brands
-    - unless brands.blank?
-      #widget.widget
-        = t('.about_brands')
-        = brands.map{|brand| link_to(brand.name, brand_path(brand)) }.to_sentence.html_safe
-        = t('support.dot')
-          
-        - posts = Post.find_all_by_brands(brands) - [@post]
-        - unless posts.size.eql?(0)
-          %p= t('.other_posts_brands', count: brands.size)
+        #most-commented.widget
+          %h4.widgettitle= t('.most_commented')
           %ul
-            - posts.each do |post|
+            - Post.limit(5).order("RANDOM()").each do |post|
               %li= link_to post.title, post_path(post)
+    
+        - brands = @post.brands
+        - unless brands.blank?
+          #widget.widget
+            = t('.about_brands')
+            = brands.map{|brand| link_to(brand.name, brand_path(brand)) }.to_sentence.html_safe
+            = t('support.dot')
+          
+            - posts = Post.find_all_by_brands(brands) - [@post]
+            - unless posts.size.eql?(0)
+              %p= t('.other_posts_brands', count: brands.size)
+              %ul
+                - posts.each do |post|
+                  %li= link_to post.title, post_path(post)
             
           

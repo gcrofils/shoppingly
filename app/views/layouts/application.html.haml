@@ -48,7 +48,7 @@
     %footer
       %center
         %p
-          &copy; #{@title} #{Time.zone.now.year}
+          =link_to "&copy; #{@title} #{Time.zone.now.year}".html_safe, root_path
   %script
     var I18n_locale="#{I18n.locale}" 
   = yield(:javascripts) if content_for?(:javascripts)

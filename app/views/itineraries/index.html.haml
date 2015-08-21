@@ -1,6 +1,9 @@
-%h1 Initeraries
-%ul
-  - @itineraries.each do |itinerary|
-    %li
-      = itinerary.title
-      = itinerary.user.username
+.container-fluid
+  .row
+    .col-xs-12
+      %h1 Initeraries
+        %ul
+          - @itineraries.each do |itinerary|
+            %li
+              = itinerary.title
+              = itinerary.user.username
