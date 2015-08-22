@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   
   before_action :set_locale, :set_meta
   
-  before_filter :store_location, :unless => :dont_store_location
+  after_action :store_location, :unless => :dont_store_location
   
   # https://github.com/plataformatec/devise#strong-parameters
   before_action :configure_permitted_parameters, if: :devise_controller?
@@ -52,12 +52,14 @@ class ApplicationController < ActionController::Base
   end
   
   def store_location
+    return if dont_store_location
     store_location_for(:user, request.url)
   end
   
   def dont_store_location
+    @dont_store_location ||
     devise_controller? || 
-    controller_name.eql?('posts') && %[waterfall].include?(action_name) ||
+    controller_name.eql?('maps') ||
     controller_name.eql?('users') && %[liked unliked likes brands].include?(action_name)
   end
     

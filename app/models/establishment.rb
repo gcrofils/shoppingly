@@ -4,9 +4,18 @@ class Establishment < ActiveRecord::Base
   geocoded_by :address
   after_validation :geocode, if: Proc.new { |_| _.address.present? && _.address_changed? }
   
+  scope :geocoded, -> { where ('latitude is not null and longitude is not null') }
+  
   dragonfly_accessor :picture
   dragonfly_accessor :static_map
   
+  validates :label  , presence: true, length: { minimum: 5 }
+  validates :address, presence: true
+  
+  
+  def is_geocoded?
+    !longitude.nil? && !latitude.nil?
+  end
   
   
   # initial data migration

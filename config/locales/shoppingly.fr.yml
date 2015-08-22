@@ -27,4 +27,10 @@ fr:
         description: description
         established: fondé
         website: site web
+      establishment:
+        label: Libellé
+        address: Adresse
+    actions:
+      establishment:
+        destroy: "Souhaitez-vous supprimer l'établissement %{label} ?"
           

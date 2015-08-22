@@ -15,34 +15,28 @@
             
             %span.brand-social{id: "#{dom_id(@brand, 'social')}"}
               = render partial:"users/likes", locals: {resource: @brand}
-            
-        
-            
         
             %p.description= @brand.description.html_safe unless @brand.description.blank?
         
-            - unless (establishments = @brand.establishments).blank?
-              = render 'maps/javascripts'
-          
-              %h2= t 'shoppingly.stores', :count => establishments.count
-              %ul.establishments
-                - establishments.each do |establishment|
-                  %li.establishment= establishment.label
-              #map-container.thumbnail
-                =image_tag 'spinning.gif'
-
-            - unless (posts = @brand.posts).blank?
-              %h2= t '.related_posts'
-              %ul
-                - posts.each do |post|
-                  %li= link_to post.title, post_path(post)
+    .col-xs-12.col-md-4
+    
+      %aside{id: 'sidebar'}
+      
+        = render partial: 'brands/widgets/establishments'
+            
+        - unless (posts = @brand.posts).blank?
+          #brand-posts.widget
+            %h2.title= t '.related_posts'
+            %ul.posts
+              - posts.each do |post|
+                %li.post= link_to post.title, post_path(post)
               
-            - unless (itineraries = @brand.itineraries).blank?
-              %h2= t '.related_itineraries'
-              %ul
-                - itineraries.each do |itinerary|
-                  %li= link_to itinerary.title, itinerary_path(itinerary)
-
+        - unless (itineraries = @brand.itineraries).blank?
+          #brand-itineraries.widget
+            %h2.title= t '.related_itineraries'
+            %ul.itineraries
+              - itineraries.each do |itinerary|
+                %li.itinerary= link_to itinerary.title, itinerary_path(itinerary)
 
                   
 :coffee

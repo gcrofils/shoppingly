@@ -1,0 +1,48 @@
+- unless (establishments = @brand.establishments).blank?
+  = render 'maps/javascripts'
+  
+  #brand-stores.widget
+  
+    %h2.title
+      = t 'shoppingly.stores', :count => establishments.count
+      = link_to '#', id: 'add_new_establishment' do
+        %i.fa.fa-plus-circle
+    
+    %ul.establishments
+      - establishments.reject{|e| !e.persisted?}.each do |e|
+        %li.establishment
+          = e.label
+          = link_to edit_establishment_path(e), class: 'edit-establishment' do
+            %i.fa.fa-edit<>
+          = link_to  e, method: :delete, data: {confirm: t('activerecord.actions.establishment.destroy', label: e.label)} do
+            %i.fa.fa-trash-o<>
+          %br
+          %span.address= e.address
+          - unless e.is_geocoded?
+            %i.fa.fa-exclamation-circle
+    
+    #form-new-establishment{data: {title: "New Et"}}
+      = semantic_form_for [@brand, (@establishment.nil? || @establishment.persisted?) ? Establishment.new : @establishment] do |f|
+        = render partial: 'establishments/form_fields', locals: {f: f}
+    
+    - if @establishment && @establishment.persisted?    
+      #form-edit-establishment{data: {title: "Update Et"}}
+        = semantic_form_for @establishment do |f|
+          = render partial: 'establishments/form_fields', locals: {f: f}
+    
+    #map-container.thumbnail
+      =image_tag 'spinning.gif'
+   
+- unless @establishment.nil?  
+  - if @establishment.persisted?
+    :coffee
+      $(document).ready ->
+        bootbox.dialog({
+          title: $('#brand-stores.widget #form-edit-establishment').data('title'),
+          message: $('#brand-stores.widget #form-edit-establishment').html()
+        })
+  - else
+    :coffee
+      $(document).ready ->
+        $('#brand-stores.widget #add_new_establishment').click()
+  

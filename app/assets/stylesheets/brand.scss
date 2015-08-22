@@ -22,5 +22,15 @@ article.brand {
     /* font-size: 4vw; */
     text-shadow: 2px 2px 4px #000000;
   }
+  
+  .brand-inner {
+    padding-top: 20px;
+  }
+  
+  
 
+}
+
+#form-new-establishment, #form-edit-establishment {
+  display: none;
 }

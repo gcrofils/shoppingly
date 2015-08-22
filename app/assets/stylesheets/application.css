@@ -19,6 +19,7 @@
  *= require 'maps'
  *= require 'itineraries'
  *= require jquery-ui/sortable
+ *= require formtastic-bootstrap
  *= require_self
  
  */

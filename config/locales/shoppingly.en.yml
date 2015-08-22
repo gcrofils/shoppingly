@@ -10,3 +10,7 @@ en:
       other_posts_brands:
         one: Other posts about this brand
         other: Other posts about these brands
+  activerecord:
+    actions:
+      establishment:
+        destroy: "Are you sure you want to delete establishment %{label} ?"

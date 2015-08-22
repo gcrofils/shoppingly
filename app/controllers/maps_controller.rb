@@ -3,18 +3,18 @@ class MapsController < ApplicationController
 
   def static
     if (ids = params[:ids])
-      @establishments = Establishment.where(:id => ids)
+      @establishments = Establishment.geocoded.where(:id => ids)
     else
-      @establishments = Establishment.all
+      @establishments = Establishment.geocoded
     end
     render :layout => false
   end
   
   def selectable
     if (ids = params[:ids])
-      @establishments = Establishment.where(:id => ids)
+      @establishments = Establishment.geocoded.where(:id => ids)
     else
-      @establishments = Establishment.all
+      @establishments = Establishment.geocoded
     end
     render :layout => false
   end

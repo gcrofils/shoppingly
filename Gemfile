@@ -41,8 +41,9 @@ gem 'growlyflash'
 gem "therubyracer"
 gem "less-rails"
 gem "twitter-bootstrap-rails"
-gem 'formtastic'
-gem "cocoon" # Dynamic nested forms using jQuery made easy
+#gem 'formtastic'
+gem 'formtastic-bootstrap'
+#gem "cocoon" # Dynamic nested forms using jQuery made easy
 
 
 # A set of responders modules to dry up your Rails 4.2+ app.
@@ -83,6 +84,9 @@ gem 'ckeditor'
 
 # Dead-Simple Vote and Karma Management
 gem 'thumbs_up', github: 'bouchard/thumbs_up'
+
+# slugging and permalink plugins for ActiveRecord.
+gem 'friendly_id', '~> 5.1.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

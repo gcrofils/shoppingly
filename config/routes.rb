@@ -13,7 +13,15 @@ Rails.application.routes.draw do
   
   scope "/do" do 
   
-    resources :posts, :brands, :establishments, :pins
+    resources :posts, :pins
+    
+    resources :brands do
+      resources :establishments, shallow: true
+    end
+    
+    resources :itineraries do
+      resources :stops
+    end
     
     resource :map, :only => [:none] do
       member do
@@ -21,10 +29,6 @@ Rails.application.routes.draw do
         get 'selectable'
         get 'itinerary/:itinerary_id', :to => 'maps#itinerary', as: 'itinerary'
       end
-    end
-    
-    resources :itineraries do
-      resources :stops
     end
     
      get 'likes/:voteable/:id',          :to => "users#likes", as: 'user_likes'
