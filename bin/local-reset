@@ -1,0 +1,28 @@
+#!/usr/bin/env ruby
+
+require 'pathname'
+
+# path to your application root.
+APP_ROOT = Pathname.new File.expand_path('../../',  __FILE__)
+
+Dir.chdir APP_ROOT do
+
+puts "== Reset Database =="
+system "rm db/development.sqlite3"
+
+puts "\n== Reset logs =="
+system "rm log/development.log"
+
+puts "\n== Reset dragonfly directory"
+system "rm -r public/system"
+
+puts "\n== Preparing database =="
+system "bundle exec rake db:migrate"
+
+puts "\n== seeding database =="
+system "bundle exec rake db:seed"
+
+puts "\n== downloading images =="
+system "bundle exec rake db:migrate_seeds"
+
+end

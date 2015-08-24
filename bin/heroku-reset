@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+application = "demo-shoppingly"
+
+puts "== Reset Database =="
+system "heroku pg:reset DATABASE --confirm #{application} -a #{application}"
+
+puts "\n== Preparing database =="
+system "heroku run rake db:migrate -a #{application}"
+
+puts "\n== seeding database =="
+system "heroku run rake db:seed -a #{application}"
+
+puts "\n== downloading images =="
+system "heroku run rake db:migrate_seeds -a #{application}"
