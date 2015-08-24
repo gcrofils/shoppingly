@@ -1,5 +1,5 @@
-source 'https://rubygems.org'
-#source 'https://ruby.taobao.org'
+#source 'https://rubygems.org'
+source 'https://ruby.taobao.org'
 
 ruby '2.1.2'
 
@@ -109,6 +109,11 @@ group :development, :test do
   
   # html2haml
   gem 'html2haml'
+  
+  # guard
+  gem 'guard'
+  gem 'guard-livereload', '~> 2.4', require: false
+  gem "rack-livereload"
   
 end
 

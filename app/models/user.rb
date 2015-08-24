@@ -9,21 +9,30 @@ class User < ActiveRecord::Base
   dragonfly_accessor :avatar
   
   has_many :posts
+  has_many :itineraries
   
   # thumbs_up
   acts_as_voter
   acts_as_voteable
   
-  def brands
-    Brand.tally.where('votes.voter_id' => id).where('voteable_type = ?', 'Brand')
+  def liked_brands
+    Brand.tally.where('votes.voter_id' => id).where('voter_type = ?', 'User').where('voteable_type = ?', 'Brand')
   end
   
-  def posts
-    Post.tally.where('votes.voter_id' => id).where('voteable_type = ?', 'Post')
+  def liked_posts
+    Post.tally.where('votes.voter_id' => id).where('voter_type = ?', 'User').where('voteable_type = ?', 'Post')
   end
   
-  def itineraries
-    Itinerary.tally.where('votes.voter_id' => id).where('voteable_type = ?', 'Itinerary')
+  def liked_itineraries
+    Itinerary.tally.where('votes.voter_id' => id).where('voter_type = ?', 'User').where('voteable_type = ?', 'Itinerary')
+  end
+  
+  def following
+    User.tally.where('votes.voter_id' => id).where('voter_type = ?', 'User').where('voteable_type = ?', 'User')
+  end
+  
+  def followers
+    User.tally.where('votes.voteable_id' => id).where('voter_type = ?', 'User').where('voteable_type = ?', 'User')
   end
   
   def to_param

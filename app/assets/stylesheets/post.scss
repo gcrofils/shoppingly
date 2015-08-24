@@ -44,3 +44,54 @@
     
   }
 }
+
+ul.user-posts {
+
+
+	margin: 0;
+	padding: 0;
+  
+  li {
+    
+  	margin: 0;
+  	padding: 6px 0;
+  	list-style: none;
+  	clear: both;
+  	border-top: solid 1px #ddd;
+    
+    
+    .post-published, .post-title, .post-social, .post-view, .post-edit, .post-destroy {
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    
+    .post-published {
+      width: 12%;
+    }
+    
+    .post-title {
+      width: 72%;
+    }
+    
+    .post-social {
+      width: 4%;
+      text-align: center;
+    }
+    
+    .post-view {
+      width: 4%;
+      text-align: center;
+    }
+    
+    .post-edit {
+      width: 4%;
+      text-align: center;
+    }
+    
+    .post-destroy {
+      width: 4%;
+      text-align: center;
+    }
+  }
+}

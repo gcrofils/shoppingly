@@ -1,0 +1,22 @@
+.base-header-thumbnail {
+  position: absolute;
+  bottom: -20px;
+  left: 20px;
+  width: 20%;
+}
+
+.base-header-title {
+  width: 70%;
+  position: absolute;
+  bottom: 0px;
+  left: 27%;
+  color: #ffffff;
+  font-size: 2em;
+  /* font-size: 4vw; */
+  text-shadow: 2px 2px 4px #000000;
+}
+
+.base-inner {
+  padding: 30px 0;
+  margin: 0 0 20px;
+}

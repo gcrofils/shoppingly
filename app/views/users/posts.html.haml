@@ -1,0 +1,24 @@
+%h1
+  = t('my_posts')
+  = link_to new_post_path do
+    %i.fa.fa-plus
+%ul.user-posts
+  - @posts.each do |p|
+    %li
+      %span.post-published<>
+        = l p.published_at, format: :long
+      %span.post-title<>
+        = p.title
+      %span.post-social{id: "#{dom_id(p, 'social')}"}<>
+        = render partial:"users/likes", locals: {resource: p}
+      %span.post-view<>
+        %i.fa.fa-eye
+        = rand(20)
+      %span.post-edit<>
+        =link_to '#' do
+          %i.fa.fa-edit
+      %span.post-destroy<>
+        =link_to '#' do
+          %i.fa.fa-trash-o
+      
+= link_to new_post_path

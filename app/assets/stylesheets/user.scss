@@ -1,29 +1,25 @@
 @import 'base';
 
-article.brand {
+section.user {
   margin-top: -12px;
   
-  .brand-wrapper, .brand-banner {
+  .user-wrapper, .user-banner {
     position: relative;
   }
   
-  .brand-logo {
+  .user-avatar {
     @extend .base-header-thumbnail;
   }
   
-  .brand-name {
+  .user-name {
     @extend .base-header-title;
   }
   
-  .brand-inner {
+  .user-inner {
     @extend .base-inner;
   }
-  
-  
 
+  h2 {
+    font-size: 1.2em;
+  }
 }
-
-#form-new-establishment, #form-edit-establishment {
-  display: none;
-}
-

@@ -40,4 +40,8 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
   
   config.web_console.whitelisted_ips = '192.168.1.0/16'
+  
+  # Add Rack::LiveReload to the bottom of the middleware stack with the default options.
+  config.middleware.insert_after ActionDispatch::Static, Rack::LiveReload
+    
 end

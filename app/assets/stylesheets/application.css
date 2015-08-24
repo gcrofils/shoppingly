@@ -14,6 +14,7 @@
  *= require 'waterfall'
  *= require 'post'
  *= require 'brand'
+ *= require 'user'
  *= require 'sidebar'
  *= require 'style'
  *= require 'maps'

@@ -1,19 +1,54 @@
-.row
-  .col-md-3.jumbotron
-    %ul
-      %li.dashboard{data: {resource: 'posts'}}= link_to 'Mes Articles', '#'
-      %li.dashboard{data: {resource: 'itineraries'}}= link_to 'Mes Itinéraires', '#'
-      %li.dashboard{data: {resource: 'brands'}}= link_to 'Mes marques', '#'
-    = link_to 'logout', destroy_user_session_path, :method => :delete
+.container-fluid
+  .row
+    .col-xs-12.col-md-8
+      %section.user{itemscope: true, itemprop:"about", itemtype:"http://schema.org/ProfilePage", id:@user.id}
+        .user-wrapper
+          %figure.user-banner 
+            =image_tag "placeholders/1000x300.png", class: "img-responsive"
+            .user-avatar
+              = image_tag @user.avatar.thumb("200x200").url, class: 'img-responsive img-thumbnail'
+            %h1.user-name= @user.name
+          
+          .clearfix
+
+          .row.no-margin.no-padding.user-inner
+
+            .col-md-4
+              #links.widget
+                %h2 Créés par moi
+                %ul
+                  %li.dashboard{data: {resource: 'posts'}}= link_to 'Mes Articles', '#'
+                  %li.dashboard{data: {resource: 'itineraries'}}= link_to 'Mes Itinéraires', '#'
+                
+                %h2 I like....
+                %ul
+                  %li.dashboard{data: {id: @user.id, resource: 'posts'}}= link_to 'Articles', '#'
+                  %li.dashboard{data: {id: @user.id, resource: 'itineraries'}}= link_to 'Itinéraires', '#'
+                  %li.dashboard{data: {id: @user.id, resource: 'brands'}}= link_to 'marques', '#'
+                  
+                %h2 Social
+                %ul
+                  %li.dashboard{data: {id: @user.id, resource: 'followers'}}= link_to 'Followers', '#'
+                  %li.dashboard{data: {id: @user.id, resource: 'following'}}= link_to 'Following', '#'
+                
+                %h2 Autre administration
+                %ul
+                  %li.dashboard{data: {resource: 'brands'}}= link_to 'Marques', '#'
+                  
+                %h2 Autres liens
+                = link_to 'logout', destroy_user_session_path, :method => :delete
     
-  .col-md-9
-    #dashboard
-      Hello
-      = render partial: 'itineraries'
+            .col-md-8
+              #dashboard
+                Hello
+                = render partial: 'itineraries'
       
       
 :coffee
   $(document).ready ->
     $('li.dashboard').click ->
       resource = $(this).data('resource')
-      $('#dashboard').load('/do/users/' + #{current_user.id}+ '/' + resource)
+      if id = $(this).data('id')
+        $('#dashboard').load('/do/users/' + id + '/' + resource)
+      else
+        $('#dashboard').load('/do/user/'+ resource)

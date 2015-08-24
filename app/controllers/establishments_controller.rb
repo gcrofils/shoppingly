@@ -1,7 +1,7 @@
 class EstablishmentsController < ApplicationController
   
   def create
-    @brand = Brand.find(params[:brand_id])
+    @brand = Brand.friendly.find(params[:brand_id])
     @establishment = @brand.establishments.new(establishment_params)
     if @establishment.save
       flash[:notice] = "Establishment created"

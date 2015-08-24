@@ -20,6 +20,8 @@ class CreateBrands < ActiveRecord::Migration
       t.text :description
       t.integer :established
       t.string :website
+      t.integer :created_by
+      t.integer :updated_by
       t.timestamps null: false
     end
     add_index :brands, :slug, unique: true

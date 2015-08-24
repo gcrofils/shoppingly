@@ -37,6 +37,9 @@ Rails.application.routes.draw do
        member do
          get 'liked/:voteable/:id',     :to => "users#liked",    as: 'liked'
          get 'unliked/:voteable/:id',   :to => "users#unliked",  as: 'unliked'
+         get 'brands'
+         get 'posts'
+         get 'itineraries'
        end
      end
      
@@ -45,6 +48,9 @@ Rails.application.routes.draw do
          get 'brands'
          get 'posts'
          get 'itineraries'
+         get 'users'
+         get 'followers'
+         get 'following'
        end
      end
   

@@ -39,11 +39,19 @@ class CreateUsers < ActiveRecord::Migration
 
       t.timestamps null: false
       
-      t.string :avatar_uid
+      t.string  :avatar_uid
+      t.integer :avatar_width
+      t.integer :avatar_height
+      t.integer :avatar_size
       
-      t.string :name
-      t.string :username,           null: false, default: ""
-      t.boolean :superadmin,        null: false, default: false
+      t.string  :banner_uid
+      t.integer :banner_width
+      t.integer :banner_height
+      t.integer :banner_size
+      
+      t.string  :name
+      t.string  :username,            null: false, default: ""
+      t.boolean :superadmin,          null: false, default: false
      
       
     end
