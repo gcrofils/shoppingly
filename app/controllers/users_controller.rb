@@ -64,7 +64,10 @@ class UsersController < CrudController
   
   def vote_unvote(choice=true)
     @ressource = voteable.find(params[:id])
+    begin
     choice ? current_user.vote_for(@ressource) : current_user.unvote_for(@ressource) 
+    rescue
+    end
     respond_to do |format|
       format.html { redirect_to stored_location_for(:user) }
       format.js {render 'likes'}

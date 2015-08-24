@@ -48,6 +48,8 @@ ActiveRecord::Schema.define(version: 20150822051337) do
     t.text     "description"
     t.integer  "established"
     t.string   "website"
+    t.integer  "created_by"
+    t.integer  "updated_by"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
@@ -204,6 +206,13 @@ ActiveRecord::Schema.define(version: 20150822051337) do
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.string   "avatar_uid"
+    t.integer  "avatar_width"
+    t.integer  "avatar_height"
+    t.integer  "avatar_size"
+    t.string   "banner_uid"
+    t.integer  "banner_width"
+    t.integer  "banner_height"
+    t.integer  "banner_size"
     t.string   "name"
     t.string   "username",               default: "",    null: false
     t.boolean  "superadmin",             default: false, null: false

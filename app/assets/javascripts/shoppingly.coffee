@@ -57,7 +57,8 @@ Growlyflash.defaults = $.extend on, Growlyflash.defaults,
 $(document).ready ->
   $(".alert" ).fadeOut(5000)
   
-  $(document).on "touchstart.alert click.alert", ".growlyflash", (e) ->
-    e.stopPropagation()
-    ($ @).alert 'close'
-    off
+  
+$(document).on "touchstart.alert click.alert", ".growlyflash", (e) ->
+  e.stopPropagation()
+  ($ @).alert 'close'
+  off
