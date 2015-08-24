@@ -11,12 +11,31 @@
             
           .clearfix
             
-          .brand-inner
+          
             
-            %span.brand-social{id: "#{dom_id(@brand, 'social')}"}
-              = render partial:"users/likes", locals: {resource: @brand}
-        
-            %p.description= @brand.description.html_safe unless @brand.description.blank?
+          .row.no-margin.no-padding.brand-inner
+            
+            .col-xs-12.col-md-3<>
+              #namecard.widget
+                %p.established= "#{Brand.human_attribute_name("established")}: #{@brand.established}" unless @brand.established.blank?
+                %p.website= link_to @brand.website, "http://#{@brand.website}" unless @brand.website.blank?
+                %span.brand-social{id: "#{dom_id(@brand, 'social')}"}
+                  = render partial:"users/likes", locals: {resource: @brand}
+                
+              #other-brands.widget
+                %h2.title=link_to 'Other Brands', brands_path
+                %ul
+                  - Brand.order('random()').limit(5).each do |b|
+                    %li= link_to brand_name(b), brand_path(b)
+              
+            .col-xs-12.col-md-9<>
+              .description= @brand.description.html_safe unless @brand.description.blank?
+              
+              #pins-container
+              
+              - %w[posts itineraries].each do |p|
+                = render "#{p}/pin"
+              
         
     .col-xs-12.col-md-4
     
@@ -24,21 +43,24 @@
       
         = render partial: 'brands/widgets/establishments'
             
-        - unless (posts = @brand.posts).blank?
-          #brand-posts.widget
-            %h2.title= t '.related_posts'
-            %ul.posts
-              - posts.each do |post|
-                %li.post= link_to post.title, post_path(post)
-              
-        - unless (itineraries = @brand.itineraries).blank?
-          #brand-itineraries.widget
-            %h2.title= t '.related_itineraries'
-            %ul.itineraries
-              - itineraries.each do |itinerary|
-                %li.itinerary= link_to itinerary.title, itinerary_path(itinerary)
+
 
                   
 :coffee
   $(document).ready ->
+    $.get('#{pins_path(brand_id: @brand.id, format: 'json')}', (data)->
+      
+      models = ['post', 'itinerary']
+      templates = []
+     
+      for model in models
+        tpl = $('#' + model + '-tpl').html()
+        templates[model] = Handlebars.compile(tpl)
+      
+      for pin in data['pins']
+        template = templates[pin['pinnable_type']]
+        $('#pins-container').append(template(pin))
+        $('#pins-container').append('<br/><br/>')
+    )
     $("#map-container").load("#{static_map_path(:ids => @brand.establishments.pluck(:id))}")
+    

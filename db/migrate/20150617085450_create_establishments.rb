@@ -2,6 +2,7 @@ class CreateEstablishments < ActiveRecord::Migration
   def change
     create_table :establishments do |t|
       t.string :label
+      t.string :slug
       t.string :address
       t.float :latitude
       t.float :longitude
@@ -17,6 +18,7 @@ class CreateEstablishments < ActiveRecord::Migration
       t.integer :static_map_size
       t.timestamps null: false
     end
+    add_index :establishments, :slug, unique: true
   end
 end
 

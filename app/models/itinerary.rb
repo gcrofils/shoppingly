@@ -1,9 +1,11 @@
 class Itinerary < ActiveRecord::Base
   
-  belongs_to :user
-  has_many :stops
-  has_many :establishments, through: :stops
-  has_many :brands, through: :establishments
+  belongs_to  :user
+  has_many    :stops
+  has_many    :establishments, through: :stops
+  has_many    :brands, through: :establishments
+  has_one     :pin, as: :pinnable
+  
   accepts_nested_attributes_for :stops, allow_destroy: true
   
   validates :user, :presence => true

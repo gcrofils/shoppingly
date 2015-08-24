@@ -14,3 +14,5 @@ en:
     actions:
       establishment:
         destroy: "Are you sure you want to delete establishment %{label} ?"
+        edit: Update this establishment
+        create: Create an establishment

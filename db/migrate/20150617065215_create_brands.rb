@@ -2,6 +2,7 @@ class CreateBrands < ActiveRecord::Migration
   def change
     create_table :brands do |t|
       t.string :name
+      t.string :slug
       t.string :chinese_name
       t.string :logo_uid
       t.integer :logo_width
@@ -21,5 +22,6 @@ class CreateBrands < ActiveRecord::Migration
       t.string :website
       t.timestamps null: false
     end
+    add_index :brands, :slug, unique: true
   end
 end

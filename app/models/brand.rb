@@ -8,11 +8,26 @@ class Brand < ActiveRecord::Base
   
   before_save :default_chinese_name
   
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+  
   # thumbs_up
   acts_as_voteable
   
   def itineraries
     Itinerary.includes('stops').where('stops.establishment_id' => establishments)
+  end
+  
+  # all pins related to this brand
+  def pins
+    pins = []
+    #(Pin.types - [self.class.name]).each do |type|
+    #   send(type.downcase.pluralize.to_sym).each{|p| pins << p.pin}
+    #end
+    %w(itineraries posts).each do |pinnable_type|
+      send(pinnable_type.to_sym).each{|p| pins << p.pin}
+    end
+    pins
   end
   
   # initial data migration

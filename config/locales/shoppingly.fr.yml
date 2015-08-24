@@ -4,6 +4,15 @@ fr:
     store:
       one: boutique
       other: boutiques
+  formtastic:
+    :yes: 'Oui'
+    :no: 'Non'
+    :create: 'Créer %{model}'
+    :update: 'Modifier %{model}'
+    :submit: 'Envoyer %{model}'
+    :cancel: 'Annuler %{model}'
+    :reset: 'Reset %{model}'
+    :required: 'Obligatoire'
   posts:
     show:
       most_commented: Les plus commentés
@@ -33,4 +42,6 @@ fr:
     actions:
       establishment:
         destroy: "Souhaitez-vous supprimer l'établissement %{label} ?"
+        edit: Modifier cet établissement
+        create: Ajouter un établissement
           

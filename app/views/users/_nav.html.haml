@@ -2,8 +2,8 @@
   .btn-group.navbar-btn-group
     .btn-group.wide
       = link_to profile_path(current_user), class: "btn btn-default avatar", type: "button" do
-        = image_tag(current_user.avatar.thumb("30x30").url, class: "img-circle")
-        = current_user.username
+        = image_tag(current_user.avatar.thumb("28x28").url, class: "img-circle")
+        %span= current_user.username
     .btn-group.visible-xs-block
       %button.btn.btn-default.dropdown-toggle{type: "button", data: {toggle: "dropdown"}}
         %i.fa.fa-bars

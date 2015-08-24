@@ -8,7 +8,7 @@ $(document).on 'click', '#brand-stores.widget #add_new_establishment', (event) -
 $(document).on 'click', '#brand-stores.widget .edit-establishment', (event) ->
   $.get($(this).attr("href"), (data) ->
     bootbox.dialog({
-      title: 'edit',
+      title: $(this).data('title'),
       message: data
     })
   )
