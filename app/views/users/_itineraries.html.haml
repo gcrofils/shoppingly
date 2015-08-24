@@ -1,1 +1,25 @@
-= link_to 'nouvel itinéraire', new_itinerary_path
+%h1
+  = t('my_itineraries')
+  = link_to new_itinerary_path do
+    %i.fa.fa-plus
+- unless itineraries.blank?
+  %ul.user-itineraries
+    - itineraries.each do |i|
+      %li
+        %span.itinerary-published<>
+          = l i.updated_at, format: :long
+        %span.itinerary-title<>
+          = i.title
+        %span.itinerary-social{id: "#{dom_id(i, 'social')}"}<>
+          = render partial:"users/likes", locals: {resource: i}
+        %span.itinerary-view<>
+          %i.fa.fa-eye
+          = rand(20)
+        %span.itinerary-edit<>
+          =link_to edit_itinerary_path(i) do
+            %i.fa.fa-edit
+        %span.itinerary-destroy<>
+          =link_to p, method: :delete, data: {confirm: t('activerecord.actions.establishment.destroy', label: i.title)} do
+            %i.fa.fa-trash-o
+      
+

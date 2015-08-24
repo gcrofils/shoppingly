@@ -8,6 +8,16 @@ class Post < ActiveRecord::Base
   # thumbs_up
   acts_as_voteable
   
+  # friendlyId
+  #extend FriendlyId
+  #friendly_id :title, use: :slugged
+  
+  # validations
+  validates :title,   presence: true
+  validates :body   , presence: true
+  validates :summary, presence: true
+  
+  
   def self.find_all_by_brands(brands=[])
     if brands.first.is_a? (Brand)
       Post.includes(:brands).where('brands.id' => brands.collect{|b| b.id})

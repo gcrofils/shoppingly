@@ -16,6 +16,9 @@ system "rm log/development.log"
 puts "\n== Reset dragonfly directory"
 system "rm -r public/system"
 
+puts "\n== Reset Assets"
+system "bundle exec rake assets:clean"
+
 puts "\n== Preparing database =="
 system "bundle exec rake db:migrate"
 

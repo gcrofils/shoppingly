@@ -6,6 +6,24 @@ class UsersController < CrudController
     @user = User.find_by_username!(params[:username])
   end
   
+  def posts
+    if user = User.find_by_id(params[:id])
+      render :partial => 'users/liked/posts', locals: {posts: user.liked_posts}
+    else
+      render :partial => 'users/posts', locals: {posts: current_user.posts}
+    end
+  end
+  
+  def itineraries
+    if user = User.find_by_id(params[:id])
+      render :partial => 'users/liked/itineraries', locals: {itineraries: user.liked_itineraries}
+    else
+      render :partial => 'users/itineraries', locals: {itineraries: current_user.itineraries}
+    end
+  end
+  
+  
+  
   def brands
     if @user = User.find_by_id(params[:id])
       @brands = @user.liked_brands
@@ -16,25 +34,7 @@ class UsersController < CrudController
     end
   end
   
-  def posts
-    if @user = User.find_by_id(params[:id])
-      @posts = @user.liked_posts
-      render :partial => 'users/liked/posts', locals: {posts: @posts}
-    else
-      @user   = current_user
-      @posts  = @user.posts
-    end
-  end
-  
-  def itineraries
-    if @user = User.find_by_id(params[:id])
-      @itineraries = @user.liked_itineraries
-      render :partial => 'users/liked/itineraries', locals: {itineraries: @itineraries}
-    else
-      @user         = current_user
-      @itineraries  = @user.itineraries
-    end
-  end
+
   
   def following
     @user = User.find(params[:id])
@@ -45,6 +45,7 @@ class UsersController < CrudController
   def followers
     @user = User.find(params[:id])
     @users = @user.followers
+    
   end
   
   def likes

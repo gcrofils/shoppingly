@@ -1,0 +1,25 @@
+%h1
+  = t('my_posts')
+  = link_to new_post_path, :remote => true do
+    %i.fa.fa-plus
+- unless posts.blank?
+  %ul.user-posts
+    - posts.each do |p|
+      %li
+        %span.post-published<>
+          = l(p.published_at, format: :long) unless p.published_at.nil?
+        %span.post-title<>
+          = link_to p.title, p
+        %span.post-social{id: "#{dom_id(p, 'social')}"}<>
+          = render partial:"users/likes", locals: {resource: p}
+        %span.post-view<>
+          %i.fa.fa-eye
+          = rand(20)
+        %span.post-edit<>
+          =link_to edit_post_path(p), :remote => true do
+            %i.fa.fa-edit
+        %span.post-destroy<>
+          =link_to p, :remote => true, method: :delete, data: {confirm: t('activerecord.actions.establishment.destroy', label: p.title)} do
+            %i.fa.fa-trash-o
+      
+

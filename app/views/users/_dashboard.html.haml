@@ -41,7 +41,8 @@
             .col-md-8
               #dashboard
                 Hello
-                = render partial: 'itineraries'
+                - @itineraries = @user.itineraries
+                = render partial: 'itineraries', locals: {itineraries: @itineraries}
       
       
 :coffee
