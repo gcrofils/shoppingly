@@ -1,0 +1,40 @@
+!!! 5
+
+%html
+  = render 'layouts/head'
+
+  %body
+  
+    = render 'layouts/nav'
+    
+    #flash= render partial: 'layouts/flash', collection: [:notice, :alert], as: :level
+    
+    .container-fluid
+      .row
+        .col-xs-12.col-md-8
+          %section.user{itemscope: true, itemprop:"about", itemtype:"http://schema.org/ProfilePage", id:current_user.id}
+            .user-wrapper
+              %figure.user-banner 
+                =image_tag "placeholders/1000x300.png", class: "img-responsive"
+                .user-avatar
+                  = image_tag current_user.avatar.thumb("200x200").url, class: 'img-responsive img-thumbnail'
+                %h1.user-name= current_user.name
+          
+              .clearfix
+
+              .row.no-margin.no-padding.user-inner
+
+                .col-md-3
+                  = render 'users/menu'
+    
+                .col-md-9
+                  #contents-container
+                    = yield
+
+    %footer
+      %center
+        %p
+          =link_to "&copy; #{@title} #{Time.zone.now.year}".html_safe, root_path
+  %script
+    var I18n_locale="#{I18n.locale}" 
+  = yield(:javascripts) if content_for?(:javascripts)

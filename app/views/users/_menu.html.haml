@@ -1,0 +1,33 @@
+#links.widget
+  %h2 Créés par moi
+  %ul
+    %li.dashboard= link_to 'Mes Articles', posts_user_path, remote: true
+    %li.dashboard{data: {resource: 'itineraries'}}= link_to 'Mes Itinéraires', '#'
+  
+  %h2 I like....
+  %ul
+    %li.dashboard{data: {id: current_user.id, resource: 'posts'}}= link_to 'Articles', '#'
+    %li.dashboard{data: {id: current_user.id, resource: 'itineraries'}}= link_to 'Itinéraires', '#'
+    %li.dashboard{data: {id: current_user.id, resource: 'brands'}}= link_to 'marques', '#'
+    
+  %h2 Social
+  %ul
+    %li.dashboard{data: {id: current_user.id, resource: 'followers'}}= link_to 'Followers', '#'
+    %li.dashboard{data: {id: current_user.id, resource: 'following'}}= link_to 'Following', '#'
+  
+  %h2 Autre administration
+  %ul
+    %li.dashboard{data: {resource: 'brands'}}= link_to 'Marques', '#'
+    
+  %h2 Autres liens
+  = link_to 'logout', destroy_user_session_path, :method => :delete
+  
+  
+:coffee
+  $(document).ready ->
+    $('li.dashboard').click ->
+      resource = $(this).data('resource')
+      if id = $(this).data('id')
+        $('#contents-container').load('/do/users/' + id + '/' + resource)
+      else
+        $('#contents-container').load('/do/user/'+ resource)

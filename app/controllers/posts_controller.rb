@@ -17,14 +17,17 @@ class PostsController < ApplicationController
   
   def new
     @post = Post.new
-    respond_to :js
+    respond_to do |format|
+      format.js
+      format.html { render layout: 'user'}
+    end
   end
   
   def create
     @post = Post.new(post_params)
     @post.user = current_user
     if @post.save
-      flash[:notice] = "Post updated"
+      flash[:notice] = "Post created"
       @posts = current_user.posts
       render 'users/posts'
     else
@@ -40,7 +43,6 @@ class PostsController < ApplicationController
   
   def edit
     @post = Post.find(params[:id])
-    respond_to :js
   end
   
   def update

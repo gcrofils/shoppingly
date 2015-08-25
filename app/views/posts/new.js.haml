@@ -1,1 +1,2 @@
-$("#dashboard").html("#{escape_javascript render(partial: 'form', locals: {post: @post})}");
+history.pushState(null, "", "#{new_post_path}")
+$("#contents-container").html("#{escape_javascript render(partial: 'form', locals: {post: @post})}");

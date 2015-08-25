@@ -4,13 +4,21 @@ class UsersController < CrudController
    
   def show
     @user = User.find_by_username!(params[:username])
+    if @user.eql?(current_user)
+      render 'dashboard', layout: 'user'
+    end
   end
   
   def posts
     if user = User.find_by_id(params[:id])
-      render :partial => 'users/liked/posts', locals: {posts: user.liked_posts}
+      @posts = user.liked_posts
+      render 'users/liked/posts'
     else
-      render :partial => 'users/posts', locals: {posts: current_user.posts}
+      @posts = current_user.posts
+      respond_to do |format|
+        format.js
+        format.html { render layout: 'user'}
+      end
     end
   end
   
