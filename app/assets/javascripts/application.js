@@ -23,5 +23,6 @@
 //= require bootbox-v4.4.0.min
 //= require shoppingly
 //= require brands
+//= require ckeditor/init
 
   

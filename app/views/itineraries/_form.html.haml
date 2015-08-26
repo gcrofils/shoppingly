@@ -11,7 +11,7 @@
       = render 'map'
     
     .col-md-6
-      = form_for @itinerary do |f|
+      = form_for @itinerary, remote: true do |f|
         .form-group
           = f.label :title, :class => 'control-label'
           = f.text_field :title, :class => 'form-control', :placeholder => 'title'

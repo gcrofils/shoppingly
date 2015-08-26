@@ -1,0 +1,20 @@
+!!! 5
+
+%html
+  = render 'layouts/head'
+
+  %body
+  
+    = render 'layouts/nav'
+    
+    #flash= render partial: 'layouts/flash', collection: [:notice, :alert], as: :level
+    
+    = yield
+
+    %footer
+      %center
+        %p
+          =link_to "&copy; #{@title} #{Time.zone.now.year}".html_safe, root_path
+  %script
+    var I18n_locale="#{I18n.locale}" 
+  = yield(:javascripts) if content_for?(:javascripts)

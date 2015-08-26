@@ -43,6 +43,10 @@ class PostsController < ApplicationController
   
   def edit
     @post = Post.find(params[:id])
+    respond_to do |format|
+      format.js
+      format.html { render layout: 'user'}
+    end
   end
   
   def update

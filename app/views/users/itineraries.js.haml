@@ -1,0 +1,2 @@
+history.pushState(null, "", "#{itineraries_user_path}")
+$("#contents-container").html("#{escape_javascript render(partial: 'itineraries', locals: {itineraries: @itineraries})}");

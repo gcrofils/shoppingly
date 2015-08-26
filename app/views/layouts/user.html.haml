@@ -11,10 +11,10 @@
     
     .container-fluid
       .row
-        .col-xs-12.col-md-8
+        .col-xs-12.col-md-9.col-lg-10
           %section.user{itemscope: true, itemprop:"about", itemtype:"http://schema.org/ProfilePage", id:current_user.id}
             .user-wrapper
-              %figure.user-banner 
+              %figure.user-banner.blue 
                 =image_tag "placeholders/1000x300.png", class: "img-responsive"
                 .user-avatar
                   = image_tag current_user.avatar.thumb("200x200").url, class: 'img-responsive img-thumbnail'
@@ -22,14 +22,12 @@
           
               .clearfix
 
-              .row.no-margin.no-padding.user-inner
-
-                .col-md-3
-                  = render 'users/menu'
-    
-                .col-md-9
-                  #contents-container
-                    = yield
+              .user-inner
+                #contents-container
+                  = yield
+                    
+        .col-xs-12.col-md-3.col-lg-2
+          = render 'users/menu'
 
     %footer
       %center

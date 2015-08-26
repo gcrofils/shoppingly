@@ -24,9 +24,14 @@ class UsersController < CrudController
   
   def itineraries
     if user = User.find_by_id(params[:id])
-      render :partial => 'users/liked/itineraries', locals: {itineraries: user.liked_itineraries}
+      @itineraries = user.liked_itineraries
+      render 'users/liked/itineraries'
     else
-      render :partial => 'users/itineraries', locals: {itineraries: current_user.itineraries}
+      @itineraries = current_user.itineraries
+      respond_to do |format|
+        format.js
+        format.html { render layout: 'user'}
+      end
     end
   end
   

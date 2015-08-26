@@ -9,7 +9,10 @@ class ItinerariesController < ApplicationController
   def new
      @itinerary = Itinerary.new
      @itinerary.user = current_user
-     render 'form'
+     respond_to do |format|
+       format.js
+       format.html { render layout: 'user'}
+     end
   end
   
   def show
@@ -19,13 +22,13 @@ class ItinerariesController < ApplicationController
   def create
     @itinerary = Itinerary.new(itinerary_params)
     @itinerary.user = current_user
-    #debugger
     if @itinerary.save
-      flash[:notice] = "Welcome to the Sample App!"
-      redirect_to @itinerary
+      flash[:notice] = "Itinerary #{@itinerary.title} created!"
+      @itineraries = current_user.itineraries
+      render 'users/itineraries'
     else
-      flash[:alert] = "error"
-      render 'form'
+      flash[:alert] = "error create itinerary"
+      render 'new'
     end
   end
   
