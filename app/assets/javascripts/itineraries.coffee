@@ -1,5 +1,6 @@
 $(document).on 'click', 'form .remove_stop', (event) ->
   node_to_delete = $(this).closest('.row-stop')
+  debugger
   if $(this).hasClass('dynamic')
     node_to_delete.remove()
   else
@@ -22,6 +23,7 @@ $(document).ready ->
   window.update_stop_positions = ->
     $("#stops").find("[id$='position']").each (index)->
       $(this).val(index)
+    
   
   window.add_stop = (establishment) ->
     establishment_ids = $("#stops").find("[id$='establishment_id']").not(".destroyed").map -> 
@@ -34,10 +36,17 @@ $(document).ready ->
       regexp = new RegExp(template.data('id'), 'g')
       $('#stops').append(template.data('fields').replace(regexp, id).replace('new_stop', 'stop_' + id))
       $('#stop_' + id).find('a.remove_stop').addClass('dynamic')
+      $('#stop_' + id).find('.img-brand-logo').replaceWith(establishment.brand_logo)
       $('#itinerary_stops_attributes_' + id + '_establishment_id').val(establishment.id)
+      $('#itinerary_stops_attributes_' + id + '_establishment_id').attr('establishment-id', establishment.id)
       $('#brand_name_' + id).text(establishment.brand_name)
       $('#establishment_label_' + id).text(establishment.label) 
       update_stop_positions()   
+  
+  window.remove_stop = (establishment) ->
+    node_to_delete = $("[establishment-id=" +  establishment.id + "]").closest('.row-stop')
+    node_to_delete.remove()
+  
   
   $( ".sortable" ).sortable(
     axis: 'y'

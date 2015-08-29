@@ -1,0 +1,6 @@
+%h1 New Itinerary
+= form_for @itinerary, method: :put, url: wizard_path do |f|
+  = f.hidden_field :user_id
+  %jumbotron
+    Voilà vous allez crééer un itineraire
+  = f.submit 'next step'

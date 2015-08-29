@@ -8,8 +8,19 @@ class Itinerary < ActiveRecord::Base
   
   accepts_nested_attributes_for :stops, allow_destroy: true
   
-  validates :user, :presence => true
-  validates :title, :presence => true
+  # multistep build
+  cattr_accessor :form_steps do
+    %w(intro init map stops)
+  end  
+  attr_accessor :form_step
+  
+  validates :user, :presence => true, if: -> { required_for_step?(:intro) }
+  
+  with_options if: -> { required_for_step?(:init) } do |step|
+    step.validates :title, presence: true
+    step.validates :description, presence: true
+  end
+  
   
   # thumbs_up
   acts_as_voteable
@@ -31,6 +42,16 @@ class Itinerary < ActiveRecord::Base
       puts "#{title} has not been updated"
       puts e.message
     end
+  end
+  
+  private
+  
+  def required_for_step?(step)
+    # All fields are required if no form step is present
+    return true if form_step.nil?
+    # All fields from previous steps are required if the
+    # step parameter appears before or we are on the current step
+    return true if self.form_steps.index(step.to_s) <= self.form_steps.index(form_step)
   end
   
 end

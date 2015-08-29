@@ -20,16 +20,18 @@ class ItinerariesController < ApplicationController
   end
   
   def create
-    @itinerary = Itinerary.new(itinerary_params)
+    @itinerary = Itinerary.new
     @itinerary.user = current_user
-    if @itinerary.save
-      flash[:notice] = "Itinerary #{@itinerary.title} created!"
-      @itineraries = current_user.itineraries
-      render 'users/itineraries'
-    else
-      flash[:alert] = "error create itinerary"
-      render 'new'
-    end
+    @itinerary.save(validate: false)
+    redirect_to itinerary_build_path(@itinerary, Itinerary.form_steps.first)
+    # if @itinerary.save
+    #   flash[:notice] = "Itinerary #{@itinerary.title} created!"
+    #   @itineraries = current_user.itineraries
+    #   render 'users/itineraries'
+    # else
+    #   flash[:alert] = "error create itinerary"
+    #   render 'new'
+    # end
   end
   
   def edit

@@ -3,6 +3,7 @@ class Establishment < ActiveRecord::Base
   has_many :itineraries, through: :stops
   geocoded_by :address
   after_validation :geocode, if: Proc.new { |_| _.address.present? && _.address_changed? }
+  dragonfly_accessor :picture
   
   scope :geocoded, -> { where ('latitude is not null and longitude is not null') }
   
@@ -15,6 +16,14 @@ class Establishment < ActiveRecord::Base
   
   def is_geocoded?
     !longitude.nil? && !latitude.nil?
+  end
+  
+  # Seed Banner and Logo
+  def generate_placeholders
+    if picture_uid.nil?
+      self.picture_uid = "http://lorempixel.com/600/400/city/"
+    end
+    self.save
   end
   
   

@@ -30,6 +30,18 @@ class Brand < ActiveRecord::Base
     pins
   end
   
+  # Seed Banner and Logo
+  def generate_placeholders
+    if banner_uid.nil?
+      self.banner_uid = "http://lorempixel.com/1000/300/fashion/"
+    end
+    if logo_uid.nil?
+      self.logo_uid = "http://lorempixel.com/200/200/abstract/"
+    end
+    self.save
+  end
+  
+  
   # initial data migration
   def download_images
     begin
@@ -38,14 +50,11 @@ class Brand < ActiveRecord::Base
         image = Dragonfly.app.fetch_url(banner_uid)
         self.banner = image
       end
-      
       # logo
       if logo_uid && logo_uid.start_with?("http")
         image = Dragonfly.app.fetch_url(logo_uid)
         self.logo = image
       end
-      
-      
       self.save
     rescue Exception => e
       puts "#{name} has not been updated"

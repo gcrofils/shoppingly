@@ -8,6 +8,11 @@ default: &default
   adapter: sqlite3
   pool: 5
   timeout: 5000
+  
+# development:
+#   adapter: postgresql
+#   database: [YOUR_DATABASE_NAME]
+#   host: localhost
 
 development:
   <<: *default

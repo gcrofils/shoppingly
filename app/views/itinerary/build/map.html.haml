@@ -1,0 +1,28 @@
+= render partial: 'maps/javascripts', locals: { librairies: ['itineraries']}
+
+
+
+%h1 New Itinerary
+
+#map-container.thumbnail
+  %i.fa.fa-spinner.fa-pulse
+
+= semantic_form_for @itinerary, method: :put, url: wizard_path do |f|
+  .stops
+    %h2 Stops
+
+    #stops.sortable
+      = f.fields_for :stops, include_id: false  do |stop_form|
+        = render 'itineraries/stop_fields', f: stop_form
+  
+  - stop_fields_template f, :stops
+  
+  = f.submit 'next step'
+
+#establishments-around
+
+
+
+:coffee
+  $(document).ready ->
+    $("#map-container").load("#{geolocalised_map_path}")

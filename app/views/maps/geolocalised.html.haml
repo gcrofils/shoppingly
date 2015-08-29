@@ -1,0 +1,104 @@
+#map
+
+:coffee
+
+  $(document).ready ->
+    
+    markers = []
+    establishmentids = []
+    Shoppingly.handler = Gmaps.build("Google")
+    
+    window.myMarker = (lat, lng, establishment, url) ->
+      {
+        lat: lat
+        lng: lng
+        establishment: establishment
+        picture: {
+          url: url
+          width: 42
+          height: 42
+          }
+      }
+    
+    
+    
+    window.placeMarkerAndPanTo = (latLng, map) ->
+      
+      Shoppingly.handler.removeMarkers($.grep(markers, (marker) ->
+          return $.inArray(marker.serviceObject.establishment.id, establishmentids) < 0
+        ))
+      mapurl = "#{near_map_path(format: :json)}"
+      $.getJSON( mapurl, {
+          latitude: latLng.k
+          longitude: latLng.D
+          e: establishmentids
+        })
+          .done (data) ->
+            
+            for m in data 
+              marker = Shoppingly.handler.addMarker(m)
+              marker.serviceObject.set "establishment", m.establishment
+              marker.serviceObject.set "selected", false
+              markers.push(marker)
+              mkr = marker.getServiceObject()
+              google.maps.event.addListener mkr, 'dblclick', ->
+                if this.selected  
+                  remove_stop this.establishment
+                  id = this.establishment.id
+                  establishmentids = $.grep(establishmentids, (value) ->
+                    return value != id
+                  )
+                  this.set 'selected', false
+                  this.setIcon "#{asset_path 'maps/pointer.png'}"
+                else
+                  add_stop this.establishment
+                  establishmentids.push this.establishment.id
+                  this.setIcon "#{asset_path('maps/marker.png')}"
+                  this.set 'selected', true
+              
+            Shoppingly.handler.resetBounds()
+            Shoppingly.handler.bounds.extendWith markers
+            Shoppingly.handler.fitMapToBounds()
+      
+      
+
+    
+    
+    
+    Shoppingly.handler.buildMap
+      provider:
+        disableDefaultUI: false
+        disableDoubleClickZoom: true
+        mapMaker: false
+        zoom: 14
+        center: new google.maps.LatLng(#{Establishment.first.latitude}, #{Establishment.first.longitude})
+        styles: [ featureType: "poi.business", stylers: [ { visibility: "off" } ] ]
+      internal:
+        id: "map"
+      , ->
+        #markers = handler.addMarkers(data)
+        #handler.bounds.extendWith markers
+        #if count > 1
+        #  handler.fitMapToBounds()
+        google.maps.event.addListener Shoppingly.handler.getMap(), 'click', (e)->
+          placeMarkerAndPanTo(e.latLng, Shoppingly.handler.getMap())
+          
+          
+          
+          
+          
+          
+          
+          
+          # marker = new google.maps.Marker({
+          #   position: {
+          #     lat: row.lat,
+          #     lng: row.lng
+          #   },
+          #   map: map,
+          # })
+          # infowindow = new google.maps.InfoWindow({
+          #   content: row.infowindow
+          # })
+          # marker.addListener 'click', ->
+          #   infowindow.open(map, marker)

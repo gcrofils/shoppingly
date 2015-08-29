@@ -2,6 +2,8 @@
   = t('my_itineraries')
   = link_to new_itinerary_path, :remote => true do
     %i.fa.fa-plus
+  = link_to itineraries_path, method: :post do
+    %i.fa.fa-plus
 - unless itineraries.blank?
   %ul.user-itineraries
     - itineraries.each do |i|

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   mount Ckeditor::Engine => '/ckeditor'
   
   devise_for :admin_users, {class_name: 'User'}.merge(ActiveAdmin::Devise.config)
@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     end
     
     resources :itineraries do
+      resources :build, only: [:show, :update], controller: 'itinerary/build'
       resources :stops
     end
     
@@ -28,6 +29,8 @@ Rails.application.routes.draw do
         get 'static'
         get 'selectable'
         get 'itinerary/:itinerary_id', :to => 'maps#itinerary', as: 'itinerary'
+        get 'geolocalised'
+        get 'near(/:latitude/:longitude)', to: 'maps#near', as: 'near', constraints: { latitude: /-?[0-9]+[0-9\.]*/, longitude: /-?[0-9]+[0-9\.]*/}
       end
     end
     

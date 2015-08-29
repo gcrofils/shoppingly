@@ -5,10 +5,13 @@
   
     %h2.title
       = t 'shoppingly.stores', :count => establishments.count
+      = link_to '#establishments-list', id: 'collapse-establishments-list', class: 'collapsed', role: "button", data: {toggle: "collapse"}, aria: {expanded: false, controls: "establishments-list" } do
+        %i.fa.fa-chevron-circle-up<>
+        %i.fa.fa-chevron-circle-down<>
       = link_to '#', id: 'add_new_establishment' do
         %i.fa.fa-plus-circle
     
-    %ul.establishments
+    %ul.establishments.collapse{id: "establishments-list"}
       - establishments.reject{|e| !e.persisted?}.each do |e|
         %li.establishment
           = e.label

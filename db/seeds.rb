@@ -45,5 +45,3 @@ end
 Itinerary.all.each do |i|
   Pin.create(pinnable: i, keywords: i.description)
 end
-
-

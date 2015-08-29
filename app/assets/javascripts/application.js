@@ -25,4 +25,5 @@
 //= require brands
 //= require ckeditor/init
 
+  Shoppingly = {}
   

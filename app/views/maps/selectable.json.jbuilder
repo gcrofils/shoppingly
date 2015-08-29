@@ -5,7 +5,7 @@ json.array! @establishments do |e|
     json.id             e.id
     json.label          e.label
     json.brand_name     e.brand.name
-    json.brand_logo     logo_tag(e.brand)
+    json.brand_logo     logo_tag e.brand, :small
   end
   json.picture do 
     json.url "#{asset_path('maps/pointer.png')}"
