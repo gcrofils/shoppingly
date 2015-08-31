@@ -1,0 +1,2 @@
+@Shoppingly = @Shoppingly ? {}
+window.shoppingly = {}

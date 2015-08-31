@@ -3,8 +3,10 @@
   .stops
     %h2 Stops
 
-    #stops.sortable
+    #stops
       = f.fields_for :stops, include_id: false  do |stop_form|
         = render 'itineraries/stop_fields', f: stop_form
   
   = f.submit 'next step'
+  
+  = link_to 'previous', previous_wizard_path 

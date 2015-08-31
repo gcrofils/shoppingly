@@ -7,7 +7,7 @@
       %h1
         = @itinerary.title
         
-      %p= @itinerary.description.html_safe
+      %p= @itinerary.description.html_safe unless @itinerary.description.blank?
 
       %p
         = "updated #{l(@itinerary.updated_at, :format => :short)}"
@@ -27,7 +27,7 @@
               .establishment
                 = stop.establishment.try(:label)
               .stop
-                = stop.description.html_safe
+                = stop.description.html_safe unless stop.description.blank?
       
 
     .col-xs-12.col-md-6

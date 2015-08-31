@@ -1,31 +1,10 @@
-$(document).on 'click', 'form .remove_stop', (event) ->
-  node_to_delete = $(this).closest('.row-stop')
-  debugger
-  if $(this).hasClass('dynamic')
-    node_to_delete.remove()
-  else
-    node_to_delete.find("[id$='establishment_id']").addClass('destroyed')
-    node_to_delete.find("input[name*='destroy']").val('1')
-    node_to_delete.hide()
-  event.preventDefault()
+class @Shoppingly.Itinerary
   
-$(document).on 'click', 'li .add_establishment', (event) ->
-  add_stop($(this).data('establishment'))
-  event.preventDefault()
-  
-
-$(document).ready ->
-  
-  window.CKupdate = ->
-    for int in CKEDITOR.instances
-      CKEDITOR.instances[instance].updateElement();
-  
-  window.update_stop_positions = ->
+  @update_stop_positions: ->
     $("#stops").find("[id$='position']").each (index)->
       $(this).val(index)
-    
-  
-  window.add_stop = (establishment) ->
+      
+  @add_stop: (establishment) ->
     establishment_ids = $("#stops").find("[id$='establishment_id']").not(".destroyed").map -> 
       return parseInt(this.value)
     if $.inArray(establishment.id, establishment_ids) > -1
@@ -41,28 +20,25 @@ $(document).ready ->
       $('#itinerary_stops_attributes_' + id + '_establishment_id').attr('establishment-id', establishment.id)
       $('#brand_name_' + id).text(establishment.brand_name)
       $('#establishment_label_' + id).text(establishment.label) 
-      update_stop_positions()   
+      @update_stop_positions()
   
-  window.remove_stop = (establishment) ->
+  @remove_stop_from_map = (establishment) ->
     node_to_delete = $("[establishment-id=" +  establishment.id + "]").closest('.row-stop')
-    node_to_delete.remove()
-  
-  
-  $( ".sortable" ).sortable(
-    axis: 'y'
-    update: ->
-      update_stop_positions()
-  )
-
-$(document).ajaxComplete ->
-  
-  $( ".sortable" ).sortable(
-    axis: 'y'
-    update: ->
-      update_stop_positions()
-  )
-  
-  try
-    CKEDITOR.replace( 'itinerary_description' );
-  catch error
-    return
+    if node_to_delete.find("a.remove_stop").hasClass('dynamic')
+      node_to_delete.remove()
+    else
+      node_to_delete.find("[id$='establishment_id']").addClass('destroyed')
+      node_to_delete.find("input[name*='destroy']").val('1')
+      node_to_delete.hide()
+    
+  @remove_stop_from_list = (obj) ->
+    node_to_delete = obj.closest('.row-stop')
+    establishmentId = parseInt(node_to_delete.find("[id$='establishment_id']").val())
+    marker = shoppingly.findMarkerbyEstablishmentId establishmentId
+    shoppingly.unSelectMarker marker.serviceObject
+    if $(this).hasClass('dynamic')
+      node_to_delete.remove()
+    else
+      node_to_delete.find("[id$='establishment_id']").addClass('destroyed')
+      node_to_delete.find("input[name*='destroy']").val('1')
+      node_to_delete.hide() 

@@ -5,24 +5,22 @@
 %h1 New Itinerary
 
 #map-container.thumbnail
-  %i.fa.fa-spinner.fa-pulse
+  #map
 
 = semantic_form_for @itinerary, method: :put, url: wizard_path do |f|
+
+  - stop_fields_template f, :stops
+  
   .stops
     %h2 Stops
 
     #stops.sortable
       = f.fields_for :stops, include_id: false  do |stop_form|
-        = render 'itineraries/stop_fields', f: stop_form
-  
-  - stop_fields_template f, :stops
+        = render 'stop_fields', f: stop_form
   
   = f.submit 'next step'
 
-#establishments-around
-
-
-
 :coffee
   $(document).ready ->
-    $("#map-container").load("#{geolocalised_map_path}")
+    paris = new google.maps.LatLng(48.864716, 2.349014)
+    Shoppingly.Map.buildNear paris, #{@itinerary.stops.pluck(:establishment_id)}
