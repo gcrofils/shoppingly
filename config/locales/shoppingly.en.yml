@@ -16,3 +16,10 @@ en:
         destroy: "Are you sure you want to delete establishment %{label} ?"
         edit: Update this establishment
         create: Create an establishment
+      itinerary:
+        destroy: "Are you sure you want to delete itinerary '%{title}' ?"
+        edit: Update this itinerary
+        create: Create an itinerary
+        destroyed_ok:  "Itinerary '%{title}' has been successfully deleted"
+        destroyed_ko: "Sorry. An error occured. Itinerary '%{title}' has not been deleted"
+        destroyed_already: 'This itinerary has been already deleted'

@@ -1,7 +1,5 @@
 %h1
   = t('my_itineraries')
-  = link_to new_itinerary_path, :remote => true do
-    %i.fa.fa-plus
   = link_to itineraries_path, method: :post do
     %i.fa.fa-plus
 - unless itineraries.blank?
@@ -9,7 +7,7 @@
     - itineraries.each do |i|
       %li
         %span.itinerary-published<>
-          = l i.updated_at, format: :long
+          = date_long_or_words i.updated_at
         %span.itinerary-title<>
           = i.title
         %span.itinerary-social{id: "#{dom_id(i, 'social')}"}<>
@@ -18,10 +16,11 @@
           %i.fa.fa-eye
           = rand(20)
         %span.itinerary-edit<>
-          =link_to edit_itinerary_path(i) do
-            %i.fa.fa-edit
+          - if Itinerary.form_steps.include?(i.status)
+            =link_to itinerary_build_path(i, id: i.status) do
+              %i.fa.fa-edit
         %span.itinerary-destroy<>
-          =link_to p, method: :delete, data: {confirm: t('activerecord.actions.establishment.destroy', label: i.title)} do
+          =link_to i, method: :delete, data: {confirm: t('activerecord.actions.itinerary.destroy', title: i.title)} do
             %i.fa.fa-trash-o
       
 

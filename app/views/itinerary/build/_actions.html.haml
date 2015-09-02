@@ -1,0 +1,16 @@
+
+%button.btn.btn-primary{type: 'submit', value: 'commit'}
+  %i.fa.fa-caret-right
+  next step
+  
+%button.btn.btn-primary{type: 'submit', value: 'save', data: { disable_with: "Please wait..." }}
+  %i.fa.fa-caret-right
+  save and exit
+
+= link_to itineraries_user_path, class: 'btn btn-danger' do
+  %i.fa.fa-ban
+  cancel
+
+= link_to previous_wizard_path, class: 'btn btn-danger' do
+  %i.fa.fa-caret-left
+  previous step

@@ -51,6 +51,16 @@ class ItinerariesController < ApplicationController
       render 'form'
     end
   end
+  
+  def destroy
+    @itinerary = Itinerary.find(params[:id])
+    level, key = @itinerary.destroy ? [:notice, 'destroyed_ok'] : [:alert, 'destroyed_ko']
+    flash[level] = I18n.t "activerecord.actions.itinerary.#{key}", title: @itinerary.title
+  rescue ActiveRecord::RecordNotFound
+    flash[:notice] = I18n.t 'activerecord.actions.itinerary.destroyed_already'
+  ensure
+    redirect_to stored_location_for(:user)
+  end
    
   private
    

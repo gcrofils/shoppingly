@@ -2,4 +2,4 @@
 = semantic_form_for @itinerary, method: :put, url: wizard_path do |f|
   = f.input :title
   = f.input :description
-  = f.submit 'next step'
+  = render 'actions'

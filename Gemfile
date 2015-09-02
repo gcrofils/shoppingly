@@ -48,6 +48,9 @@ gem 'formtastic-bootstrap'
 # step-by-step wizard controllers
 gem 'wicked'
 
+# state machine
+gem 'workflow'
+
 # A set of responders modules to dry up your Rails 4.2+ app.
 gem 'responders'
 

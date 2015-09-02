@@ -12,6 +12,10 @@ module ApplicationHelper
     link_to(name, '#', class: "add_fields", data: {id: id, fields: fields.gsub("\n", "").gsub(/[[:space:]]+/, " ")})
   end
   
+  def date_long_or_words(date)
+    date < 15.days.ago ? I18n.l(date, format: :long) : distance_of_time_in_words(date, Time.now)
+  end
+  
   def errors_for(object)
       if object.errors.any?
           content_tag(:div, class: "panel panel-danger") do

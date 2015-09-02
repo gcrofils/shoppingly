@@ -14,16 +14,30 @@ class Itinerary < ActiveRecord::Base
   end  
   attr_accessor :form_step
   
+  # validations
   validates :user, :presence => true, if: -> { required_for_step?(:intro) }
   
   with_options if: -> { required_for_step?(:init) } do |step|
     step.validates :title, presence: true
     step.validates :description, presence: true
   end
-  
-  
+
   # thumbs_up
   acts_as_voteable
+  
+  # workflow
+  include Workflow
+  workflow_column :status
+  workflow do
+    state :intro
+    state :init
+    state :map
+    state :stops
+    state :awaiting_review
+    state :being_reviewed
+    state :accepted
+    state :rejected
+  end
   
   # initial data migration
   def download_images

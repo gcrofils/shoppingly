@@ -15,6 +15,9 @@ class ApplicationController < ActionController::Base
   # https://github.com/plataformatec/devise#strong-parameters
   before_action :configure_permitted_parameters, if: :devise_controller?
   
+  # dev
+  before_action :sleep_a_bit
+  
   
   # https://github.com/estum/growlyflash
   #use_growlyflash except: %i[actions without growlyflash]
@@ -26,8 +29,9 @@ class ApplicationController < ActionController::Base
     I18n.locale = params[:locale] || I18n.default_locale
   end
   
-  def self.default_url_options(options={})
+  def default_url_options(options={})
     options.merge({ :locale => I18n.locale })
+    options.merge({ :sleep => session[:sleep] }) unless session[:sleep].nil?
   end
   
   def set_meta
@@ -48,6 +52,18 @@ class ApplicationController < ActionController::Base
   end
   
   protected
+  
+  def sleep_a_bit
+    if (s = params[:sleep] )
+      if s.to_i > 0
+        puts "**** Sleeeeeeping #{s} ****"
+        sleep s.to_i
+        session[:sleep] = s.to_i
+      else
+        session[:sleep] = 0
+      end
+    end
+  end
 
   # https://github.com/plataformatec/devise#strong-parameters
   def configure_permitted_parameters

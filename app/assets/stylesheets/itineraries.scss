@@ -14,6 +14,49 @@
   
 }
 
+ul.user-itineraries {
+  
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+
+  li {
+    padding: 5px 0 5px;
+    border-bottom: solid 1px black;
+    min-height: 2.5em;
+    
+  }
+  
+  li:nth-child(even){
+    background-color: #dcdcdc;
+  }
+  li:nth-child(odd){
+    background-color: #aaaaaa;
+  }
+  
+  li:hover {
+    background-color: white;
+  }
+
+  .itinerary-published, .itinerary-title, .itinerary-social, .itinerary-view, .itinerary-edit, .itinerary-destroy {
+    display: inline-block;
+    margin: 0 5px 0;
+  }
+  
+  .itinerary-published {
+    width: 15%;
+  }
+  
+  .itinerary-title {
+    width: 50%;
+  }
+  
+  .itinerary-social, .itinerary-view {
+    width: 5%;
+  }
+  
+}
+
 
 .stops {
   

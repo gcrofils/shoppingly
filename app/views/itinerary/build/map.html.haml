@@ -18,7 +18,7 @@
       = f.fields_for :stops, include_id: false  do |stop_form|
         = render 'stop_fields', f: stop_form
   
-  = f.submit 'next step'
+  = render 'actions'
 
 :coffee
   $(document).ready ->

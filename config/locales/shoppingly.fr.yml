@@ -44,4 +44,7 @@ fr:
         destroy: "Souhaitez-vous supprimer l'établissement %{label} ?"
         edit: Modifier cet établissement
         create: Ajouter un établissement
+      destroy: "Souhaitez-vous supprimer l'itinéraire %{label} ?"
+      edit: Modifier cet itinéraire
+      create: Ajouter un itinéraire
           

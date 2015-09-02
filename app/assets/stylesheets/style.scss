@@ -88,4 +88,10 @@ $growlyflash-width:   100px !default;
 $growlyflash-zindex:  9999 !default;
 @import "growlyflash";
 
+/************************************************************************************
+Translations
+*************************************************************************************/
 
+.translation_missing {
+  color: red;
+}
