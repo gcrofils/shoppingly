@@ -13,7 +13,7 @@ $(document).ready ->
   $( ".sortable" ).sortable(
     axis: 'y'
     update: ->
-      update_stop_positions()
+      Shoppingly.Itinerary.update_stop_positions()
   )
 
 $(document).ajaxComplete ->
@@ -21,7 +21,7 @@ $(document).ajaxComplete ->
   $( ".sortable" ).sortable(
     axis: 'y'
     update: ->
-      update_stop_positions()
+      Shoppingly.Itinerary.update_stop_positions()
   )
   
   try

@@ -75,8 +75,8 @@ class @Shoppingly.Map
       
   updateNearMarkers: (latLng) =>
     $.getJSON nearMapPath,
-        latitude: latLng.k
-        longitude: latLng.D
+        latitude: latLng.lat()
+        longitude: latLng.lng()
         e: @establishmentids
       .done (data) ->
         shoppingly.drawMarkers data
@@ -97,7 +97,7 @@ class @Shoppingly.Map
         id: "map"
     , => 
       shoppingly.addEstablishmentMarkers @persistedEstablishmentIds
-      google.maps.event.addListener shoppingly.getMap(), 'click', (e)->
+      google.maps.event.addListener @getMap(), 'click', (e)->
         shoppingly.removeUnselectedMarkers()
         shoppingly.updateNearMarkers e.latLng
      

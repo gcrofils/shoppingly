@@ -13,7 +13,7 @@
             waypts = []
             max = data.length-2
             if max > 0
-              for i in [1..max]
+              for i in [1..(Math.min(max, 8))]
                 stop = data[i]
                 waypts.push({
                   location: new google.maps.LatLng(stop.lat, stop.lng),
