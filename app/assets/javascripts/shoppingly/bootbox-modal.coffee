@@ -6,16 +6,24 @@ $.rails.allowAction = (element) ->
   # If there's no message, there's no data-confirm attribute, 
   # which means there's nothing to confirm
   return true unless message
-  # Clone the clicked element (probably a delete link) so we can use it in the dialog box.
-  $link = element.clone()
-    # We don't necessarily want the same styling as the original link/button.
-    .removeAttr('class')
-    # We don't want to pop up another confirmation (recursion)
-    .removeAttr('data-confirm')
-    # We want a button
-    .addClass('btn').addClass('btn-danger')
-    # We want it to sound confirmy
-    .html("OK")
+  if element.data('href')
+    $link = $('<a></a>')
+      .attr('href', element.data('href'))
+      # We want a button
+      .addClass('btn').addClass('btn-danger')
+      # We want it to sound confirmy
+      .html("OK")
+  else
+    # Clone the clicked element (probably a delete link) so we can use it in the dialog box.
+    $link = element.clone()
+      # We don't necessarily want the same styling as the original link/button.
+      .removeAttr('class')
+      # We don't want to pop up another confirmation (recursion)
+      .removeAttr('data-confirm')
+      # We want a button
+      .addClass('btn').addClass('btn-danger')
+      # We want it to sound confirmy
+      .html("OK")
 
   # Create the modal box with the message
   modal_html = """

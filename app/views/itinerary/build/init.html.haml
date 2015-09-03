@@ -2,4 +2,4 @@
 = semantic_form_for @itinerary, method: :put, url: wizard_path do |f|
   = f.input :title
   = f.input :description
-  = render 'actions'
+  = render partial: 'actions', locals: {f: f, current_step: @current_step}

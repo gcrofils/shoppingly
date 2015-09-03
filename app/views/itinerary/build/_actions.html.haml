@@ -1,16 +1,26 @@
 
-%button.btn.btn-primary{type: 'submit', value: 'commit'}
+  
+- if f.object.errors.blank? && flash[:alert].blank?
+  %button.btn.btn-danger{disabled: current_step.eql?(Itinerary.form_steps.first), name: 'submit', type: 'submit', value: 'previous', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> previous step".html_safe }}
+    %i.fa.fa-caret-left
+    previous step
+
+- else
+  %button.btn.btn-danger{name: 'submit', type: 'submit', value: 'previous', data: {href: previous_wizard_path, confirm: 'changes will be lost', disable_with: "<i class='fa fa-spinner fa-spin'></i> previous step".html_safe }}
+    %i.fa.fa-caret-left
+    cancel changes and previous step
+
+%button.btn.btn-primary{name: 'submit', type: 'submit', value: 'commit', data: { disable_with: "<i class='fa fa-spinner fa-spin'></i> next step".html_safe }}
   %i.fa.fa-caret-right
   next step
-  
-%button.btn.btn-primary{type: 'submit', value: 'save', data: { disable_with: "Please wait..." }}
+
+%button.btn.btn-primary{name: 'submit', type: 'submit', value: 'save', data: { disable_with: "<i class='fa fa-spinner fa-spin'></i> save and exit".html_safe }}
   %i.fa.fa-caret-right
   save and exit
 
-= link_to itineraries_user_path, class: 'btn btn-danger' do
+%button.btn.btn-danger{name: 'submit', type: 'submit', value: 'cancel', data: {href: itineraries_user_path, confirm: 'data will be lost', disable_with: "<i class='fa fa-spinner fa-spin'></i> cancel".html_safe }}
   %i.fa.fa-ban
-  cancel
+  cancel  
+  
 
-= link_to previous_wizard_path, class: 'btn btn-danger' do
-  %i.fa.fa-caret-left
-  previous step
+  

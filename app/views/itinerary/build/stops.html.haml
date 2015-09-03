@@ -7,6 +7,6 @@
       = f.fields_for :stops, include_id: false  do |stop_form|
         = render 'itineraries/stop_fields', f: stop_form
   
-  = f.submit 'next step'
+  = render partial: 'actions',  locals: {f: f, current_step: @current_step}
   
   = link_to 'previous', previous_wizard_path 

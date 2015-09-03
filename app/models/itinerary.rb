@@ -10,7 +10,7 @@ class Itinerary < ActiveRecord::Base
   
   # multistep build
   cattr_accessor :form_steps do
-    %w(intro init map stops)
+    %w(intro init map stops user_review)
   end  
   attr_accessor :form_step
   
@@ -33,8 +33,16 @@ class Itinerary < ActiveRecord::Base
     state :init
     state :map
     state :stops
-    state :awaiting_review
-    state :being_reviewed
+    state :user_review do
+      event :submit, :transitions_to => :awaiting_editor_review
+    end
+    state :awaiting_editor_review do
+      event :review, :transitions_to => :being_reviewed
+    end
+    state :being_reviewed do
+      event :accept, :transitions_to => :accepted
+      event :reject, :transitions_to => :rejected
+    end
     state :accepted
     state :rejected
   end

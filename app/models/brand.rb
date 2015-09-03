@@ -25,7 +25,7 @@ class Brand < ActiveRecord::Base
     #   send(type.downcase.pluralize.to_sym).each{|p| pins << p.pin}
     #end
     %w(itineraries posts).each do |pinnable_type|
-      send(pinnable_type.to_sym).each{|p| pins << p.pin}
+      send(pinnable_type.to_sym).each{|p| pins << p.pin unless p.pin.nil?}
     end
     pins
   end
