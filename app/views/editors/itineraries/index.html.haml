@@ -1,0 +1,25 @@
+.container-fluid
+  .row
+    .col-xs-12
+      %h1 Initeraries
+      %ul.user-itineraries
+        - @itineraries.each do |i|
+          %li
+            %span.itinerary-published<>
+              = date_long_or_words i.updated_at
+            %span.itinerary-title<>
+              = link_to itinerary_title(i), editor_itinerary_path(i)
+            %span.itinerary-author<>
+              = link_to i.user.username, profile_path(i.user) unless i.user.eql?(current_user)
+              = "me" if i.user.eql?(current_user)
+            %span.itinerary-edit<>
+              - if i.awaiting_editor_review?
+                =link_to editor_itinerary_path(i) do
+                  %i.fa.fa-edit
+              - if i.being_reviewed?
+                =link_to editor_itinerary_path(i) do
+                  %i.fa.fa-clock-o
+                = link_to review_editor_itinerary_path(i, review: 'accept'), method: :patch do
+                  %i.fa.fa-thumbs-o-up 
+                = link_to review_editor_itinerary_path(i, review: 'reject'), method: :patch do
+                  %i.fa.fa-thumbs-o-down

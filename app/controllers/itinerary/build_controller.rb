@@ -7,6 +7,7 @@ class Itinerary::BuildController < ApplicationController
   
   SUBMIT_SAVE = 'save'
   SUBMIT_PREVIOUS = 'previous'
+  SUBMIT_FOR_REVIEW = 'review'
   
   def show
     render_wizard nil, layout: 'user'
@@ -14,8 +15,14 @@ class Itinerary::BuildController < ApplicationController
   
   def update
     @itinerary.assign_attributes(itinerary_params(step))
-    save_and_exit_wizard and return if params[:submit].eql?(SUBMIT_SAVE)
-    jump_to_step(previous_step) if params[:submit].eql?(SUBMIT_PREVIOUS)
+    case params[:submit]
+    when SUBMIT_SAVE
+      save_and_exit_wizard and return
+    when SUBMIT_PREVIOUS
+      jump_to_step(previous_step)
+    when SUBMIT_FOR_REVIEW
+      submit_to_editor and return
+    end
     render_wizard @itinerary, layout: 'user'
   rescue ActionController::ParameterMissing
     flash[:alert] = 'veuillez remplir tous les champs'
@@ -23,6 +30,7 @@ class Itinerary::BuildController < ApplicationController
   end
   
   private
+
   
   def current_step
     @current_step = params[:id]
@@ -45,6 +53,17 @@ class Itinerary::BuildController < ApplicationController
     @current_step     = step
     @itinerary.status = step
     jump_to(step)
+  end
+  
+  def submit_to_editor
+    @itinerary.status = Itinerary.form_steps.last
+    @itinerary.submit_to_editor!
+    flash[:notice] = "Itinérarire '#{@itinerary.title}' a été soumis pour validation"
+    redirect_to itineraries_user_path
+  rescue Workflow::NoTransitionAllowed
+    flash[:alert] = 'une erreur est survenue'
+    jump_to_step(Itinerary.form_steps.first)
+    render_wizard @itinerary, layout: 'user'
   end
   
   def finish_wizard_path

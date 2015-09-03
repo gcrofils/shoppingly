@@ -17,7 +17,7 @@ module ApplicationHelper
   end
   
   def errors_for(object)
-      if object.errors.any?
+      if !object.blank? && object.errors.any?
           content_tag(:div, class: "panel panel-danger") do
               concat(content_tag(:div, class: "panel-heading") do
                   concat(content_tag(:h4, class: "panel-title") do

@@ -4,6 +4,10 @@
     %li= link_to 'Mes Articles', posts_user_path, remote: true
     %li= link_to 'Mes Itinéraires', itineraries_user_path, remote: true
   
+  %h2 Administration
+  %ul
+    %li= link_to "itinéraires à valider", editor_itineraries_path
+  
   %h2 I like....
   %ul
     %li.dashboard{data: {id: current_user.id, resource: 'posts'}}= link_to 'Articles', '#'

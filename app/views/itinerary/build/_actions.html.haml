@@ -1,26 +1,35 @@
-
+#itinerary-build-actions
   
-- if f.object.errors.blank? && flash[:alert].blank?
-  %button.btn.btn-danger{disabled: current_step.eql?(Itinerary.form_steps.first), name: 'submit', type: 'submit', value: 'previous', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> previous step".html_safe }}
-    %i.fa.fa-caret-left
-    previous step
+  - if f.object.errors.blank? && flash[:alert].blank? || current_step.eql?(Itinerary.form_steps.first)
+    %button.btn.btn-default{type: 'submit', disabled: current_step.eql?(Itinerary.form_steps.first), name: 'submit', value: Itinerary::BuildController::SUBMIT_PREVIOUS}
+      %i.fa.fa-caret-left
+      %span
+        previous step
 
-- else
-  %button.btn.btn-danger{name: 'submit', type: 'submit', value: 'previous', data: {href: previous_wizard_path, confirm: 'changes will be lost', disable_with: "<i class='fa fa-spinner fa-spin'></i> previous step".html_safe }}
-    %i.fa.fa-caret-left
-    cancel changes and previous step
+  - else
+    %button.btn.btn-danger{type: 'submit', data: {href: previous_wizard_path, confirm: 'changes will be lost'}}
+      %i.fa.fa-caret-left
+      %span
+        cancel changes and previous step
 
-%button.btn.btn-primary{name: 'submit', type: 'submit', value: 'commit', data: { disable_with: "<i class='fa fa-spinner fa-spin'></i> next step".html_safe }}
-  %i.fa.fa-caret-right
-  next step
+  %button.btn.btn-default{type: 'submit', disabled: current_step.eql?(Itinerary.form_steps.last)}
+    %i.fa.fa-caret-right
+    %span
+      next step
 
-%button.btn.btn-primary{name: 'submit', type: 'submit', value: 'save', data: { disable_with: "<i class='fa fa-spinner fa-spin'></i> save and exit".html_safe }}
-  %i.fa.fa-caret-right
-  save and exit
+  %button.btn.btn-default{type: 'submit', name: 'submit', value: Itinerary::BuildController::SUBMIT_SAVE, data: {label_on_change: "save and exit"}}
+    %i.fa.fa-list
+    %span
+      exit
 
-%button.btn.btn-danger{name: 'submit', type: 'submit', value: 'cancel', data: {href: itineraries_user_path, confirm: 'data will be lost', disable_with: "<i class='fa fa-spinner fa-spin'></i> cancel".html_safe }}
-  %i.fa.fa-ban
-  cancel  
-  
-
-  
+  - unless current_step.eql?(Itinerary.form_steps.last)
+    %button.btn.btn-default{type: 'submit', disabled: f.object.errors.blank? && flash[:alert].blank?, value: 'cancel', data: {href: itineraries_user_path, confirm: 'data will be lost'}}
+      %i.fa.fa-ban
+      %span
+        cancel  
+    
+  - if current_step.eql?(Itinerary.form_steps.last)
+    %button.btn.btn-success{type: 'submit', name: 'submit', value: Itinerary::BuildController::SUBMIT_FOR_REVIEW}
+      %i.fa.fa-check-circle-o 
+      %span
+        Submit to Editor

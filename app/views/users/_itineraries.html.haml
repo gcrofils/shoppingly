@@ -9,7 +9,7 @@
         %span.itinerary-published<>
           = date_long_or_words i.updated_at
         %span.itinerary-title<>
-          = i.title
+          = link_to itinerary_title(i), i
         %span.itinerary-social{id: "#{dom_id(i, 'social')}"}<>
           = render partial:"users/likes", locals: {resource: i}
         %span.itinerary-view<>
@@ -19,8 +19,13 @@
           - if Itinerary.form_steps.include?(i.status)
             =link_to itinerary_build_path(i, id: i.status) do
               %i.fa.fa-edit
+          - else
+            %i.fa.fa-edit
         %span.itinerary-destroy<>
-          =link_to i, method: :delete, data: {confirm: t('activerecord.actions.itinerary.destroy', title: i.title)} do
+          - if Itinerary.form_steps.include?(i.status)
+            =link_to i, method: :delete, data: {confirm: t('activerecord.actions.itinerary.destroy', title: i.title)} do
+              %i.fa.fa-trash-o
+          - else
             %i.fa.fa-trash-o
       
 

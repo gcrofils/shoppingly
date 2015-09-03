@@ -1,5 +1,3 @@
-= render partial: 'maps/javascripts', locals: { librairies: ['itineraries']}
-
 .container-fluid.itinerary
 
   .row
@@ -27,15 +25,16 @@
               .stop
                 = stop.description.html_safe unless stop.description.blank?
       
-
-    .col-xs-12.col-md-6
-      #map-container.thumbnail
-        - if @itinerary.stops.blank?
-          Ajouter des étapes pour afficher la carte
-        - else
-          %i.fa.fa-spinner.fa-pulse
-
-- unless @itinerary.stops.blank?
-  :coffee
-    $(document).ready ->
-      $("#map-container").load("#{itinerary_map_path(@itinerary)}")
+    .col-md-6
+      = link_to review_editor_itinerary_path(@itinerary, review: 'review'), class: 'btn btn-primary', method: :patch, data: {disabled_with: 'working...'} do
+        %i.fa.fa-clock-o
+        review
+  
+      = link_to review_editor_itinerary_path(@itinerary, review: 'accept'), class: 'btn btn-primary', method: :patch, data: {disabled_with: 'working...'} do
+        %i.fa.fa-thumbs-o-up 
+        accept
+    
+      = link_to review_editor_itinerary_path(@itinerary, review: 'reject'), class: 'btn btn-primary', method: :patch, data: {disabled_with: 'working...'} do
+        %i.fa.fa-thumbs-o-down
+        reject
+      

@@ -29,17 +29,30 @@ class Itinerary < ActiveRecord::Base
   include Workflow
   workflow_column :status
   workflow do
-    state :intro
-    state :init
-    state :map
-    state :stops
+    state :intro do
+      event :next_step, :transitions_to => :init
+    end
+    state :init do
+      event :next_step, :transitions_to => :map
+      event :prev_step, :transitions_to => :intro
+    end
+    state :map do
+      event :next_step, :transitions_to => :stops
+      event :prev_step, :transitions_to => :init
+    end
+    state :stops do
+      event :next_step, :transitions_to => :user_review
+      event :prev_step, :transitions_to => :map
+    end
     state :user_review do
-      event :submit, :transitions_to => :awaiting_editor_review
+      event :submit_to_editor, :transitions_to => :awaiting_editor_review
+      event :prev_step, :transitions_to => :stops
     end
     state :awaiting_editor_review do
       event :review, :transitions_to => :being_reviewed
     end
     state :being_reviewed do
+      event :review, :transitions_to => :being_reviewed
       event :accept, :transitions_to => :accepted
       event :reject, :transitions_to => :rejected
     end
@@ -67,6 +80,30 @@ class Itinerary < ActiveRecord::Base
   end
   
   private
+  
+  def submit_to_editor
+    puts 'sending email to editor : a new itinerary is waiting'
+    puts 'sending email to contributor : your itinerary has been submitted'
+  end
+  
+  def review(reviewer = nil)
+    if awaiting_editor_review?
+      puts "sending email to contributor: your itinerary #{title} is being reviewed by #{reviewer.try(:username)}"
+    end
+  end
+  
+  def accept
+    puts "sending email to contributor:your itinerary #{title} has been accepted"
+    pin_it!
+  end
+  
+  def reject
+    puts "sending email to contributor: your itinerary #{title} has been rejected"
+  end
+  
+  def pin_it!
+    Pin.create(pinnable: self, keywords: description)
+  end
   
   def required_for_step?(step)
     # All fields are required if no form step is present

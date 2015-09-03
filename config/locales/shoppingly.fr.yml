@@ -13,6 +13,8 @@ fr:
     :cancel: 'Annuler %{model}'
     :reset: 'Reset %{model}'
     :required: 'Obligatoire'
+  itineraries:
+    unknown_title: (sans titre)
   posts:
     show:
       most_commented: Les plus commentés
@@ -44,7 +46,15 @@ fr:
         destroy: "Souhaitez-vous supprimer l'établissement %{label} ?"
         edit: Modifier cet établissement
         create: Ajouter un établissement
-      destroy: "Souhaitez-vous supprimer l'itinéraire %{label} ?"
-      edit: Modifier cet itinéraire
-      create: Ajouter un itinéraire
+      itinerary:
+        destroy: "Souhaitez-vous supprimer l'itinéraire %{title} ?"
+        edit: Modifier cet itinéraire
+        create: Ajouter un itinéraire
+        destroyed_ok:  "Itinerary '%{title}' has been successfully deleted"
+        destroyed_ko: "Sorry. An error occured. Itinerary '%{title}' has not been deleted"
+        destroyed_already: 'This itinerary has been already deleted'
+      editor:
+        itinerary:
+          show_not_available: "Itinéraire '%{title}' n'est pas à valider"
+          must_be_reviewed: "Itinéraire '%{title}' doit d'abord être vérifié"
           

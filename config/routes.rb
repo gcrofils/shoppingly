@@ -19,7 +19,7 @@ Rails.application.routes.draw do
       resources :establishments, shallow: true
     end
     
-    resources :itineraries do
+    resources :itineraries, only: [:show, :create, :destroy] do
       resources :build, only: [:show, :update], controller: 'itinerary/build'
       resources :stops
     end
@@ -43,6 +43,14 @@ Rails.application.routes.draw do
          get 'brands'
          get 'posts'
          get 'itineraries'
+       end
+     end
+     
+     resource :editor, :only => [:none]  do
+       resources 'itineraries', :except => [:new, :create], controller: 'editors/itineraries' do
+         member do
+         patch ':review', action: "update", constraints: { review: /(accept|reject|review)/}, as: 'review'
+       end
        end
      end
      

@@ -1,0 +1,35 @@
+%h1 New Itinerary
+
+.container-fluid.itinerary
+
+  .row
+    .col-xs-12
+      %h1
+        = @itinerary.title
+        
+      %p= @itinerary.description.html_safe unless @itinerary.description.blank?
+
+      %p
+        = "updated #{l(@itinerary.updated_at, :format => :short)}"
+        = "by #{@itinerary.user.username}"
+
+  .row 
+    .col-xs-12
+      
+      - unless @itinerary.stops.blank?
+      
+        %ul.itinerary-stops
+          - @itinerary.stops.each do |stop|
+            %li
+              = render 'brands/namecard', { brand: stop.establishment.brand, responsive: true}
+              .establishment
+                = stop.establishment.try(:label)
+              .stop
+                = stop.description.html_safe unless stop.description.blank?
+
+  .row
+    .col-xs-12
+      = form_for @itinerary, method: :put, url: wizard_path do |f|
+        = f.hidden_field :user_id
+        = render partial: 'actions', locals: {f: f, current_step: @current_step}
+  
