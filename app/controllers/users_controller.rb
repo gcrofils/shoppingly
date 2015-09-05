@@ -27,7 +27,7 @@ class UsersController < CrudController
       @itineraries = user.liked_itineraries
       render 'users/liked/itineraries'
     else
-      @itineraries = current_user.itineraries
+      @itineraries = current_user.itineraries.decorate
       respond_to do |format|
         format.js
         format.html { render layout: 'user'}

@@ -5,6 +5,7 @@ class Itinerary < ActiveRecord::Base
   has_many    :establishments, through: :stops
   has_many    :brands, through: :establishments
   has_one     :pin, as: :pinnable
+  belongs_to  :banner, class_name: 'Ckeditor::Picture'
   
   accepts_nested_attributes_for :stops, allow_destroy: true
   
@@ -78,7 +79,7 @@ class Itinerary < ActiveRecord::Base
       puts e.message
     end
   end
-  
+
   private
   
   def submit_to_editor

@@ -32,6 +32,7 @@ class ApplicationController < ActionController::Base
   def default_url_options(options={})
     options = options.merge({ :locale => I18n.locale })
     options.merge({ :sleep => session[:sleep] }) unless session[:sleep].blank?
+    options
   end
   
   def set_meta

@@ -1,4 +1,4 @@
-%h1 New Itinerary
+%h1= @itinerary.title
 = semantic_form_for @itinerary, method: :put, url: wizard_path do |f|
   .stops
     %h2 Stops
@@ -8,5 +8,3 @@
         = render 'itineraries/stop_fields', f: stop_form
   
   = render partial: 'actions',  locals: {f: f, current_step: @current_step}
-  
-  = link_to 'previous', previous_wizard_path 

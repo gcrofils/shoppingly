@@ -36,6 +36,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # views
 gem 'haml'
 gem 'growlyflash'
+gem 'draper', '~> 1.3'
 
 # bootstrap
 gem "therubyracer"
@@ -74,6 +75,7 @@ gem 'cancancan'
 # A Ruby gem for on-the-fly processing 
 gem 'dragonfly'
 gem 'dragonfly-s3_data_store'
+gem 'remotipart', '~> 1.2'
 
 # A tagging plugin for Rails applications that allows for custom tagging along dynamic contexts.
 gem 'acts-as-taggable-on', '~> 3.4'

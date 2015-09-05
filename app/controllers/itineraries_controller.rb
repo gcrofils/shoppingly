@@ -1,7 +1,9 @@
 class ItinerariesController < ApplicationController
   
+  decorates_assigned :itinerary
+  
   def index
-    @itineraries = Itinerary.all
+    @itineraries = Itinerary.all.decorate
   end
 
   def show

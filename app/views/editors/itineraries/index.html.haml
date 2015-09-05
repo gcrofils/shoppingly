@@ -8,7 +8,7 @@
             %span.itinerary-published<>
               = date_long_or_words i.updated_at
             %span.itinerary-title<>
-              = link_to itinerary_title(i), editor_itinerary_path(i)
+              = link_to i.title, editor_itinerary_path(i)
             %span.itinerary-author<>
               = link_to i.user.username, profile_path(i.user) unless i.user.eql?(current_user)
               = "me" if i.user.eql?(current_user)

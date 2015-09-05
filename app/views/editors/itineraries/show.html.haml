@@ -3,7 +3,7 @@
   .row
     .col-xs-12
       %h1
-        = itinerary_title(@itinerary)
+        = @itinerary.title
         
       %p= @itinerary.description.html_safe unless @itinerary.description.blank?
 

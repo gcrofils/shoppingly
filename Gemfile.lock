@@ -105,6 +105,11 @@ GEM
     dragonfly-s3_data_store (1.1.1)
       dragonfly (~> 1.0)
       fog-aws
+    draper (1.4.0)
+      actionpack (>= 3.0)
+      activemodel (>= 3.0)
+      activesupport (>= 3.0)
+      request_store (~> 1.0)
     dry_crud (3.0.0)
       rails (>= 3.2)
     em-websocket (0.5.1)
@@ -284,6 +289,8 @@ GEM
     rdoc (4.2.0)
       json (~> 1.4)
     ref (1.0.5)
+    remotipart (1.2.1)
+    request_store (1.2.0)
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
     ruby_parser (3.7.1)
@@ -355,6 +362,7 @@ DEPENDENCIES
   devise
   dragonfly
   dragonfly-s3_data_store
+  draper (~> 1.3)
   dry_crud
   faker
   formtastic-bootstrap
@@ -377,6 +385,7 @@ DEPENDENCIES
   rack-timeout
   rails (= 4.2.1)
   rails_12factor
+  remotipart (~> 1.2)
   responders
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

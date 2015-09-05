@@ -25,3 +25,11 @@ $(document).on "change", 'form :input', (e) ->
     .find('span')
     .text(btn.data('label-on-change'))
   $(this).closest('form').find("button[value='cancel']").removeAttr('disabled')
+  
+$(document).on "click", 'button.bootbox-photo', (e) ->
+  $.get $(this).data('url'),
+      user_id: 1
+    .done (data) ->
+      bootbox.dialog({
+        title : "test",
+        message: data})

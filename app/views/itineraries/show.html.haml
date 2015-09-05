@@ -5,21 +5,21 @@
   .row
     .col-xs-12
       %h1
-        = itinerary_title(@itinerary)
+        = itinerary.title
         
-      %p= @itinerary.description.html_safe unless @itinerary.description.blank?
+      %p= itinerary.description
 
       %p
-        = "updated #{l(@itinerary.updated_at, :format => :short)}"
-        = "by #{@itinerary.user.username}"
+        = "updated #{l(itinerary.updated_at, :format => :short)}"
+        = "by #{itinerary.user.username}"
 
   .row 
     .col-xs-12.col-md-6
       
-      - unless @itinerary.stops.blank?
+      - unless itinerary.stops.blank?
       
         %ul.itinerary-stops
-          - @itinerary.stops.each do |stop|
+          - itinerary.stops.each do |stop|
             %li
               = render 'brands/namecard', { brand: stop.establishment.brand, responsive: true}
               .establishment
@@ -30,12 +30,12 @@
 
     .col-xs-12.col-md-6
       #map-container.thumbnail
-        - if @itinerary.stops.blank?
+        - if itinerary.stops.blank?
           Ajouter des étapes pour afficher la carte
         - else
           %i.fa.fa-spinner.fa-pulse
 
-- unless @itinerary.stops.blank?
+- unless itinerary.stops.blank?
   :coffee
     $(document).ready ->
       $("#map-container").load("#{itinerary_map_path(@itinerary)}")

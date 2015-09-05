@@ -9,7 +9,7 @@
         %span.itinerary-published<>
           = date_long_or_words i.updated_at
         %span.itinerary-title<>
-          = link_to itinerary_title(i), i
+          = link_to i.title, i
         %span.itinerary-social{id: "#{dom_id(i, 'social')}"}<>
           = render partial:"users/likes", locals: {resource: i}
         %span.itinerary-view<>
