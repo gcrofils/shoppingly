@@ -27,7 +27,6 @@ module Shoppingly
     config.active_record.raise_in_transactional_callbacks = true
     
     config.to_prepare do
-      puts "oh loa la"
       Dir.glob(Rails.root + "app/controllers/**/*_decorator.rb").each do |c|
         require_dependency(c)
       end

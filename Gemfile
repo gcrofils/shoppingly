@@ -95,6 +95,8 @@ gem 'thumbs_up', github: 'bouchard/thumbs_up'
 # slugging and permalink plugins for ActiveRecord.
 gem 'friendly_id', '~> 5.1.0'
 
+gem 'will_paginate', '~> 3.0.6'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

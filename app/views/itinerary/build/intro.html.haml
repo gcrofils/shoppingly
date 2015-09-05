@@ -1,6 +1,9 @@
-%h1 New Itinerary
+
+
 = form_for @itinerary, method: :put, url: wizard_path do |f|
   = f.hidden_field :user_id
   .jumbotron
     Description de la procédure de création d'un itinéraire.
   = render partial: 'actions', locals: {f: f, current_step: @current_step}
+  
+  

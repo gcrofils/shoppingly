@@ -1,10 +1,13 @@
-%h1= @itinerary.title
-= semantic_form_for @itinerary, method: :put, url: wizard_path do |f|
-  .stops
-    %h2 Stops
+= render 'header'
 
-    #stops
-      = f.fields_for :stops, include_id: false  do |stop_form|
-        = render 'itineraries/stop_fields', f: stop_form
+= semantic_form_for @itinerary, method: :put, url: wizard_path do |f|
+
+  .jumbotron
+    .stops
+      %h2 Stops
+
+      #stops
+        = f.fields_for :stops, include_id: false  do |stop_form|
+          = render 'itineraries/stop_fields', f: stop_form
   
   = render partial: 'actions',  locals: {f: f, current_step: @current_step}

@@ -1,10 +1,19 @@
-%h1= itinerary_title(@itinerary)
+= render 'header'
+
 = semantic_form_for @itinerary, method: :put, url: wizard_path do |f|
-  = f.input :title
-  %button.btn.btn-default.bootbox-photo{type: 'button', data: {url: ckeditor.pictures_path}}
-    %i.fa.fa-picture-o
-    Select
-  = f.input :description, :as => :ckeditor
+
+  .jumbotron
+    = f.input :title
+    = f.hidden_field :banner_id
+    #banner-image
+      = image_tag(@itinerary.banner.url_thumb, :title => @itinerary.banner.filename, class:"img-thumbnail img-responsive") unless @itinerary.banner.blank?
+    #banner-gallery
+      = render 'layouts/modal_tpl'
+      %button.btn.btn-default{type: 'button', data: {url: ckeditor.pictures_path, title: "Itinerary Banner", toggle: "modal", target:"#modal-default"}}
+        %i.fa.fa-picture-o
+        Select
+    = f.input :description, :as => :ckeditor
+  
   = render partial: 'actions', locals: {f: f, current_step: @current_step}
   
 

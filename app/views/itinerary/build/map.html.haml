@@ -1,24 +1,22 @@
 = render partial: 'maps/javascripts', locals: { librairies: ['itineraries']}
 
-
-
-%h1= @itinerary.title
-
-= errors_for(@itinerary)
-
-#map-container.thumbnail
-  #map
+= render "header"
 
 = semantic_form_for @itinerary, method: :put, url: wizard_path do |f|
 
-  - stop_fields_template f, :stops
-  
-  .stops
-    %h2 Stops
+  .jumbotron
 
-    #stops.sortable
-      = f.fields_for :stops, include_id: false  do |stop_form|
-        = render 'stop_fields', f: stop_form
+    #map-container.thumbnail
+      #map
+
+    - stop_fields_template f, :stops
+  
+    .stops
+      %h2 Stops
+
+      #stops.sortable
+        = f.fields_for :stops, include_id: false  do |stop_form|
+          = render 'stop_fields', f: stop_form
   
   = render partial: 'actions',  locals: {f: f, current_step: @current_step}
 

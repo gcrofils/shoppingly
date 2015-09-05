@@ -1,0 +1,17 @@
+%script#fileupload_tmpl{:type => "text/x-jquery-tmpl"}
+  .gal-item{"data-url" => "${url_content}", :id => "asset_${id}"}
+    = link_to image_tag('ckeditor/filebrowser/images/gal_del.png', |
+      :title => I18n.t('ckeditor.buttons.delete')),                |
+      "/ckeditor/${controller}/${id}.json",                        |
+      :remote => true,                                             |
+      :method => :delete,                                          |
+      :data => {:confirm => t('ckeditor.confirm_delete')},         |
+      :class => "fileupload-cancel gal-del"                        |
+    .fileupload-file.gal-inner-holder
+      .img
+        %img{:src => "${url_thumb}", :title => "${filename}"}/
+      .img-data
+        .img-name ${filename}
+        .time-size
+          .time ${format_created_at}
+          .fileupload-size.size ${size}

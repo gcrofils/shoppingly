@@ -1,0 +1,21 @@
+.col-xs-6.col-sm-4.col-md-3.col-lg-2
+  .gal-item{id: dom_id(asset), data: {asset_type: dom_class(asset)}}
+    .img= image_tag(asset.url_thumb, :title => asset.filename, class:"img-thumbnail img-responsive")
+    .img-data.hidden-xs
+      .img-name= asset.filename
+      .time-size
+        .time= asset.format_created_at
+        .fileupload-size.size= number_to_human_size(asset.size) if asset.size
+
+- if (asset_counter % 6).eql?(5)
+  .clearfix.visible-lg
+  
+- if (asset_counter % 4).eql?(3)
+  .clearfix.visible-md
+
+- if (asset_counter % 3).eql?(2)
+  .clearfix.visible-sm
+  
+- if (asset_counter % 2).eql?(1)
+  .clearfix.visible-xs
+  

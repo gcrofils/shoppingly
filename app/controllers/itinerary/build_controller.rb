@@ -75,7 +75,7 @@ class Itinerary::BuildController < ApplicationController
       when "intro"
         [:user_id]
       when "init"
-        [:title, :description]
+        [:title, :description, :banner_id]
       when "map"
         [stops_attributes: [:id, :description, :establishment_id, :itinerary_id, :position, :_destroy]]
       when "stops"

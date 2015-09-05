@@ -1,0 +1,6 @@
+.container-fluid
+  .row
+    = render :partial => 'ckeditor/shared/asset', :collection => pictures
+
+  .row
+    = will_paginate pictures

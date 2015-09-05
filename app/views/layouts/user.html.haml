@@ -5,6 +5,7 @@
 
   %body
   
+    = render 'layouts/breakpoints'
     = render 'layouts/nav'
     
     #flash= render partial: 'layouts/flash', collection: [:notice, :alert], as: :level
@@ -29,10 +30,8 @@
         .col-xs-12.col-md-3.col-lg-2
           = render 'users/menu'
 
-    %footer
-      %center
-        %p
-          =link_to "&copy; #{@title} #{Time.zone.now.year}".html_safe, root_path
+    = render 'layouts/footer'
+    
   %script
     var I18n_locale="#{I18n.locale}" 
   = yield(:javascripts) if content_for?(:javascripts)

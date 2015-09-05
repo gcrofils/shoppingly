@@ -18,6 +18,7 @@
 //= require jquery/jquery.easing.v1.3.2.min
 //= require twitter/bootstrap
 //= require bootstrap
+//= require bootstrap-toolkit-1.5.0.min
 //= require home
 //= require growlyflash
 //= require bootbox-v4.4.0.min

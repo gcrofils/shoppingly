@@ -1,0 +1,5 @@
+// On every page but intro step
+
+%h1= itinerary_title(@itinerary)
+- if @itinerary.errors.any?
+  = @itinerary.errors
