@@ -1,1 +1,3 @@
 $('#banner-gallery #modal-default .modal-body').html("#{escape_javascript render(partial: 'index', locals: {pictures: @pictures})}");
+
+$('#new-picture-modal #modal-default .modal-body').html("#{escape_javascript render(partial: 'ckeditor/pictures/new', locals: {picture: @picture})}")

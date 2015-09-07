@@ -37,17 +37,20 @@ banner_image= (url, title)->
   $('#banner-image').html(image)  
   
 gal_per_page= ->
-  return 8 if isBreakpoint('xs')
-  return 9 if isBreakpoint('sm')
-  return 16 if isBreakpoint('sm')
-  return 24 if isBreakpoint('lg')
+  return 7 if isBreakpoint('xs')
+  return 8 if isBreakpoint('sm')
+  return 15 if isBreakpoint('sm')
+  return 23 if isBreakpoint('lg')
   
-$(document).on "click", '#banner-gallery button', (e) ->
-  title = $(this).data('title')
-  $.get $(this).data('url'),
+gallery_loaded = false  
+  
+window.init_gallery= (url, title) ->
+  return if gallery_loaded
+  $.get url,
       user_id: 1
       per_page: gal_per_page()
     .done (data) ->
+      gallery_loaded = true
       $('#banner-gallery #modal-default .modal-body').html(data)
       $('#banner-gallery #modal-default .modal-title').html(title)
     
@@ -59,4 +62,13 @@ $(document).on "click", ".gal-item", (e) ->
 
 $(document).ajaxComplete ->
   $('#banner-gallery .pagination a').attr('data-remote', 'true')
+  
+  
+$(document).on 'shown.bs.modal', '#banner-gallery .modal', (e) ->
+  $('#banner-gallery .modal-body #toggle-new-picture').focus();
 
+$(document).on "click", "#toggle-new-picture", (e) ->
+  $('#banner-gallery .modal').modal('toggle')
+  $('#new-picture-modal .modal').modal('toggle')
+  e.preventDefault()
+  

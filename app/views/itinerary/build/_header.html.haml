@@ -2,4 +2,4 @@
 
 %h1= itinerary_title(@itinerary)
 - if @itinerary.errors.any?
-  = @itinerary.errors
+  = @itinerary.errors.inspect

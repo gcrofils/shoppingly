@@ -1,5 +1,10 @@
 .container-fluid
   .row
+    .col-xs-6.col-sm-4.col-md-3.col-lg-2
+      .gal-item-new
+        =link_to 'javascript:void(0)', class: 'btn btn-default', id: 'toggle-new-picture', method: :post do
+          ADD
+
     = render :partial => 'ckeditor/shared/asset', :collection => pictures
 
   .row

@@ -15,6 +15,7 @@ fr:
     :required: 'Obligatoire'
   itineraries:
     unknown_title: (sans titre)
+    banner: Choisir la bannière
   posts:
     show:
       most_commented: Les plus commentés
