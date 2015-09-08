@@ -1,6 +1,6 @@
 class Post < ActiveRecord::Base
   
-  belongs_to :photo
+  belongs_to :banner, class_name: 'Picture'
   belongs_to :user
   has_and_belongs_to_many :brands
   has_one :pin, as: :pinnable
@@ -41,31 +41,28 @@ class Post < ActiveRecord::Base
   
   # initial data migration
   def download_images
-    begin
+    #begin
       # featured_photo
-      self.body = body.gsub(/\$\$([a-zA-Z0-9\/\.\&\:\=\?\_]*)\$\$/x) do |match| 
-        image = Dragonfly.app.fetch_url($1)
-        photo = Photo.new(image: image, title: "#{title.truncate(20, omission: '...')} featured image")
-        photo.save
-        self.photo_id = photo.id
+      self.body = body.gsub(/\$\$([a-zA-Z0-9\/\.\&\:\=\?\_]*)\$\$/x) do |match|    
+        data = Dragonfly.app.fetch_url($1)
+        banner = Picture.new(data: data, owner: user, title: "#{title.truncate(20, omission: '...')} featured image")
+        banner.save
+        self.banner = banner
         ""
       end
       
       self.body = body.gsub(/\{\{([a-zA-Z0-9\/\.\&\:\=\?\_]*)\}\}/x) do |match| 
-        image = Dragonfly.app.fetch_url($1)
-        #photo = Photo.new(image: image, title: title.truncate(20, omission: '...'))
-        photo = Ckeditor::Asset.new(data: image, assetable_type: 'User', assetable_id: user.id, type: "Ckeditor::Picture")
-        #photo.data_type = 
-        photo.data_name = title.truncate(15, omission: '...')
-        photo.save
-        ActionController::Base.helpers.image_tag(photo.data.url, class:'img-responsive img-thumbnail', alt: "#{title.truncate(25, omission: '...')}")
+        data = Dragonfly.app.fetch_url($1)
+        image = Picture.new(data: data, owner: user, title: title.truncate(15, omission: '...'))
+        image.save
+        ActionController::Base.helpers.image_tag(image.data.url, class:'img-responsive img-thumbnail', alt: "#{title.truncate(25, omission: '...')}")
       end
       
       self.save
-    rescue Exception => e
-      puts "#{title} has not been updated"
-      puts e.message
-    end
+  rescue Exception => e
+    puts "#{title} has not been updated"
+    puts e.message
+      #end
   end
 
 end

@@ -7,7 +7,7 @@
       %h1
         = itinerary.title
         
-      %p= itinerary.description
+      %p= itinerary.description.html_safe
 
       %p
         = "updated #{l(itinerary.updated_at, :format => :short)}"

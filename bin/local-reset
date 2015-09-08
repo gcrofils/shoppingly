@@ -28,4 +28,7 @@ system "bundle exec rake db:seed"
 puts "\n== downloading images =="
 system "bundle exec rake db:migrate_seeds"
 
+puts "\n== Generating images =="
+system "bundle exec rake db:generate_placeholders"
+
 end

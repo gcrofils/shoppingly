@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   
   scope "/do" do 
   
-    resources :posts, :pins, :photos
+    resources :posts, :pins, :photos, :pictures
     
     resources :brands do
       resources :establishments, shallow: true

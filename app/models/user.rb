@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   
   has_many :posts
   has_many :itineraries
+  has_many :pictures, :as => :assetable
   
   # thumbs_up
   acts_as_voter

@@ -10,7 +10,7 @@ include Sprig::Helpers
 
 # cleaning
 ActiveAdmin::Comment.all.destroy_all
-Photo.all.destroy_all
+Picture.all.destroy_all
 
 ### Posts and Users
 Stop.all.destroy_all

@@ -5,7 +5,7 @@ class CreatePosts < ActiveRecord::Migration
       t.string :slug
       t.text :body
       t.text :summary
-      t.integer :photo_id
+      t.integer :banner_id
       t.references :user, :index => true
       t.timestamps null: false
       t.date :published_at

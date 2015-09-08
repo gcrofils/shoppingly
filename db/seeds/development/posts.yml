@@ -33,7 +33,7 @@ records:
       <p>一条内裤走遍天下：“法兰西裤衩”是弗朗西斯环游世界的正式赞助商</p>
       {{http://mmbiz.qpic.cn/mmbiz/77N53homBLw0LlaGaic0qyyE0ib4je2VN5UC4NoWXrFibC9e3As8JDT5cf4J6Y4ibsQmMeknSjWhTQ94hlibyYl1vcg/0?wx_fmt=jpeg}}
     summary: 是的，你没有看错，这个不靠谱的法国品牌就叫“法兰西裤衩”。故事的起源是这样的
-    user_id: "<%= sprig_record(User, 1).id %>"
+    user_id: "<%= sprig_record(User, rand(3)+1).id %>"
     published_at: 2015-06-04
     brand_ids:
       - "<%= sprig_record(Brand, 1).id %>"
@@ -64,7 +64,7 @@ records:
       {{http://mmbiz.qpic.cn/mmbiz/77N53homBLyRhOpDCBkNoiacYcnzjPCxsOd3xgHsYPsYoTQsSgVibAkcNRvtpp2QElX1WTM8DAfEg2NiakzMSbUMw/0?wx_fmt=jpeg}}
       {{http://mmbiz.qpic.cn/mmbiz/77N53homBLyRhOpDCBkNoiacYcnzjPCxsIQuFmz2Ge7ZicZ9hrS7JtsiaPKmib6ODU5kd1Pb4yiaebMmdkVhliawxgYw/0?wx_fmt=jpeg}}
       {{http://mmbiz.qpic.cn/mmbiz/77N53homBLyRhOpDCBkNoiacYcnzjPCxsfk7Ywcg1ibsCMCjWiaecvRG5icSB9yJLbXOrsibbYarFJK6O6mAHhwOcxQ/0?wx_fmt=png}}
-    user_id: "<%= sprig_record(User, 1).id %>"
+    user_id: "<%= sprig_record(User, rand(3)+1).id %>"
     published_at: 2015-06-02
     
   - sprig_id: 3
@@ -100,7 +100,7 @@ records:
       {{http://mmbiz.qpic.cn/mmbiz/77N53homBLzUOibnUOaYtPU4HiaKDloaayGXptjh4ZpNM0qUOV9dMlibL6Rx8o1Q5iax5XzCttnZibX3OguqRERAGPw/0?wx_fmt=jpeg}}
       {{http://mmbiz.qpic.cn/mmbiz/77N53homBLzUOibnUOaYtPU4HiaKDloaayj3A0VbXkhK9BypSXqmtdDSJpV9a31icjQdl57dfia78HYJK9ypT7eEyw/0?wx_fmt=jpeg}}
       <p>巴黎旗舰店就在离香奈儿几步之遥的康朋街上，值得探访</p>
-    user_id: "<%= sprig_record(User, 1).id %>"
+    user_id: "<%= sprig_record(User, rand(3)+1).id %>"
     published_at: 2015-05-28
     brand_ids:
       - "<%= sprig_record(Brand, 17).id %>"
@@ -108,7 +108,7 @@ records:
   - sprig_id: 4
     title:  小资亲民的法国童装品牌：Cyrillus
     summary: 聪明的法国妈妈们很少给小朋友买很贵的大牌子，道理很简单：孩子长的那么快，衣服大多只能穿一季，不值！那么法国妈妈们都给小朋友们买什么牌子的衣服呢？
-    user_id: "<%= sprig_record(User, 1).id %>"
+    user_id: "<%= sprig_record(User, rand(3)+1).id %>"
     published_at: 2015-05-21
     brand_ids: 
       - "<%= sprig_record(Brand, 18).id %>"
@@ -161,7 +161,7 @@ records:
   - sprig_id: 5
     title:  Tila March本周首次登陆洋码头，现场直播倒计时
     summary: 在攻略君的精心策划下，法国著名的设计师品牌Tila March将于5月21－22日首次登陆海淘网站洋码头，现场直播销售当季最新产品。巴黎精品攻略曾在3月29日那期专门介绍过Tila March的品牌故事，这个由Elle时尚编辑创建的新晋品牌很受明星，潮人和媒体的追捧，在日本卖得很红火，目前尚未进入中国市场，这是品牌首次试水跨境电商平台。
-    user_id: "<%= sprig_record(User, 1).id %>"
+    user_id: "<%= sprig_record(User, rand(3)+1).id %>"
     published_at: 2015-05-18
     brand_ids: 
       - "<%= sprig_record(Brand, 13).id %>"
@@ -195,7 +195,7 @@ records:
   - sprig_id: 6
     title: "Bagllerina： 法国女人足尖的优雅"
     summary: 时尚女性必备的秘密武器
-    user_id: "<%= sprig_record(User, 1).id %>"
+    user_id: "<%= sprig_record(User, rand(3)+1).id %>"
     published_at: 2015-05-13
     brand_ids:
       - "<%= sprig_record(Brand, 19).id %>"
@@ -228,7 +228,7 @@ records:
   - sprig_id: 7
     title: "Vicomte A : 亚瑟子爵的马球衫"
     summary: 一个法国贵族子弟的创业故事
-    user_id: "<%= sprig_record(User, 1).id %>"
+    user_id: "<%= sprig_record(User, rand(3)+1).id %>"
     published_at: 2015-05-05
     brand_ids:
       - "<%= sprig_record(Brand, 20).id %>"
@@ -259,7 +259,7 @@ records:
   - sprig_id: 8
     title: "来自格拉斯的香水世家Fragonard"
     summary: 法国最古老的香水品牌之一，至今仍是家族经营。他家在格拉斯的香水博物馆和巴黎的旗舰店都值得一游。
-    user_id: "<%= sprig_record(User, 1).id %>"
+    user_id: "<%= sprig_record(User, rand(3)+1).id %>"
     published_at: 2015-04-29
     brand_ids:
       - "<%= sprig_record(Brand, 21).id %>"
@@ -290,7 +290,7 @@ records:
   - sprig_id: 9
     title: "Bellota-Bellota® : 最好吃的伊比利亚火腿"
     summary: 正宗的吃货们都知道，最好吃的火腿出在西班牙，最好吃的西班牙火腿出在伊比利亚，而最好吃的伊比利亚火腿则是Bellota-Bellota® 。
-    user_id: "<%= sprig_record(User, 1).id %>"
+    user_id: "<%= sprig_record(User, rand(3)+1).id %>"
     published_at: 2015-04-23
     brand_ids:
       - "<%= sprig_record(Brand, 22).id %>"
@@ -323,7 +323,7 @@ records:
   - sprig_id: 20
     title: "把茶叶当成时尚来经营的Kusmi Tea"
     summary: 探秘法国最时尚的茶叶品牌
-    user_id: "<%= sprig_record(User, 1).id %>"
+    user_id: "<%= sprig_record(User, rand(3)+1).id %>"
     published_at: 2015-04-15
     brand_ids:
       - "<%= sprig_record(Brand, 23).id %>"
@@ -355,7 +355,7 @@ records:
   - sprig_id: 10
     title: "魅力调香大师：Francis Kurkdjian"
     summary: 可能你从未听说过这个发音拗口的名字，但你一定曾经与他的作品擦肩而过。他，就是法国人所宠爱的调香大师，Francis Kurkdjian。
-    user_id: "<%= sprig_record(User, 1).id %>"
+    user_id: "<%= sprig_record(User, rand(3)+1).id %>"
     published_at: 2015-04-13
     brand_ids:
       - "<%= sprig_record(Brand, 24).id %>"
@@ -387,7 +387,7 @@ records:
   - sprig_id: 11
     title: "ERES Paris, 香奈儿集团旗下的高级女士泳装品牌"
     summary: 上上期“巴黎精品攻略”介绍了高大上的父子泳装品牌Vilebrequin，那不少小伙伴们都在问：最顶尖的女士泳装品牌是哪个呢？
-    user_id: "<%= sprig_record(User, 1).id %>"
+    user_id: "<%= sprig_record(User, rand(3)+1).id %>"
     published_at: 2015-04-09
     brand_ids:
       - "<%= sprig_record(Brand, 25).id %>"
@@ -424,7 +424,7 @@ records:
   - sprig_id: 12
     title: "Smuggler, 有腔调法国男人的爱国西服"
     summary: 著名法国骑士Kevin Staut代言国货精品Smuggler
-    user_id: "<%= sprig_record(User, 1).id %>"
+    user_id: "<%= sprig_record(User, rand(3)+1).id %>"
     published_at: 2015-04-09
     brand_ids:
       - "<%= sprig_record(Brand, 26).id %>"
@@ -451,7 +451,7 @@ records:
   - sprig_id: 13
     title: "爸爸去哪儿？法国高大上的亲子泳装Vilebrequin"
     summary: 有钱有闲有品位的法国爸爸夏天度假时穿什么牌子的泳装？答案很简单：Vilebrequin。他家的蓝色小海龟俨然成为法国休闲时尚的一大经典，稳居最有格男士泳装之宝座。
-    user_id: "<%= sprig_record(User, 1).id %>"
+    user_id: "<%= sprig_record(User, rand(3)+1).id %>"
     published_at: 2015-04-02
     brand_ids:
       - "<%= sprig_record(Brand, 9).id %>"
@@ -489,7 +489,7 @@ records:
   - sprig_id: 14
     title: "寻找下一个爱马仕， Camille Fournet"
     summary: 当成群的游客们还虔诚而耐心地在爱马仕店排队时，法国时尚达人们却已悄悄转移目标，去发现新的高品质低调奢华品牌。
-    user_id: "<%= sprig_record(User, 1).id %>"
+    user_id: "<%= sprig_record(User, rand(3)+1).id %>"
     published_at: 2015-03-30
     brand_ids:
       - "<%= sprig_record(Brand, 27).id %>"
@@ -525,7 +525,7 @@ records:
   - sprig_id: 15
     title: "Tila March : 法国“Elle”时尚女编辑的自创品牌"
     summary: 你可能没听说过她的名字，但一定见过她的作品。
-    user_id: "<%= sprig_record(User, 1).id %>"
+    user_id: "<%= sprig_record(User, rand(3)+1).id %>"
     published_at: 2015-03-29
     brand_ids:
       - "<%= sprig_record(Brand, 13).id %>"
@@ -557,7 +557,7 @@ records:
   - sprig_id: 16
     title: "本期发现：香奈儿旗下之高级手工制帽工坊Maison Michel"
     summary: Chanel旗下拥有众多一流高级手工作坊，其中就有专注于制帽工艺的老字号Maison Michel。
-    user_id: "<%= sprig_record(User, 1).id %>"
+    user_id: "<%= sprig_record(User, rand(3)+1).id %>"
     published_at: 2015-03-21
     brand_ids:
       - "<%= sprig_record(Brand, 28).id %>"
@@ -583,7 +583,7 @@ records:
   - sprig_id: 17
     title: "本期发现：Pétrusse Paris, 来自波尔多的克什米尔风"
     summary: 丝巾和披肩一向是女性打扮的点睛之笔，而法国女人大约是最擅长使用此类配饰的了。往往是一身简洁的单色系，只需项间一条色彩亮丽的丝巾便可教人眼前一亮，演绎十足的法国范儿。
-    user_id: "<%= sprig_record(User, 1).id %>"
+    user_id: "<%= sprig_record(User, rand(3)+1).id %>"
     published_at: 2015-03-25
     brand_ids:
       - "<%= sprig_record(Brand, 2).id %>"
@@ -611,7 +611,7 @@ records:
   - sprig_id: 18
     title: "巴黎男人的品位衬衣： Alain Figaret"
     summary: 巴黎品位男士的经典衬衫品牌是什么？答案是：Alain Figaret。这个由AlainFigaret先生创建于1968年的正宗巴黎品牌主打男士衬衣， 一贯坚守低调奢华的路线，成为法国男士衬衣的经典
-    user_id: "<%= sprig_record(User, 1).id %>"
+    user_id: "<%= sprig_record(User, rand(3)+1).id %>"
     published_at: 2015-02-12
     brand_ids:
       - "<%= sprig_record(Brand, 3).id %>"
@@ -633,7 +633,7 @@ records:
   - sprig_id: 19
     title: "大牌那些事儿：香奈儿之山茶花"
     summary: Lemarié这个名字可能即使对法国人来说也很陌生，可你知道吗？香奈儿的标志性饰品山茶花就是由这家位于巴黎近郊的始于1880年的传统手工精制作坊生产的。
-    user_id: "<%= sprig_record(User, 1).id %>"
+    user_id: "<%= sprig_record(User, rand(3)+1).id %>"
     published_at: 2015-02-20
     body:       
       $$http://mmbiz.qpic.cn/mmbiz/77N53homBLxOqrDku7UvgCglTuoLkjsyhnk3hBibpztnzwYkpevmPjU4JCiaIc4c93YfZYthzxicgoiah3YXFeTNiaQ/0?wx_fmt=jpeg$$
@@ -651,7 +651,7 @@ records:
   - sprig_id: 20
     title: "Tila March, Figaret"
     summary: Article concernant Tila March et Figaret
-    user_id: "<%= sprig_record(User, 1).id %>"
+    user_id: "<%= sprig_record(User, rand(3)+1).id %>"
     published_at: 2015-02-20
     body:       
       $$http://mmbiz.qpic.cn/mmbiz/77N53homBLxOqrDku7UvgCglTuoLkjsyhnk3hBibpztnzwYkpevmPjU4JCiaIc4c93YfZYthzxicgoiah3YXFeTNiaQ/0?wx_fmt=jpeg$$
@@ -663,7 +663,7 @@ records:
   - sprig_id: 21
     title: "Tila March, Figaret, Smuggler"
     summary: Article concernant Tila March, Figaret et Smuggler
-    user_id: "<%= sprig_record(User, 1).id %>"
+    user_id: "<%= sprig_record(User, rand(3)+1).id %>"
     published_at: 2015-02-20
     body:       
       $$http://mmbiz.qpic.cn/mmbiz/77N53homBLxOqrDku7UvgCglTuoLkjsyhnk3hBibpztnzwYkpevmPjU4JCiaIc4c93YfZYthzxicgoiah3YXFeTNiaQ/0?wx_fmt=jpeg$$
