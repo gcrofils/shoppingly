@@ -15,32 +15,28 @@
         %h1.pin-title{itemprop:"name"}
           %a{href: "{{pinnable_href}}"} {{title}}
     
-        %p
-          %time.pin-date{datetime: "{{datetime}}", itemprop:"datePublished"}
-            {{date}}
-            %em .
-          %span.pin-views
-            %i.fa.fa-eye
-            {{views}}
-      
+
+
         .clearfix
-        
-        %p
-          %span.pin-author
-            {{author_name}}
-            %em .
-          %span.pin-tags
+      
+        .pin-summary{itemprop:"articleBody"}
+          %p {{summary}}
+
+        %p.pin-tags
+          %span
             %a{href: "#"} 百年老店
             %em .
             %a{href: "#"} 奢侈品牌
             %em .
             %a{href: "#"} 内衣
-            %em .            
+
+        .pin-footer
+          %time.pin-date{datetime: "{{datetime}}", itemprop:"datePublished"}
+            {{date}}
+          = render 'pins/social'
+          %span.pin-views
+            %i.fa.fa-eye
+            {{views}}
           %span.pin-comments
             %i.fa.fa-comment
             {{comments}}
-      
-        .pin-summary{itemprop:"articleBody"}
-          %p {{summary}}
-      
-        = render 'pins/social'

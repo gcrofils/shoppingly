@@ -3,6 +3,8 @@
  * waterfall
  */
 
+ $link-color: #666;
+
 #container-waterfall {
 }
 
@@ -15,21 +17,14 @@
     top: 0;
     z-index: 1;
     padding: 0px;
-    border-radius:6px;
+    border-radius:3px;
     line-height: 1.5;
     background-color: #fff;
-    box-shadow: 0 1px 3px rgba(34, 25, 25, .4);
-    -moz-box-shadow: 0 1px 3px rgba(34, 25, 25, .4);
-    -webkit-box-shadow: 0 1px 3px rgba(34, 25, 25, .4);
-    filter: progid:DXImageTransform.Microsoft.Shadow(color = #adacac, direction = 135, strength = 2);
     font-size: 10px;
     text-align: justify;
+    box-shadow: 0 1px 0 #ddd;
     
     &:hover {
-        box-shadow: 0 1px 5px rgba(34, 25, 25, .8);
-        -moz-box-shadow: 0 1px 5px rgba(34, 25, 25, .8);
-        -webkit-box-shadow: 0 1px 5px rgba(34, 25, 25, .8);
-        filter: progid:DXImageTransform.Microsoft.Shadow(color = #979797, direction = 135, strength = 3);
     }
     
     img {
@@ -44,6 +39,10 @@
       font-size: 14px;
       margin-top: 10px;
       margin-bottom: 0px;
+
+      a {
+        color:  $link-color;
+      }
     }
     
     .pin-avatar {
@@ -56,16 +55,41 @@
     
     .pin-summary {
       font-size: 12px;
+      color: #888;
     }
     
-    .pin-social {
-      font-size: 14px;
-      height: 20px;
+    .pin-footer {
+      border-top: 1px solid #eee;
+      margin-bottom: 5px;
+      padding-top: 5px;
+      text-align: right;
+      .pin-date {
+        float: left;
+        color: #CCC;
+      }
+      .pin-social, .pin-views, .pin-comments {
+        display: inline;
+        font-size: 12px;
+        height: 20px;
+        color: #CCC;
+        margin-left: 5px;
+      }
+    }
+
+    .pin-tags {
+      margin: 15px 0;
+      span > a {
+        color: #AAA;
+      }
     }
     
     .likes {
-      color: red;
+      color: #CCC;
       text-decoration: none;
+
+      &.voted_for {
+        color: #ff1b81;
+      }
     }
 }
 
