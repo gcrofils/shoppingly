@@ -5,7 +5,7 @@
         =link_to 'javascript:void(0)', class: 'btn btn-default', id: 'toggle-new-picture', method: :post do
           ADD
 
-    = render :partial => 'ckeditor/shared/asset', :collection => pictures
+    = render :partial => 'pictures/asset', :collection => pictures
 
   .row
     = will_paginate pictures

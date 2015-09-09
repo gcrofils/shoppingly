@@ -129,16 +129,6 @@ ActiveRecord::Schema.define(version: 20150903134718) do
 
   add_index "itineraries", ["user_id"], name: "index_itineraries_on_user_id"
 
-  create_table "photos", force: :cascade do |t|
-    t.string   "image_uid"
-    t.string   "title"
-    t.integer  "image_width"
-    t.integer  "image_height"
-    t.integer  "image_size"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
   create_table "pins", force: :cascade do |t|
     t.integer  "pinnable_id"
     t.string   "pinnable_type"
@@ -151,9 +141,10 @@ ActiveRecord::Schema.define(version: 20150903134718) do
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"
+    t.string   "slug"
     t.text     "body"
     t.text     "summary"
-    t.integer  "photo_id"
+    t.integer  "banner_id"
     t.integer  "user_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false

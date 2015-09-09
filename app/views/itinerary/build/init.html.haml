@@ -13,7 +13,7 @@
     
     #banner-gallery
       = render 'layouts/modal_tpl'
-      %button.btn.btn-default.btn-modal{type: 'button', data: {url: ckeditor.pictures_path, title: t('itineraries.banner'), toggle: "modal", target:"#banner-gallery #modal-default"}}
+      %button.btn.btn-default.btn-modal{type: 'button', data: {url: pictures_path, title: t('itineraries.banner'), toggle: "modal", target:"#banner-gallery #modal-default"}}
         %i.fa.fa-picture-o
         Select
     
@@ -31,3 +31,7 @@
   :coffee
     $(document).on "click", '#banner-gallery button', (e) ->
       init_gallery $(this).data('url'), $(this).data('title')
+      
+
+:coffee
+  $('#new-picture-modal #modal-default .modal-body').html("#{escape_javascript render(partial: '/pictures/new', locals: {picture: Ckeditor::Picture.new})}")

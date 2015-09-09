@@ -12,12 +12,12 @@ json.author_name    p.user.name
 # social
 json.views          rand(150)
 
-# post picture
+# post banner
 
-if p.photo
-  image_width   = p.photo.image_width
-  image_height  = p.photo.image_height
-  url           = p.photo.image.url
+if p.banner
+  image_width   = p.banner.image_width
+  image_height  = p.banner.image_height
+  url           = p.banner.image.url
 else
   image_width   = 600
   image_height  = 300
