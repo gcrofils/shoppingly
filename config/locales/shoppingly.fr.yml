@@ -54,6 +54,7 @@ fr:
         destroyed_ok:  "Itinerary '%{title}' has been successfully deleted"
         destroyed_ko: "Sorry. An error occured. Itinerary '%{title}' has not been deleted"
         destroyed_already: 'This itinerary has been already deleted'
+        not_exists: L'itinéraire que vous cherchez n'existe pas
       editor:
         itinerary:
           show_not_available: "Itinéraire '%{title}' n'est pas à valider"

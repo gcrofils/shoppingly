@@ -7,7 +7,10 @@ class ItinerariesController < ApplicationController
   end
 
   def show
-    @itinerary = Itinerary.find(params[:id])
+    @itinerary = Itinerary.find(params[:id]).decorate
+  rescue ActiveRecord::RecordNotFound
+    flash[:notice] = I18n.t 'activerecord.actions.itinerary.not_exists'
+    redirect_to root_path
   end
   
   def create

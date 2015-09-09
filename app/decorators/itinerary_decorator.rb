@@ -13,5 +13,9 @@ class ItineraryDecorator < Draper::Decorator
   def title
     h.itinerary_title(itinerary)
   end
+  
+  def description
+    object.description.html_safe unless object.description.blank?
+  end
 
 end
