@@ -1,20 +1,26 @@
 - if current_user
-  .btn-group.navbar-btn-group
-    .btn-group.wide
-      = link_to profile_path(current_user), class: "btn btn-default avatar", type: "button" do
-        = image_tag(current_user.avatar.thumb("28x28").url, class: "img-circle")
-        %span= current_user.username
-    .btn-group.visible-xs-block
+  
+  %ul.nav.navbar-nav.navbar-right
+    %li.visible-xs-block
       %button.btn.btn-default.dropdown-toggle{type: "button", data: {toggle: "dropdown"}}
         %i.fa.fa-bars
         %span.caret
       %ul.dropdown-menu.pull-right
         %li a
         %li b
-    .btn-group
-      %button.btn.btn-primary.dropdown-toggle{type: "button", data: {toggle: "dropdown"}}
+
+    
+    %li
+      %a.dropdown-toggle{href: '#', data: {toggle: "dropdown"}}
         %i.fa.fa-comment
-        %span.badge 3
+        %span.badge.info 3
+
+    %li
+      = link_to profile_path(current_user), class: "avatar", type: "button" do
+        %span
+          = !current_user.name.blank? ? current_user.name : current_user.username
+        = image_tag(current_user.avatar.thumb("28x28").url, class: "img-circle") if current_user.avatar
+
 - else
   = form_for(User.new, url: session_path(:user), html: {class: "form-horizontal form-inline navbar-form2"}) do |f|
     .form-group

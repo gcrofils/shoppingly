@@ -1,7 +1,10 @@
 %nav.navbar.navbar-default.navbar-fixed-top{role: 'navigation'}
   .container-fluid
     .row
-      .hidden-xs.col-sm-6.col-md-7.col-lg-8
+      .col-sm-2.col-md-2.col-lg-2
+        = link_to root_url, class: 'navbar-brand' do
+          Shoppingly
+      .hidden-xs.col-sm-4.col-md-5.col-lg-6
         
         = form_tag("/do/search", method: "get", class: "form-horizontal navbar-form2", role: "search") do
           .form-group
@@ -10,8 +13,6 @@
               .input-group-btn
                 %button.btn.btn-default{type: "button"}
                   =link_to image_tag("logo.png", width:"17px", height:"17px"), "/"
-              
-
               
               = text_field_tag(:q, nil, class: "form-control", placeholder: "Search...")
               
